@@ -10,10 +10,9 @@
 
 #include "FontAwesome.h"
 
+Typeface::Ptr FontAwesome_ptr = Typeface::createSystemTypefaceFor(FontAwesomeData::fontawesomewebfont_ttf, FontAwesomeData::fontawesomewebfont_ttfSize);
 Font FontAwesome() {
-    Typeface::Ptr ptr = Typeface::createSystemTypefaceFor(FontAwesomeData::fontawesomewebfont_ttf, FontAwesomeData::fontawesomewebfont_ttfSize);
-    Font fontAwesomeFont(ptr);
-    ptr = nullptr;
+    Font fontAwesomeFont(FontAwesome_ptr);
     return fontAwesomeFont;
 }
 
