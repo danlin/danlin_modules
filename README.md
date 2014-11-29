@@ -14,3 +14,11 @@ void paint (Graphics& g) override {
 	DrawIcon(0, 0, 32, FA_ALIGN_CENTER);
 }
 ```
+
+## Oscpack
+
+Oscpack OSC Packing / Unpacking
+
+Oscpack is simply a set of C++ classes for packing and unpacking OSC packets.
+
+Look at http://www.rossbencina.com/code/oscpack for more details about Oscpack
