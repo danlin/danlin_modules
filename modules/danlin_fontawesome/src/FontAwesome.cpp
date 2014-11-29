@@ -10,10 +10,9 @@
 
 #include "FontAwesome.h"
 
+Typeface::Ptr FontAwesome_ptr = Typeface::createSystemTypefaceFor(FontAwesomeData::fontawesomewebfont_ttf, FontAwesomeData::fontawesomewebfont_ttfSize);
 Font FontAwesome() {
-    Typeface::Ptr ptr = Typeface::createSystemTypefaceFor(FontAwesomeData::fontawesomewebfont_ttf, FontAwesomeData::fontawesomewebfont_ttfSize);
-    Font fontAwesomeFont(ptr);
-    ptr = nullptr;
+    Font fontAwesomeFont(FontAwesome_ptr);
     return fontAwesomeFont;
 }
 
@@ -23,7 +22,7 @@ Font getFontAwesome(float height) {
     return fontAwesomeFont;
 }
 
-void DrawIcon(Graphics& g, int x, int y, float with, String icon) {
-    g.setFont(getFontAwesome(with));
-    g.drawText (icon, (int) x, (int) y, (int) with, (int) with, Justification::centred, true);
+void DrawIcon(Graphics& g, int x, int y, float height, String icon) {
+    g.setFont(getFontAwesome(height));
+    g.drawText (icon, (int) x, (int) y, (int) height, (int) height, Justification::centred, true);
 }
