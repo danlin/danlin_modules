@@ -1,5 +1,5 @@
-#ifndef __FONTAWESOME_HEADER__
-#define __FONTAWESOME_HEADER__
+#ifndef __DANLIN_OSCPACK_HEADER__
+#define __DANLIN_OSCPACK_HEADER__
 
 #include "juce_core/juce_core.h"
 
@@ -10,4 +10,4 @@
 #include "src/OscPrintReceivedElements.h"
 #include "src/OscOutboundPacketStream.h"
 
-#endif   // __FONTAWESOME_HEADER__
+#endif   // __DANLIN_OSCPACK_HEADER__
