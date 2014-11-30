@@ -1,4 +1,4 @@
-#if defined (__STK_STKHEADER__) && ! JUCE_AMALGAMATED_INCLUDE
+#if defined (__DANLIN_OSCPACK_HEADER__) && ! JUCE_AMALGAMATED_INCLUDE
  /* When you add this cpp file to your project, you mustn't include it in a file where you've
     already included any other headers - just put it inside a file on its own, possibly with your config
     flags preceding it, but don't include anything else. That also includes avoiding any automatic prefix
