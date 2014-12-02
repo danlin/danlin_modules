@@ -2,7 +2,7 @@
   "id":             "danlin_oscpack",
   "name":           "Oscpack",
   "version":        "1.1.0",
-  "description":    "Oscpack is simply a set of C++ classes for packing and unpacking OSC packets. ",
+  "description":    "Open Sound Control (OSC) packet manipulation library",
   "website":        "http://www.rossbencina.com/code/oscpack",
   "license":        "MIT open source license",
 
