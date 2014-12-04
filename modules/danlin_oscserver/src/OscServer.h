@@ -34,27 +34,38 @@ class OscServer : public juce::Thread {
 public:
   OscServer(OscMessageListener *listener);
   ~OscServer();
+
+  // UDP Setup
   void setLocalPortNumber(int portNumber);
   int getLocalPortNumber();
+  const juce::String& getLocalHostname();
+
   void setRemoteHostname(juce::String hostname);
   juce::String getRemoteHostname();
   void setRemotePortNumber(int portNumber);
   int getRemotePortNumber();
 
-  bool isConnected();
-  bool connect();
+  // UDP Server
   void listen();
+  void stopListening();
+
+  // Server Thread
   void run();
 
+  // UDP Sender
   bool sendMessage(osc::OutboundPacketStream stream);
-
 private:
   OscMessageListener *listener;
-  int localPortNumber = 8050;
-  juce::String remoteHostname = "localhost";
-  int remotePortNumber = 9050;
-  juce::ScopedPointer<juce::DatagramSocket> serverDatagramSocket;
-  juce::ScopedPointer<juce::DatagramSocket> clientDatagramSocket;
+
+  int receivePortNumber;
+  juce::ScopedPointer<juce::DatagramSocket> receiveDatagramSocket;
+
+  juce::String remoteHostname;
+  int remotePortNumber;
+  juce::ScopedPointer<juce::DatagramSocket> remoteDatagramSocket;
+  bool remoteChanged;
+
+  JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (OscServer)
 };
 
 #endif // OSCSERVER_H_INCLUDED
