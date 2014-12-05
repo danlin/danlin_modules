@@ -4,7 +4,7 @@
   "version":        "0.8.0",
   "description":    "Simple Osc Server",
   "website":        "https://github.com/danlin/danlin_modules",
-  "license":        "MIT open source license",
+  "license":        "The MIT License (MIT)",
 
   "dependencies":   [ { "id": "juce_core", "version": "matching" }, { "id": "juce_events", "version": "matching" }, { "id": "danlin_oscpack", "version": "matching" } ],
 
