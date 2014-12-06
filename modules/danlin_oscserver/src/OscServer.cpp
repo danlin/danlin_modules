@@ -10,12 +10,11 @@
 
 #include "OscServer.h"
 
-using namespace danlin;
-
 OscServer::OscServer(OscMessageListener* listener)
     : juce::Thread("OscServer")
     , listener(listener)
 {
+    logger = nullptr;
     receivePortNumber = 8050;
     remoteHostname =  "localhost";
     remotePortNumber = 9050;
@@ -127,7 +126,10 @@ void OscServer::run()
                         std::cout << "another thread is trying to kill us!" << std::endl;
                         return;
                     }
-                    listener->postMessage(new ReceivedOscMessage(packet));
+                    if (logger != nullptr) {
+                        logger->postMessage(new OscMessage(packet));
+                    }
+                    listener->postMessage(new OscMessage(packet));
                 }
             }
             catch (osc::Exception& e) {
@@ -140,12 +142,17 @@ void OscServer::run()
 
 bool OscServer::sendMessage(osc::OutboundPacketStream stream)
 {
+    if (!stream.IsReady()) {
+       std::cout << "error osc packet is not ready" << std::endl;
+       return false;
+    }
+    
     if (!remoteDatagramSocket || remoteChanged) {
         remoteChanged = false;
         remoteDatagramSocket = new juce::DatagramSocket(0);
         remoteDatagramSocket->connect(remoteHostname, remotePortNumber);
     }
-
+    
     if (remoteDatagramSocket->waitUntilReady(false, 100)) {
         if (remoteDatagramSocket->write(stream.Data(), stream.Size()) > 0) {
             return true;
