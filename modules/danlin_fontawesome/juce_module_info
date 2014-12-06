@@ -4,7 +4,7 @@
   "version":        "4.2.0",
   "description":    "Font Awesome gives you scalable vector icons that can instantly be customized",
   "website":        "http://fortawesome.github.io/Font-Awesome/",
-  "license":        "MIT License http://opensource.org/licenses/mit-license.html",
+  "license":        "The MIT License (MIT)",
 
   "dependencies":   [ { "id": "juce_core", "version": "matching" }, { "id": "juce_graphics", "version": "matching" } ],
 
