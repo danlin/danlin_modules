@@ -22,3 +22,7 @@ Oscpack OSC Packing / Unpacking
 Oscpack is simply a set of C++ classes for packing and unpacking OSC packets.
 
 Look at http://www.rossbencina.com/code/oscpack for more details about Oscpack
+
+## Simple OscServer
+
+Simple Osc Server based on Oscpack and Juce Datagram Sockets
