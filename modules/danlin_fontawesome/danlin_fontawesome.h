@@ -7,4 +7,4 @@
 #include "data/BinaryData.h"
 #include "src/FontAwesome.h"
 
-#endif   // __DANLIN_FONTAWESOME_HEADER__
+#endif // __DANLIN_FONTAWESOME_HEADER__

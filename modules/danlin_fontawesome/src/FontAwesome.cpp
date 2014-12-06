@@ -10,19 +10,22 @@
 
 #include "FontAwesome.h"
 
-Typeface::Ptr FontAwesome_ptr = Typeface::createSystemTypefaceFor(FontAwesomeData::fontawesomewebfont_ttf, FontAwesomeData::fontawesomewebfont_ttfSize);
+Typeface::Ptr FontAwesome_ptr = Typeface::createSystemTypefaceFor(
+    FontAwesomeData::fontawesomewebfont_ttf,
+    FontAwesomeData::fontawesomewebfont_ttfSize);
 Font FontAwesome() {
-    Font fontAwesomeFont(FontAwesome_ptr);
-    return fontAwesomeFont;
+  Font fontAwesomeFont(FontAwesome_ptr);
+  return fontAwesomeFont;
 }
 
 Font getFontAwesome(float height) {
-    Font fontAwesomeFont = FontAwesome();
-    fontAwesomeFont.setHeight(height);
-    return fontAwesomeFont;
+  Font fontAwesomeFont = FontAwesome();
+  fontAwesomeFont.setHeight(height);
+  return fontAwesomeFont;
 }
 
-void DrawIcon(Graphics& g, int x, int y, float height, String icon) {
-    g.setFont(getFontAwesome(height));
-    g.drawText (icon, (int) x, (int) y, (int) height, (int) height, Justification::centred, true);
+void DrawIcon(Graphics &g, int x, int y, float height, String icon) {
+  g.setFont(getFontAwesome(height));
+  g.drawText(icon, (int)x, (int)y, (int)height, (int)height,
+             Justification::centred, true);
 }

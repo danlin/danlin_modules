@@ -7,4 +7,4 @@
 
 #include "src/OscServer.h"
 
-#endif   // __DANLIN_OSCSERVER_HEADER__
+#endif // __DANLIN_OSCSERVER_HEADER__
