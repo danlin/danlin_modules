@@ -1,5 +1,7 @@
 # danlin_modules
 
+[![Flattr this git repo](http://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=danlin&url=https://github.com/danlin/danlin_modules&title=danlin_modules&language=cpp&tags=github&category=software)
+
 ## Font Awesome 
 
 Font Awesome Font Icon Module
