@@ -28,3 +28,44 @@ Look at http://www.rossbencina.com/code/oscpack for more details about Oscpack
 ## Simple OscServer
 
 Simple Osc Server based on Oscpack and Juce Datagram Sockets
+
+```
+class DemoServer : public OscMessageListener
+{
+public:
+    DemoServer ()
+    {
+        oscServer = new OscServer (this);
+        // listen on port 
+        oscServer->setLocalPortNumber (8000);
+        // start listening
+        oscServer->listen ();
+        // set remote hostname (we use our self)
+        oscServer->setRemoteHostname ("127.0.0.1");
+        // set remote port (send to listening port)
+        oscServer->setRemotePortNumber (8000);
+    }
+    ~DemoServer ()
+    {
+        oscServer = nullptr;
+    }
+    // called by osc server on incomming osc messsages
+    void handleOscMessage (osc::ReceivedPacket packet)
+    {
+        // just dump the message
+        std::cout << packet << std::endl;
+    }
+    // send out a osc message
+    void sendOscMessage ()
+    {
+        static const int bufferSize = 1024;
+        String address = "/test/";
+        char buffer[bufferSize];
+        osc::OutboundPacketStream oscMessage (buffer, bufferSize);
+        oscMessage << osc::BeginMessage (address.toRawUTF8 ()) << 0.0 << osc::EndMessage;
+        oscServer->sendMessage (oscMessage);
+    }
+private:
+    ScopedPointer<OscServer> oscServer;
+};
+```
