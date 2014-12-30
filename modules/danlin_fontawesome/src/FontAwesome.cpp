@@ -10,6 +10,12 @@
 
 #include "FontAwesome.h"
 
+#if JUCE_LINUX
+Font getFontAwesome(float height) {
+  Font fontAwesomeFont("FontAwesome", height, Font::plain);
+  return fontAwesomeFont;
+}
+#else
 Typeface::Ptr FontAwesome_ptr = Typeface::createSystemTypefaceFor(
     FontAwesomeData::fontawesomewebfont_ttf,
     FontAwesomeData::fontawesomewebfont_ttfSize);
@@ -23,6 +29,7 @@ Font getFontAwesome(float height) {
   fontAwesomeFont.setHeight(height);
   return fontAwesomeFont;
 }
+#endif
 
 void DrawIcon(Graphics &g, int x, int y, float height, String icon) {
   g.setFont(getFontAwesome(height));
