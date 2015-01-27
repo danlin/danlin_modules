@@ -11,11 +11,10 @@
 #ifndef OSCSERVER_H_INCLUDED
 #define OSCSERVER_H_INCLUDED
 
+#include <sstream>
 using namespace std;
 
-#include <sstream>
-
-class OscMessage : public juce::Message {
+class OscMessage : public Message {
 public:
   OscMessage(osc::ReceivedPacket packet, bool isOutgoing = false)
       : packet(packet), isOutgoing(isOutgoing), isIncomming(isOutgoing) {}
@@ -25,33 +24,32 @@ public:
   bool isIncomming;
 };
 
-class OscMessageListener : public juce::MessageListener {
+class OscMessageListener : public MessageListener {
   virtual void handleOscMessage(osc::ReceivedPacket packet) = 0;
 
-  void handleMessage(const juce::Message &message) override {
+  void handleMessage(const Message &message) override {
     const OscMessage &receivedOscMessage =
         dynamic_cast<const OscMessage &>(message);
     handleOscMessage(receivedOscMessage.packet);
   }
 };
 
-class OscMessageLogger : public juce::MessageListener {
-  virtual void logOscMessage(juce::String message) = 0;
+class OscMessageLogger : public MessageListener {
+  virtual void logOscMessage(String message) = 0;
 
-  void handleMessage(const juce::Message &message) override {
+  void handleMessage(const Message &message) override {
     const OscMessage &oscMessage = dynamic_cast<const OscMessage &>(message);
-    // std::cout << oscMessage.packet << std::endl;
     std::ostringstream stream;
     stream << oscMessage.packet;
     if (oscMessage.isIncomming) {
-      logOscMessage("<-" + juce::String(stream.str()));
+      logOscMessage("<-" + String(stream.str()));
     } else {
-      logOscMessage("-> " + juce::String(stream.str()));
+      logOscMessage("-> " + String(stream.str()));
     }
   }
 };
 
-class OscServer : public juce::Thread {
+class OscServer : public Thread {
   static const int bufferSize = 4098;
 
 public:
@@ -61,12 +59,19 @@ public:
   // UDP Setup
   void setLocalPortNumber(int portNumber);
   int getLocalPortNumber();
-  const juce::String &getLocalHostname();
+  const String &getLocalHostname();
 
-  void setRemoteHostname(juce::String hostname);
-  juce::String getRemoteHostname();
+  void setRemoteHostname(String hostname);
+  String getRemoteHostname();
   void setRemotePortNumber(int portNumber);
   int getRemotePortNumber();
+
+  void setBridgeHostname(String hostname);
+  String getBridgeHostname();
+  void setBridgePortNumber(int portNumber);
+  int getBridgePortNumber();
+  bool isBridgeEnabled();
+  void setBridgeEnabled(bool enable);
 
   // UDP Server
   void listen();
@@ -87,12 +92,19 @@ private:
   OscMessageLogger *logger;
 
   int receivePortNumber;
-  juce::ScopedPointer<juce::DatagramSocket> receiveDatagramSocket;
+  ScopedPointer<DatagramSocket> receiveDatagramSocket;
 
-  juce::String remoteHostname;
+  String remoteHostname;
   int remotePortNumber;
-  juce::ScopedPointer<juce::DatagramSocket> remoteDatagramSocket;
+  ScopedPointer<DatagramSocket> remoteDatagramSocket;
   bool remoteChanged;
+
+  String bridgeHostname;
+  int bridgePortNumber;
+  ScopedPointer<DatagramSocket> bridgeDatagramSocket;
+  bool bridgeChanged;
+  bool bridgeEnabled;
+  bool routePackage(MemoryBlock packet);
 
   JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(OscServer)
 };
