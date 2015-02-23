@@ -132,7 +132,7 @@ void OscServer::run() {
           routePackage(buffer);
         }
       } catch (osc::Exception &e) {
-        std::cout << "error while parsing packet" << std::endl;
+          Logger::outputDebugString("error while parsing packet");
       }
     }
   }

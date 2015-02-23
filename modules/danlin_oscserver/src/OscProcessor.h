@@ -15,8 +15,8 @@
 #include "OscServer.h"
 
 class OscProcessor
-    : public OscMessageListener,
-      public ChangeListener {
+    : private OscMessageListener,
+      private ChangeListener {
 public:
     OscProcessor();
     ~OscProcessor();
@@ -28,21 +28,22 @@ public:
     void changeListenerCallback(ChangeBroadcaster* source) override;
 
     // Osc Parameter
-    void addOscParameter(OscParameter* parameter);
+    void addOscParameter(OscParameter* parameter, bool internal = false);
     void removeOscParameter(OscParameter* p);
     void removeOscParameter(String regex);
     OscParameter* getOscParameter(String address);
     Array<OscParameter*> getAllOscParameter(String regex);
     Array<OscParameter*> getAllOscParameter();
+    void dumpOscParameters();
 
     // Osc Parameter Values
     var getOscParameterValue(String address);
     void setOscParameterValue(String address, var value);
 
     // Osc Parameter Listener
-    void addOscParameterListener(ChangeListener* listener, OscParameter* parameter);
-    void addOscParameterListener(ChangeListener* listener, String regex);
-    void removeOscParameterListener(ChangeListener* listener);
+    void addOscParameterListener(OscParameterListener* listener, OscParameter* parameter);
+    void addOscParameterListener(OscParameterListener* listener, String regex);
+    void removeOscParameterListener(OscParameterListener* listener);
 
     // Osc Parser
     void parseOscPacket(osc::ReceivedPacket packet);

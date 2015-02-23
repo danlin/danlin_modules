@@ -27,17 +27,6 @@ public:
 
     }
 
-    var getValue() override
-    {
-    	return oscValue;
-    }
-
-    void setValue(var value) override
-    {
-    	oscValue = value;
-    	sendChangeMessage();
-    }
-
     var getDefaultValue() override
     {
     	return var(0.0f);
@@ -48,7 +37,6 @@ public:
     	stream << osc::BeginMessage(getAddress().toRawUTF8()) << static_cast<float>(getValue()) << osc::EndMessage;
     }
 private:
-    var oscValue;
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(OscFloatParameter)
 };
 
@@ -64,16 +52,6 @@ public:
     {
 
     }
-    var getValue() override
-    {
-    	return oscValue;
-    }
-
-    void setValue(var value) override
-    {
-    	oscValue = value;
-    	sendChangeMessage();
-    }
 
     var getDefaultValue() override
     {
@@ -85,7 +63,6 @@ public:
     	stream << osc::BeginMessage(getAddress().toRawUTF8()) << static_cast<bool>(getValue()) << osc::EndMessage;
     }
 private:
-    var oscValue;
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(OscBooleanParameter)
 };
 
@@ -101,16 +78,6 @@ public:
     {
     	
     }
-    var getValue() override
-    {
-    	return oscValue;
-    }
-
-    void setValue(var value) override
-    {
-    	oscValue = value;
-    	sendChangeMessage();
-    }
 
     var getDefaultValue() override
     {
@@ -122,7 +89,6 @@ public:
     	stream << osc::BeginMessage(getAddress().toRawUTF8()) << static_cast<int>(getValue()) << osc::EndMessage;
     }
 private:
-    var oscValue;
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(OscIntegerParameter)
 };
 
@@ -140,17 +106,6 @@ public:
 
     }
 
-    var getValue() override
-    {
-    	return oscValue;
-    }
-
-    void setValue(var value) override
-    {
-    	oscValue = value;
-    	sendChangeMessage();
-    }
-
     var getDefaultValue() override
     {
     	return var("");
@@ -161,9 +116,7 @@ public:
     	stream << osc::BeginMessage(getAddress().toRawUTF8()) << getValue().toString().toRawUTF8() << osc::EndMessage;
     }
 private:
-    var oscValue;
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(OscStringParameter)
 };
-
 
 #endif  // OSCPARAMETERS_H_INCLUDED

@@ -22,6 +22,7 @@ OscProcessor::~OscProcessor()
 
 void OscProcessor::handleOscMessage(osc::ReceivedPacket packet)
 {
+    parseOscPacket(packet);
 }
 
 void OscProcessor::changeListenerCallback(ChangeBroadcaster* source)
@@ -35,11 +36,13 @@ void OscProcessor::changeListenerCallback(ChangeBroadcaster* source)
     }
 }
 
-void OscProcessor::addOscParameter(OscParameter* parameter)
+void OscProcessor::addOscParameter(OscParameter* parameter, bool internal)
 {
     if (parameter) {
         managedOscParameters.addIfNotAlreadyThere(parameter);
-        parameter->addChangeListener(this);
+        if (!internal) {
+            //parameter->addChangeListener(this);
+        }
     }
 }
 
@@ -92,6 +95,15 @@ Array<OscParameter*> OscProcessor::getAllOscParameter()
     return parameters;
 }
 
+void OscProcessor::dumpOscParameters() {
+    for (int index = 0; index < managedOscParameters.size(); index++) {
+        char buffer[1024];
+        osc::OutboundPacketStream packet(buffer, 1024);
+        managedOscParameters[index]->appendOscMessageToStream(packet);
+        oscServer.sendMessage(packet);
+    }
+}
+
 var OscProcessor::getOscParameterValue(String address)
 {
     for (int index = 0; index < managedOscParameters.size(); index++) {
@@ -112,24 +124,24 @@ void OscProcessor::setOscParameterValue(String address, var value)
     }
 }
 
-void OscProcessor::addOscParameterListener(ChangeListener* listener, OscParameter* parameter)
+void OscProcessor::addOscParameterListener(OscParameterListener* listener, OscParameter* parameter)
 {
-    parameter->addChangeListener(listener);
+    parameter->addOscParameterListener(listener);
 }
 
-void OscProcessor::addOscParameterListener(ChangeListener* listener, String regex)
+void OscProcessor::addOscParameterListener(OscParameterListener* listener, String regex)
 {
     auto parameters = getAllOscParameter(regex);
     for (int index = 0; index < parameters.size(); index++) {
-        parameters[index]->addChangeListener(listener);
+        parameters[index]->addOscParameterListener(listener);
     }
 }
 
-void OscProcessor::removeOscParameterListener(ChangeListener* listener)
+void OscProcessor::removeOscParameterListener(OscParameterListener* listener)
 {
     auto parameters = getAllOscParameter();
     for (int index = 0; index < parameters.size(); index++) {
-        parameters[index]->removeChangeListener(listener);
+        parameters[index]->removeOscParameterListener(listener);
     }
 }
 
@@ -155,7 +167,6 @@ void OscProcessor::parseOscMessage(osc::ReceivedMessage message)
         osc::ReceivedMessage::const_iterator arg = message.ArgumentsBegin();
         while (arg != message.ArgumentsEnd())
         {
-            arg++;
             if (arg->IsFloat()) {
                 parameter->setValue(var(arg->AsFloat()));
             }
@@ -165,9 +176,19 @@ void OscProcessor::parseOscMessage(osc::ReceivedMessage message)
             else if (arg->IsInt32()) {
                 parameter->setValue(var(arg->AsInt32()));
             }
+            else if (arg->IsChar()) {
+                parameter->setValue(var(String(arg->AsChar())));
+            }
+            else if (arg->IsDouble()) {
+                parameter->setValue(var(arg->AsDouble()));
+            }
             else if (arg->IsString()) {
                 parameter->setValue(var(String(arg->AsString())));
             }
+            else if (arg->IsSymbol()) {
+                parameter->setValue(var(String(arg->IsSymbol())));
+            }
+            arg++;
         }
     }
 }

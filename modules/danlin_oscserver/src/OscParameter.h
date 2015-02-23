@@ -13,6 +13,25 @@
 
 #include <regex>
 
+class OscParameter;
+
+class OscParameterMessage : public Message {
+public:
+    OscParameterMessage(OscParameter *parameter)
+    : parameter(parameter) {}
+    ~OscParameterMessage() {}
+    OscParameter *parameter;
+};
+
+class OscParameterListener : public MessageListener {
+    virtual void handleOscParameterMessage(OscParameter *parameter) = 0;
+    
+    void handleMessage(const Message &message) override {
+        const OscParameterMessage &receivedOscParameterMessage = dynamic_cast<const OscParameterMessage&>(message);
+        handleOscParameterMessage(receivedOscParameterMessage.parameter);
+    }
+};
+
 class OscParameter : public ChangeBroadcaster {
 public:
     OscParameter(String address)
@@ -20,9 +39,10 @@ public:
     {
 
     }
-    ~OscParameter()
+    virtual ~OscParameter()
     {
         removeAllChangeListeners();
+        listeners.clear();
     }
 
     bool addressMatch(String regex)
@@ -34,11 +54,42 @@ public:
     	return oscAddress;
     }
 
-    virtual var getValue() = 0;
-    virtual void setValue(var value) = 0;
+    virtual var getValue() {
+        return oscValue;
+    }
+    virtual void setValue(var value) {
+        if (!oscValue.equals(value)) {
+            oscValue = value;
+            sendChangeMessage();
+            sendParameterMessage();
+        }
+    }
+    
+    void sendParameterMessage() {
+        for (int index = 0; index <= listeners.size(); index++) {
+            listeners[index]->postMessage(new OscParameterMessage(this));
+        }
+    }
+    
+    void addOscParameterListener (OscParameterListener* const listenerToAdd)
+    {
+        jassert (listenerToAdd != nullptr);
+        
+        if (listenerToAdd != nullptr)
+            listeners.addIfNotAlreadyThere (listenerToAdd);
+    }
+    
+    void removeOscParameterListener (OscParameterListener* const listenerToRemove)
+    {
+        jassert (listenerToRemove != nullptr);
+        
+        listeners.removeFirstMatchingValue (listenerToRemove);
+    }
     virtual var getDefaultValue() = 0;
     virtual void appendOscMessageToStream(osc::OutboundPacketStream stream) = 0;
 private:
+    Array<OscParameterListener*> listeners;
+    var oscValue;
     String oscAddress;
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(OscParameter)
 };

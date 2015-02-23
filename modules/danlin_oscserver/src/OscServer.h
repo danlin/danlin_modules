@@ -17,11 +17,11 @@ using namespace std;
 class OscMessage : public Message {
 public:
   OscMessage(osc::ReceivedPacket packet, bool isOutgoing = false)
-      : packet(packet), isOutgoing(isOutgoing), isIncomming(isOutgoing) {}
+      : packet(packet), isOutgoing(isOutgoing), isIncoming(isOutgoing) {}
   ~OscMessage() {}
   osc::ReceivedPacket packet;
   bool isOutgoing;
-  bool isIncomming;
+  bool isIncoming;
 };
 
 class OscMessageListener : public MessageListener {
@@ -41,7 +41,7 @@ class OscMessageLogger : public MessageListener {
     const OscMessage &oscMessage = dynamic_cast<const OscMessage &>(message);
     std::ostringstream stream;
     stream << oscMessage.packet;
-    if (oscMessage.isIncomming) {
+    if (oscMessage.isIncoming) {
       logOscMessage("<-" + String(stream.str()));
     } else {
       logOscMessage("-> " + String(stream.str()));
