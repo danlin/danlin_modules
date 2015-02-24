@@ -65,6 +65,8 @@ public:
   String getRemoteHostname();
   void setRemotePortNumber(int portNumber);
   int getRemotePortNumber();
+  bool isRemoteEnabled();
+  void setRemoteEnabled(bool enable);
 
   void setBridgeHostname(String hostname);
   String getBridgeHostname();
@@ -98,6 +100,7 @@ private:
   int remotePortNumber;
   ScopedPointer<DatagramSocket> remoteDatagramSocket;
   bool remoteChanged;
+  bool remoteEnabled;
 
   String bridgeHostname;
   int bridgePortNumber;

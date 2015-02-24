@@ -14,9 +14,13 @@ OscServer::OscServer(OscMessageListener *listener)
     : Thread("OscServer"), listener(listener) {
   logger = nullptr;
   receivePortNumber = 8050;
+  
+  remoteEnabled = false;
   remoteHostname = "localhost";
   remotePortNumber = 9050;
   remoteChanged = true;
+  
+  bridgeEnabled = false;
   bridgeHostname = "localhost";
   bridgePortNumber = 8000;
   bridgeChanged = true;
@@ -61,6 +65,9 @@ void OscServer::setRemotePortNumber(int portNumber) {
 }
 
 int OscServer::getRemotePortNumber() { return bridgePortNumber; }
+
+bool OscServer::isRemoteEnabled() { return bridgeEnabled; }
+void OscServer::setRemoteEnabled(bool enable) { bridgeEnabled = enable; }
 
 void OscServer::setBridgeHostname(String hostname) {
     bridgeHostname = hostname;
@@ -156,6 +163,9 @@ bool OscServer::routePackage(MemoryBlock packet) {
 }
 
 bool OscServer::sendMessage(osc::OutboundPacketStream stream) {
+  if (!remoteEnabled)
+    return false;
+    
   if (!stream.IsReady()) {
     return false;
   }
