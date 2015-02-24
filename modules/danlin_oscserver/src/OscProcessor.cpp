@@ -32,6 +32,7 @@ void OscProcessor::changeListenerCallback(ChangeBroadcaster* source)
         char buffer[1024];
         osc::OutboundPacketStream packet(buffer, 1024);
         parameter->appendOscMessageToStream(packet);
+        
         oscServer.sendMessage(packet);
     }
 }
@@ -41,7 +42,7 @@ void OscProcessor::addOscParameter(OscParameter* parameter, bool internal)
     if (parameter) {
         managedOscParameters.addIfNotAlreadyThere(parameter);
         if (!internal) {
-            //parameter->addChangeListener(this);
+            parameter->addChangeListener(this);
         }
     }
 }
