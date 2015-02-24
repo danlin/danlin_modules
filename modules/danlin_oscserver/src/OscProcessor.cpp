@@ -32,7 +32,6 @@ void OscProcessor::changeListenerCallback(ChangeBroadcaster* source)
         char buffer[1024];
         osc::OutboundPacketStream packet(buffer, 1024);
         parameter->appendOscMessageToStream(packet);
-        
         oscServer.sendMessage(packet);
     }
 }
@@ -79,8 +78,7 @@ Array<OscParameter*> OscProcessor::getAllOscParameter(String regex)
 OscParameter* OscProcessor::getOscParameter(String address)
 {
     for (int index = 0; index < managedOscParameters.size(); index++) {
-        if (managedOscParameters[index]->getAddress() == address)
-        {
+        if (managedOscParameters[index]->getAddress() == address) {
             return managedOscParameters[index];
         }
     }
@@ -96,7 +94,8 @@ Array<OscParameter*> OscProcessor::getAllOscParameter()
     return parameters;
 }
 
-void OscProcessor::dumpOscParameters() {
+void OscProcessor::dumpOscParameters()
+{
     for (int index = 0; index < managedOscParameters.size(); index++) {
         char buffer[1024];
         osc::OutboundPacketStream packet(buffer, 1024);
@@ -166,8 +165,7 @@ void OscProcessor::parseOscMessage(osc::ReceivedMessage message)
     OscParameter* parameter = getOscParameter(address);
     if (parameter) {
         osc::ReceivedMessage::const_iterator arg = message.ArgumentsBegin();
-        while (arg != message.ArgumentsEnd())
-        {
+        while (arg != message.ArgumentsEnd()) {
             if (arg->IsFloat()) {
                 parameter->setValue(var(arg->AsFloat()));
             }

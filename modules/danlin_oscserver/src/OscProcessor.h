@@ -51,6 +51,7 @@ public:
     void parseOscBundle(osc::ReceivedBundle bundle);
 
     OscServer* getOscServer();
+
 private:
     OscServer oscServer;
     int oscReceived;

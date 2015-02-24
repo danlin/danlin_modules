@@ -10,142 +10,185 @@
 
 #include "OscServer.h"
 
-OscServer::OscServer(OscMessageListener *listener)
-    : Thread("OscServer"), listener(listener) {
-  logger = nullptr;
-  receivePortNumber = 8050;
-  
-  remoteEnabled = false;
-  remoteHostname = "localhost";
-  remotePortNumber = 9050;
-  remoteChanged = true;
-  
-  bridgeEnabled = false;
-  bridgeHostname = "localhost";
-  bridgePortNumber = 8000;
-  bridgeChanged = true;
+OscServer::OscServer(OscMessageListener* listener)
+    : Thread("OscServer")
+    , listener(listener)
+{
+    logger = nullptr;
+    receivePortNumber = 8050;
+
+    remoteEnabled = false;
+    remoteHostname = "localhost";
+    remotePortNumber = 9050;
+    remoteChanged = true;
+
+    bridgeEnabled = false;
+    bridgeHostname = "localhost";
+    bridgePortNumber = 8000;
+    bridgeChanged = true;
 }
 
-OscServer::~OscServer() {
-  signalThreadShouldExit();
-  if (receiveDatagramSocket) {
-    receiveDatagramSocket->close();
-  }
-  if (remoteDatagramSocket) {
-    remoteDatagramSocket->close();
-  }
-  stopThread(500);
-  receiveDatagramSocket = nullptr;
-  remoteDatagramSocket = nullptr;
+OscServer::~OscServer()
+{
+    signalThreadShouldExit();
+    if (receiveDatagramSocket) {
+        receiveDatagramSocket->close();
+    }
+    if (remoteDatagramSocket) {
+        remoteDatagramSocket->close();
+    }
+    stopThread(500);
+    receiveDatagramSocket = nullptr;
+    remoteDatagramSocket = nullptr;
 }
 
-void OscServer::setLocalPortNumber(int portNumber) {
-  receivePortNumber = portNumber;
+void OscServer::setLocalPortNumber(int portNumber)
+{
+    receivePortNumber = portNumber;
 }
 
-int OscServer::getLocalPortNumber() { return receivePortNumber; }
-
-const String &OscServer::getLocalHostname() {
-  if (receiveDatagramSocket) {
-    receiveDatagramSocket->getHostName();
-  }
-  return String::empty;
+int OscServer::getLocalPortNumber()
+{
+    return receivePortNumber;
 }
 
-void OscServer::setRemoteHostname(String hostname) {
-  remoteHostname = hostname;
-  remoteChanged = true;
+const String& OscServer::getLocalHostname()
+{
+    if (receiveDatagramSocket) {
+        receiveDatagramSocket->getHostName();
+    }
+    return String::empty;
 }
 
-String OscServer::getRemoteHostname() { return remoteHostname; }
-
-void OscServer::setRemotePortNumber(int portNumber) {
-  remotePortNumber = portNumber;
-  remoteChanged = true;
+void OscServer::setRemoteHostname(String hostname)
+{
+    remoteHostname = hostname;
+    remoteChanged = true;
 }
 
-int OscServer::getRemotePortNumber() { return bridgePortNumber; }
+String OscServer::getRemoteHostname()
+{
+    return remoteHostname;
+}
 
-bool OscServer::isRemoteEnabled() { return bridgeEnabled; }
-void OscServer::setRemoteEnabled(bool enable) { bridgeEnabled = enable; }
+void OscServer::setRemotePortNumber(int portNumber)
+{
+    remotePortNumber = portNumber;
+    remoteChanged = true;
+}
 
-void OscServer::setBridgeHostname(String hostname) {
+int OscServer::getRemotePortNumber()
+{
+    return bridgePortNumber;
+}
+
+bool OscServer::isRemoteEnabled()
+{
+    return bridgeEnabled;
+}
+
+void OscServer::setRemoteEnabled(bool enable)
+{
+    bridgeEnabled = enable;
+}
+
+void OscServer::setBridgeHostname(String hostname)
+{
     bridgeHostname = hostname;
     bridgeChanged = true;
 }
 
-String OscServer::getBridgeHostname() { return bridgeHostname; }
+String OscServer::getBridgeHostname()
+{
+    return bridgeHostname;
+}
 
-void OscServer::setBridgePortNumber(int portNumber) {
+void OscServer::setBridgePortNumber(int portNumber)
+{
     bridgePortNumber = portNumber;
     bridgeChanged = true;
 }
 
-int OscServer::getBridgePortNumber() { return bridgePortNumber; }
-
-bool OscServer::isBridgeEnabled() { return bridgeEnabled; }
-void OscServer::setBridgeEnabled(bool enable) { bridgeEnabled = enable; }
-
-void OscServer::listen() {
-  if (isThreadRunning()) {
-    signalThreadShouldExit();
-    if (receiveDatagramSocket) {
-      receiveDatagramSocket->close();
-    }
-    stopThread(500);
-    receiveDatagramSocket = nullptr;
-  }
-  startThread(1);
+int OscServer::getBridgePortNumber()
+{
+    return bridgePortNumber;
 }
 
-void OscServer::stopListening() {
-  if (isThreadRunning()) {
-    signalThreadShouldExit();
-    if (receiveDatagramSocket) {
-      receiveDatagramSocket->close();
-    }
-    stopThread(500);
-    receiveDatagramSocket = nullptr;
-  }
+bool OscServer::isBridgeEnabled()
+{
+    return bridgeEnabled;
 }
 
-void OscServer::run() {
-  receiveDatagramSocket = new DatagramSocket(receivePortNumber);
+void OscServer::setBridgeEnabled(bool enable)
+{
+    bridgeEnabled = enable;
+}
 
-  MemoryBlock buffer(bufferSize, true);
-  while (!threadShouldExit()) {
-    if (receiveDatagramSocket->getPort()) {
-      if (!receiveDatagramSocket->bindToPort(receivePortNumber)) {
-        return;
-      }
-    }
-    if (receiveDatagramSocket->waitUntilReady(true, 100)) {
-      int size = receiveDatagramSocket->read(buffer.getData(), buffer.getSize(),
-                                             false);
-      if (threadShouldExit()) {
-        return;
-      }
-      try {
-        osc::ReceivedPacket packet((const char *)buffer.getData(), size);
-        if (listener != nullptr) {
-          MessageManagerLock mml(Thread::getCurrentThread());
-          if (!mml.lockWasGained()) {
-            return;
-          }
-          if (logger != nullptr) {
-            logger->postMessage(new OscMessage(packet));
-          }
-          listener->postMessage(new OscMessage(packet));
-          routePackage(buffer);
+void OscServer::listen()
+{
+    if (isThreadRunning()) {
+        signalThreadShouldExit();
+        if (receiveDatagramSocket) {
+            receiveDatagramSocket->close();
         }
-      } catch (osc::Exception &e) {
-          Logger::outputDebugString("error while parsing packet");
-      }
+        stopThread(500);
+        receiveDatagramSocket = nullptr;
     }
-  }
+    startThread(1);
 }
 
-bool OscServer::routePackage(MemoryBlock packet) {
+void OscServer::stopListening()
+{
+    if (isThreadRunning()) {
+        signalThreadShouldExit();
+        if (receiveDatagramSocket) {
+            receiveDatagramSocket->close();
+        }
+        stopThread(500);
+        receiveDatagramSocket = nullptr;
+    }
+}
+
+void OscServer::run()
+{
+    receiveDatagramSocket = new DatagramSocket(receivePortNumber);
+
+    MemoryBlock buffer(bufferSize, true);
+    while (!threadShouldExit()) {
+        if (receiveDatagramSocket->getPort()) {
+            if (!receiveDatagramSocket->bindToPort(receivePortNumber)) {
+                return;
+            }
+        }
+        if (receiveDatagramSocket->waitUntilReady(true, 100)) {
+            int size = receiveDatagramSocket->read(buffer.getData(), buffer.getSize(),
+                false);
+            if (threadShouldExit()) {
+                return;
+            }
+            try {
+                osc::ReceivedPacket packet((const char*)buffer.getData(), size);
+                if (listener != nullptr) {
+                    MessageManagerLock mml(Thread::getCurrentThread());
+                    if (!mml.lockWasGained()) {
+                        return;
+                    }
+                    if (logger != nullptr) {
+                        logger->postMessage(new OscMessage(packet));
+                    }
+                    listener->postMessage(new OscMessage(packet));
+                    routePackage(buffer);
+                }
+            }
+            catch (osc::Exception& e) {
+                Logger::outputDebugString("error while parsing packet");
+            }
+        }
+    }
+}
+
+bool OscServer::routePackage(MemoryBlock packet)
+{
     if (bridgeEnabled) {
         if (!bridgeDatagramSocket || bridgeChanged) {
             bridgeChanged = false;
@@ -162,25 +205,26 @@ bool OscServer::routePackage(MemoryBlock packet) {
     return false;
 }
 
-bool OscServer::sendMessage(osc::OutboundPacketStream stream) {
-  if (!remoteEnabled)
-    return false;
-    
-  if (!stream.IsReady()) {
-    return false;
-  }
+bool OscServer::sendMessage(osc::OutboundPacketStream stream)
+{
+    if (!remoteEnabled)
+        return false;
 
-  if (!remoteDatagramSocket || remoteChanged) {
-    remoteChanged = false;
-    remoteDatagramSocket = new DatagramSocket(0);
-    remoteDatagramSocket->connect(remoteHostname, remotePortNumber);
-  }
-
-  if (remoteDatagramSocket->waitUntilReady(false, 100)) {
-    if (remoteDatagramSocket->write(stream.Data(), stream.Size()) > 0) {
-      return true;
+    if (!stream.IsReady()) {
+        return false;
     }
-  }
 
-  return false;
+    if (!remoteDatagramSocket || remoteChanged) {
+        remoteChanged = false;
+        remoteDatagramSocket = new DatagramSocket(0);
+        remoteDatagramSocket->connect(remoteHostname, remotePortNumber);
+    }
+
+    if (remoteDatagramSocket->waitUntilReady(false, 100)) {
+        if (remoteDatagramSocket->write(stream.Data(), stream.Size()) > 0) {
+            return true;
+        }
+    }
+
+    return false;
 }
