@@ -86,7 +86,7 @@ public:
         listeners.removeFirstMatchingValue (listenerToRemove);
     }
     virtual var getDefaultValue() = 0;
-    virtual void appendOscMessageToStream(osc::OutboundPacketStream stream) = 0;
+    virtual void appendOscMessageToStream(osc::OutboundPacketStream &stream) = 0;
 private:
     Array<OscParameterListener*> listeners;
     var oscValue;

@@ -32,7 +32,7 @@ public:
     	return var(0.0f);
     }
 
-    void appendOscMessageToStream(osc::OutboundPacketStream stream) override
+    void appendOscMessageToStream(osc::OutboundPacketStream &stream) override
     {
     	stream << osc::BeginMessage(getAddress().toRawUTF8()) << static_cast<float>(getValue()) << osc::EndMessage;
     }
@@ -58,7 +58,7 @@ public:
     	return var(false);
     }
 
-    void appendOscMessageToStream(osc::OutboundPacketStream stream) override
+    void appendOscMessageToStream(osc::OutboundPacketStream &stream) override
     {
     	stream << osc::BeginMessage(getAddress().toRawUTF8()) << static_cast<bool>(getValue()) << osc::EndMessage;
     }
@@ -84,7 +84,7 @@ public:
     	return var(0);
     }
 
-    void appendOscMessageToStream(osc::OutboundPacketStream stream) override
+    void appendOscMessageToStream(osc::OutboundPacketStream &stream) override
     {
     	stream << osc::BeginMessage(getAddress().toRawUTF8()) << static_cast<int>(getValue()) << osc::EndMessage;
     }
@@ -111,7 +111,7 @@ public:
     	return var("");
     }
 
-    void appendOscMessageToStream(osc::OutboundPacketStream stream) override
+    void appendOscMessageToStream(osc::OutboundPacketStream &stream) override
     {
     	stream << osc::BeginMessage(getAddress().toRawUTF8()) << getValue().toString().toRawUTF8() << osc::EndMessage;
     }
