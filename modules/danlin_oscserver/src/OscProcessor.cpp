@@ -122,6 +122,7 @@ void OscProcessor::setOscParameterValue(String address, var value)
             return;
         }
     }
+    Logger::outputDebugString("setOscParameterValue: address " + address + " not found!");
 }
 
 void OscProcessor::addOscParameterListener(OscParameterListener* listener, OscParameter* parameter)
