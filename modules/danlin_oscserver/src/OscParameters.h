@@ -32,7 +32,7 @@ public:
 
     void appendOscMessageToStream(osc::OutboundPacketStream& stream) override
     {
-        stream << osc::BeginMessage(getAddress().toRawUTF8()) << static_cast<float>(getValue()) << osc::EndMessage;
+        stream << osc::BeginMessage(getAddress().toString().toRawUTF8()) << static_cast<float>(getValue()) << osc::EndMessage;
     }
 
 private:
@@ -57,7 +57,7 @@ public:
 
     void appendOscMessageToStream(osc::OutboundPacketStream& stream) override
     {
-        stream << osc::BeginMessage(getAddress().toRawUTF8()) << static_cast<bool>(getValue()) << osc::EndMessage;
+        stream << osc::BeginMessage(getAddress().toString().toRawUTF8()) << static_cast<bool>(getValue()) << osc::EndMessage;
     }
 
 private:
@@ -82,7 +82,7 @@ public:
 
     void appendOscMessageToStream(osc::OutboundPacketStream& stream) override
     {
-        stream << osc::BeginMessage(getAddress().toRawUTF8()) << static_cast<int>(getValue()) << osc::EndMessage;
+        stream << osc::BeginMessage(getAddress().toString().toRawUTF8()) << static_cast<int>(getValue()) << osc::EndMessage;
     }
 
 private:
@@ -108,7 +108,7 @@ public:
 
     void appendOscMessageToStream(osc::OutboundPacketStream& stream) override
     {
-        stream << osc::BeginMessage(getAddress().toRawUTF8()) << getValue().toString().toRawUTF8() << osc::EndMessage;
+        stream << osc::BeginMessage(getAddress().toString().toRawUTF8()) << getValue().toString().toRawUTF8() << osc::EndMessage;
     }
 
 private:

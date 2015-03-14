@@ -31,14 +31,14 @@ public:
     void addOscParameter(OscParameter* parameter, bool internal = false);
     void removeOscParameter(OscParameter* p);
     void removeOscParameter(String regex);
-    OscParameter* getOscParameter(String address);
+    OscParameter* getOscParameter(Identifier address);
     Array<OscParameter*> getAllOscParameter(String regex);
     Array<OscParameter*> getAllOscParameter();
     void dumpOscParameters();
 
     // Osc Parameter Values
-    var getOscParameterValue(String address);
-    void setOscParameterValue(String address, var value);
+    var getOscParameterValue(Identifier address);
+    void setOscParameterValue(Identifier address, var value);
 
     // Osc Parameter Listener
     void addOscParameterListener(OscParameterListener* listener, OscParameter* parameter);

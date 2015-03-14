@@ -49,11 +49,12 @@ public:
 
     bool addressMatch(String regex)
     {
-        return std::regex_match(oscAddress.toRawUTF8(), std::regex(regex.toRawUTF8()));
+        return std::regex_match(oscAddress.toString().toRawUTF8(), std::regex(regex.toRawUTF8()));
     }
-    String getAddress() const
+    
+    Identifier getAddress() const
     {
-        return oscAddress;
+        return oscAddress.toString();
     }
 
     virtual var getValue()
@@ -96,7 +97,7 @@ public:
 private:
     Array<OscParameterListener*> listeners;
     var oscValue;
-    String oscAddress;
+    Identifier oscAddress;
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(OscParameter)
 };
 
