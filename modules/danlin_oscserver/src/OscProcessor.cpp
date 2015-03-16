@@ -75,7 +75,7 @@ Array<OscParameter*> OscProcessor::getAllOscParameter(String regex)
     return parameters;
 }
 
-OscParameter* OscProcessor::getOscParameter(Identifier address)
+OscParameter* OscProcessor::getOscParameter(String address)
 {
     for (int index = 0; index < managedOscParameters.size(); index++) {
         if (managedOscParameters[index]->getAddress() == address) {
@@ -104,7 +104,7 @@ void OscProcessor::dumpOscParameters()
     }
 }
 
-var OscProcessor::getOscParameterValue(Identifier address)
+var OscProcessor::getOscParameterValue(String address)
 {
     for (int index = 0; index < managedOscParameters.size(); index++) {
         if (managedOscParameters[index]->getAddress() == address) {
@@ -114,7 +114,7 @@ var OscProcessor::getOscParameterValue(Identifier address)
     return var::null;
 }
 
-void OscProcessor::setOscParameterValue(Identifier address, var value)
+void OscProcessor::setOscParameterValue(String address, var value)
 {
     for (int index = 0; index < managedOscParameters.size(); index++) {
         if (managedOscParameters[index]->getAddress() == address) {
@@ -122,7 +122,7 @@ void OscProcessor::setOscParameterValue(Identifier address, var value)
             return;
         }
     }
-    Logger::outputDebugString("setOscParameterValue: address " + address.toString() + " not found!");
+    Logger::outputDebugString("setOscParameterValue: address " + address + " not found!");
 }
 
 void OscProcessor::addOscParameterListener(OscParameterListener* listener, OscParameter* parameter)
