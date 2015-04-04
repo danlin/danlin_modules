@@ -15,621 +15,598 @@
 
 juce::Font getFontAwesome(float height);
 
-#define FA_ADJUST CharPointer_UTF8("\xef\x81\x82")
-#define FA_ADN CharPointer_UTF8("\xef\x85\xb0")
-#define FA_ALIGN_CENTER CharPointer_UTF8("\xef\x80\xb7")
-#define FA_ALIGN_JUSTIFY CharPointer_UTF8("\xef\x80\xb9")
-#define FA_ALIGN_LEFT CharPointer_UTF8("\xef\x80\xb6")
-#define FA_ALIGN_RIGHT CharPointer_UTF8("\xef\x80\xb8")
-#define FA_AMBULANCE CharPointer_UTF8("\xef\x83\xb9")
-#define FA_ANCHOR CharPointer_UTF8("\xef\x84\xbd")
-#define FA_ANDROID CharPointer_UTF8("\xef\x85\xbb")
-#define FA_ANGLE_DOUBLE_DOWN CharPointer_UTF8("\xef\x84\x83")
-#define FA_ANGLE_DOUBLE_LEFT CharPointer_UTF8("\xef\x84\x80")
-#define FA_ANGLE_DOUBLE_RIGHT CharPointer_UTF8("\xef\x84\x81")
-#define FA_ANGLE_DOUBLE_UP CharPointer_UTF8("\xef\x84\x82")
-#define FA_ANGLE_DOWN CharPointer_UTF8("\xef\x84\x87")
-#define FA_ANGLE_LEFT CharPointer_UTF8("\xef\x84\x84")
-#define FA_ANGLE_RIGHT CharPointer_UTF8("\xef\x84\x85")
-#define FA_ANGLE_UP CharPointer_UTF8("\xef\x84\x86")
-#define FA_APPLE CharPointer_UTF8("\xef\x85\xb9")
-#define FA_ARCHIVE CharPointer_UTF8("\xef\x86\x87")
-#define FA_ARROW_CIRCLE_DOWN CharPointer_UTF8("\xef\x82\xab")
-#define FA_ARROW_CIRCLE_LEFT CharPointer_UTF8("\xef\x82\xa8")
-#define FA_ARROW_CIRCLE_O_DOWN CharPointer_UTF8("\xef\x80\x9a")
-#define FA_ARROW_CIRCLE_O_LEFT CharPointer_UTF8("\xef\x86\x90")
-#define FA_ARROW_CIRCLE_O_RIGHT CharPointer_UTF8("\xef\x86\x8e")
-#define FA_ARROW_CIRCLE_O_UP CharPointer_UTF8("\xef\x80\x9b")
-#define FA_ARROW_CIRCLE_RIGHT CharPointer_UTF8("\xef\x82\xa9")
-#define FA_ARROW_CIRCLE_UP CharPointer_UTF8("\xef\x82\xaa")
-#define FA_ARROW_DOWN CharPointer_UTF8("\xef\x81\xa3")
-#define FA_ARROW_LEFT CharPointer_UTF8("\xef\x81\xa0")
-#define FA_ARROW_RIGHT CharPointer_UTF8("\xef\x81\xa1")
-#define FA_ARROW_UP CharPointer_UTF8("\xef\x81\xa2")
-#define FA_ARROWS CharPointer_UTF8("\xef\x81\x87")
-#define FA_ARROWS_ALT CharPointer_UTF8("\xef\x82\xb2")
-#define FA_ARROWS_H CharPointer_UTF8("\xef\x81\xbe")
-#define FA_ARROWS_V CharPointer_UTF8("\xef\x81\xbd")
-#define FA_ASTERISK CharPointer_UTF8("\xef\x81\xa9")
-#define FA_AUTOMOBILE CharPointer_UTF8("\xef\x86\xb9")
-#define FA_BACKWARD CharPointer_UTF8("\xef\x81\x8a")
-#define FA_BAN CharPointer_UTF8("\xef\x81\x9e")
-#define FA_BANK CharPointer_UTF8("\xef\x86\x9c")
-#define FA_BAR_CHART_O CharPointer_UTF8("\xef\x82\x80")
-#define FA_BARCODE CharPointer_UTF8("\xef\x80\xaa")
-#define FA_BARS CharPointer_UTF8("\xef\x83\x89")
-#define FA_BEER CharPointer_UTF8("\xef\x83\xbc")
-#define FA_BEHANCE CharPointer_UTF8("\xef\x86\xb4")
-#define FA_BEHANCE_SQUARE CharPointer_UTF8("\xef\x86\xb5")
-#define FA_BELL CharPointer_UTF8("\xef\x83\xb3")
-#define FA_BELL_O CharPointer_UTF8("\xef\x82\xa2")
-#define FA_BITBUCKET CharPointer_UTF8("\xef\x85\xb1")
-#define FA_BITBUCKET_SQUARE CharPointer_UTF8("\xef\x85\xb2")
-#define FA_BITCOIN CharPointer_UTF8("\xef\x85\x9a")
-#define FA_BOLD CharPointer_UTF8("\xef\x80\xb2")
-#define FA_BOLT CharPointer_UTF8("\xef\x83\xa7")
-#define FA_BOMB CharPointer_UTF8("\xef\x87\xa2")
-#define FA_BOOK CharPointer_UTF8("\xef\x80\xad")
-#define FA_BOOKMARK CharPointer_UTF8("\xef\x80\xae")
-#define FA_BOOKMARK_O CharPointer_UTF8("\xef\x82\x97")
-#define FA_BRIEFCASE CharPointer_UTF8("\xef\x82\xb1")
-#define FA_BTC CharPointer_UTF8("\xef\x85\x9a")
-#define FA_BUG CharPointer_UTF8("\xef\x86\x88")
-#define FA_BUILDING CharPointer_UTF8("\xef\x86\xad")
-#define FA_BUILDING_O CharPointer_UTF8("\xef\x83\xb7")
-#define FA_BULLHORN CharPointer_UTF8("\xef\x82\xa1")
-#define FA_BULLSEYE CharPointer_UTF8("\xef\x85\x80")
-#define FA_CAB CharPointer_UTF8("\xef\x86\xba")
-#define FA_CALENDAR CharPointer_UTF8("\xef\x81\xb3")
-#define FA_CALENDAR_O CharPointer_UTF8("\xef\x84\xb3")
-#define FA_CAMERA CharPointer_UTF8("\xef\x80\xb0")
-#define FA_CAMERA_RETRO CharPointer_UTF8("\xef\x82\x83")
-#define FA_CAR CharPointer_UTF8("\xef\x86\xb9")
-#define FA_CARET_DOWN CharPointer_UTF8("\xef\x83\x97")
-#define FA_CARET_LEFT CharPointer_UTF8("\xef\x83\x99")
-#define FA_CARET_RIGHT CharPointer_UTF8("\xef\x83\x9a")
-#define FA_CARET_SQUARE_O_DOWN CharPointer_UTF8("\xef\x85\x90")
-#define FA_CARET_SQUARE_O_LEFT CharPointer_UTF8("\xef\x86\x91")
-#define FA_CARET_SQUARE_O_RIGHT CharPointer_UTF8("\xef\x85\x92")
-#define FA_CARET_SQUARE_O_UP CharPointer_UTF8("\xef\x85\x91")
-#define FA_CARET_UP CharPointer_UTF8("\xef\x83\x98")
-#define FA_CERTIFICATE CharPointer_UTF8("\xef\x82\xa3")
-#define FA_CHAIN CharPointer_UTF8("\xef\x83\x81")
-#define FA_CHAIN_BROKEN CharPointer_UTF8("\xef\x84\xa7")
-#define FA_CHECK CharPointer_UTF8("\xef\x80\x8c")
-#define FA_CHECK_CIRCLE CharPointer_UTF8("\xef\x81\x98")
-#define FA_CHECK_CIRCLE_O CharPointer_UTF8("\xef\x81\x9d")
-#define FA_CHECK_SQUARE CharPointer_UTF8("\xef\x85\x8a")
-#define FA_CHECK_SQUARE_O CharPointer_UTF8("\xef\x81\x86")
-#define FA_CHEVRON_CIRCLE_DOWN CharPointer_UTF8("\xef\x84\xba")
-#define FA_CHEVRON_CIRCLE_LEFT CharPointer_UTF8("\xef\x84\xb7")
-#define FA_CHEVRON_CIRCLE_RIGHT CharPointer_UTF8("\xef\x84\xb8")
-#define FA_CHEVRON_CIRCLE_UP CharPointer_UTF8("\xef\x84\xb9")
-#define FA_CHEVRON_DOWN CharPointer_UTF8("\xef\x81\xb8")
-#define FA_CHEVRON_LEFT CharPointer_UTF8("\xef\x81\x93")
-#define FA_CHEVRON_RIGHT CharPointer_UTF8("\xef\x81\x94")
-#define FA_CHEVRON_UP CharPointer_UTF8("\xef\x81\xb7")
-#define FA_CHILD CharPointer_UTF8("\xef\x86\xae")
-#define FA_CIRCLE CharPointer_UTF8("\xef\x84\x91")
-#define FA_CIRCLE_O CharPointer_UTF8("\xef\x84\x8c")
-#define FA_CIRCLE_O_NOTCH CharPointer_UTF8("\xef\x87\x8e")
-#define FA_CIRCLE_THIN CharPointer_UTF8("\xef\x87\x9b")
-#define FA_CLIPBOARD CharPointer_UTF8("\xef\x83\xaa")
-#define FA_CLOCK_O CharPointer_UTF8("\xef\x80\x97")
-#define FA_CLOUD CharPointer_UTF8("\xef\x83\x82")
-#define FA_CLOUD_DOWNLOAD CharPointer_UTF8("\xef\x83\xad")
-#define FA_CLOUD_UPLOAD CharPointer_UTF8("\xef\x83\xae")
-#define FA_CNY CharPointer_UTF8("\xef\x85\x97")
-#define FA_CODE CharPointer_UTF8("\xef\x84\xa1")
-#define FA_CODE_FORK CharPointer_UTF8("\xef\x84\xa6")
-#define FA_CODEPEN CharPointer_UTF8("\xef\x87\x8b")
-#define FA_COFFEE CharPointer_UTF8("\xef\x83\xb4")
-#define FA_COG CharPointer_UTF8("\xef\x80\x93")
-#define FA_COGS CharPointer_UTF8("\xef\x82\x85")
-#define FA_COLUMNS CharPointer_UTF8("\xef\x83\x9b")
-#define FA_COMMENT CharPointer_UTF8("\xef\x81\xb5")
-#define FA_COMMENT_O CharPointer_UTF8("\xef\x83\xa5")
-#define FA_COMMENTS CharPointer_UTF8("\xef\x82\x86")
-#define FA_COMMENTS_O CharPointer_UTF8("\xef\x83\xa6")
-#define FA_COMPASS CharPointer_UTF8("\xef\x85\x8e")
-#define FA_COMPRESS CharPointer_UTF8("\xef\x81\xa6")
-#define FA_COPY CharPointer_UTF8("\xef\x83\x85")
-#define FA_CREDIT_CARD CharPointer_UTF8("\xef\x82\x9d")
-#define FA_CROP CharPointer_UTF8("\xef\x84\xa5")
-#define FA_CROSSHAIRS CharPointer_UTF8("\xef\x81\x9b")
-#define FA_CSS3 CharPointer_UTF8("\xef\x84\xbc")
-#define FA_CUBE CharPointer_UTF8("\xef\x86\xb2")
-#define FA_CUBES CharPointer_UTF8("\xef\x86\xb3")
-#define FA_CUT CharPointer_UTF8("\xef\x83\x84")
-#define FA_CUTLERY CharPointer_UTF8("\xef\x83\xb5")
-#define FA_DASHBOARD CharPointer_UTF8("\xef\x83\xa4")
-#define FA_DATABASE CharPointer_UTF8("\xef\x87\x80")
-#define FA_DEDENT CharPointer_UTF8("\xef\x80\xbb")
-#define FA_DELICIOUS CharPointer_UTF8("\xef\x86\xa5")
-#define FA_DESKTOP CharPointer_UTF8("\xef\x84\x88")
-#define FA_DEVIANTART CharPointer_UTF8("\xef\x86\xbd")
-#define FA_DIGG CharPointer_UTF8("\xef\x86\xa6")
-#define FA_DOLLAR CharPointer_UTF8("\xef\x85\x95")
-#define FA_DOT_CIRCLE_O CharPointer_UTF8("\xef\x86\x92")
-#define FA_DOWNLOAD CharPointer_UTF8("\xef\x80\x99")
-#define FA_DRIBBBLE CharPointer_UTF8("\xef\x85\xbd")
-#define FA_DROPBOX CharPointer_UTF8("\xef\x85\xab")
-#define FA_DRUPAL CharPointer_UTF8("\xef\x86\xa9")
-#define FA_EDIT CharPointer_UTF8("\xef\x81\x84")
-#define FA_EJECT CharPointer_UTF8("\xef\x81\x92")
-#define FA_ELLIPSIS_H CharPointer_UTF8("\xef\x85\x81")
-#define FA_ELLIPSIS_V CharPointer_UTF8("\xef\x85\x82")
-#define FA_EMPIRE CharPointer_UTF8("\xef\x87\x91")
-#define FA_ENVELOPE CharPointer_UTF8("\xef\x83\xa0")
-#define FA_ENVELOPE_O CharPointer_UTF8("\xef\x80\x83")
-#define FA_ENVELOPE_SQUARE CharPointer_UTF8("\xef\x86\x99")
-#define FA_ERASER CharPointer_UTF8("\xef\x84\xad")
-#define FA_EUR CharPointer_UTF8("\xef\x85\x93")
-#define FA_EURO CharPointer_UTF8("\xef\x85\x93")
-#define FA_EXCHANGE CharPointer_UTF8("\xef\x83\xac")
-#define FA_EXCLAMATION CharPointer_UTF8("\xef\x84\xaa")
-#define FA_EXCLAMATION_CIRCLE CharPointer_UTF8("\xef\x81\xaa")
-#define FA_EXCLAMATION_TRIANGLE CharPointer_UTF8("\xef\x81\xb1")
-#define FA_EXPAND CharPointer_UTF8("\xef\x81\xa5")
-#define FA_EXTERNAL_LINK CharPointer_UTF8("\xef\x82\x8e")
-#define FA_EXTERNAL_LINK_SQUARE CharPointer_UTF8("\xef\x85\x8c")
-#define FA_EYE CharPointer_UTF8("\xef\x81\xae")
-#define FA_EYE_SLASH CharPointer_UTF8("\xef\x81\xb0")
-#define FA_FACEBOOK CharPointer_UTF8("\xef\x82\x9a")
-#define FA_FACEBOOK_SQUARE CharPointer_UTF8("\xef\x82\x82")
-#define FA_FAST_BACKWARD CharPointer_UTF8("\xef\x81\x89")
-#define FA_FAST_FORWARD CharPointer_UTF8("\xef\x81\x90")
-#define FA_FAX CharPointer_UTF8("\xef\x86\xac")
-#define FA_FEMALE CharPointer_UTF8("\xef\x86\x82")
-#define FA_FIGHTER_JET CharPointer_UTF8("\xef\x83\xbb")
-#define FA_FILE CharPointer_UTF8("\xef\x85\x9b")
-#define FA_FILE_ARCHIVE_O CharPointer_UTF8("\xef\x87\x86")
-#define FA_FILE_AUDIO_O CharPointer_UTF8("\xef\x87\x87")
-#define FA_FILE_CODE_O CharPointer_UTF8("\xef\x87\x89")
-#define FA_FILE_EXCEL_O CharPointer_UTF8("\xef\x87\x83")
-#define FA_FILE_IMAGE_O CharPointer_UTF8("\xef\x87\x85")
-#define FA_FILE_MOVIE_O CharPointer_UTF8("\xef\x87\x88")
-#define FA_FILE_O CharPointer_UTF8("\xef\x80\x96")
-#define FA_FILE_PDF_O CharPointer_UTF8("\xef\x87\x81")
-#define FA_FILE_PHOTO_O CharPointer_UTF8("\xef\x87\x85")
-#define FA_FILE_PICTURE_O CharPointer_UTF8("\xef\x87\x85")
-#define FA_FILE_POWERPOINT_O CharPointer_UTF8("\xef\x87\x84")
-#define FA_FILE_SOUND_O CharPointer_UTF8("\xef\x87\x87")
-#define FA_FILE_TEXT CharPointer_UTF8("\xef\x85\x9c")
-#define FA_FILE_TEXT_O CharPointer_UTF8("\xef\x83\xb6")
-#define FA_FILE_VIDEO_O CharPointer_UTF8("\xef\x87\x88")
-#define FA_FILE_WORD_O CharPointer_UTF8("\xef\x87\x82")
-#define FA_FILE_ZIP_O CharPointer_UTF8("\xef\x87\x86")
-#define FA_FILES_O CharPointer_UTF8("\xef\x83\x85")
-#define FA_FILM CharPointer_UTF8("\xef\x80\x88")
-#define FA_FILTER CharPointer_UTF8("\xef\x82\xb0")
-#define FA_FIRE CharPointer_UTF8("\xef\x81\xad")
-#define FA_FIRE_EXTINGUISHER CharPointer_UTF8("\xef\x84\xb4")
-#define FA_FLAG CharPointer_UTF8("\xef\x80\xa4")
-#define FA_FLAG_CHECKERED CharPointer_UTF8("\xef\x84\x9e")
-#define FA_FLAG_O CharPointer_UTF8("\xef\x84\x9d")
-#define FA_FLASH CharPointer_UTF8("\xef\x83\xa7")
-#define FA_FLASK CharPointer_UTF8("\xef\x83\x83")
-#define FA_FLICKR CharPointer_UTF8("\xef\x85\xae")
-#define FA_FLOPPY_O CharPointer_UTF8("\xef\x83\x87")
-#define FA_FOLDER CharPointer_UTF8("\xef\x81\xbb")
-#define FA_FOLDER_O CharPointer_UTF8("\xef\x84\x94")
-#define FA_FOLDER_OPEN CharPointer_UTF8("\xef\x81\xbc")
-#define FA_FOLDER_OPEN_O CharPointer_UTF8("\xef\x84\x95")
-#define FA_FONT CharPointer_UTF8("\xef\x80\xb1")
-#define FA_FORWARD CharPointer_UTF8("\xef\x81\x8e")
-#define FA_FOURSQUARE CharPointer_UTF8("\xef\x86\x80")
-#define FA_FROWN_O CharPointer_UTF8("\xef\x84\x99")
-#define FA_GAMEPAD CharPointer_UTF8("\xef\x84\x9b")
-#define FA_GAVEL CharPointer_UTF8("\xef\x83\xa3")
-#define FA_GBP CharPointer_UTF8("\xef\x85\x94")
-#define FA_GE CharPointer_UTF8("\xef\x87\x91")
-#define FA_GEAR CharPointer_UTF8("\xef\x80\x93")
-#define FA_GEARS CharPointer_UTF8("\xef\x82\x85")
-#define FA_GIFT CharPointer_UTF8("\xef\x81\xab")
-#define FA_GIT CharPointer_UTF8("\xef\x87\x93")
-#define FA_GIT_SQUARE CharPointer_UTF8("\xef\x87\x92")
-#define FA_GITHUB CharPointer_UTF8("\xef\x82\x9b")
-#define FA_GITHUB_ALT CharPointer_UTF8("\xef\x84\x93")
-#define FA_GITHUB_SQUARE CharPointer_UTF8("\xef\x82\x92")
-#define FA_GITTIP CharPointer_UTF8("\xef\x86\x84")
-#define FA_GLASS CharPointer_UTF8("\xef\x80\x80")
-#define FA_GLOBE CharPointer_UTF8("\xef\x82\xac")
-#define FA_GOOGLE CharPointer_UTF8("\xef\x86\xa0")
-#define FA_GOOGLE_PLUS CharPointer_UTF8("\xef\x83\x95")
-#define FA_GOOGLE_PLUS_SQUARE CharPointer_UTF8("\xef\x83\x94")
-#define FA_GRADUATION_CAP CharPointer_UTF8("\xef\x86\x9d")
-#define FA_GROUP CharPointer_UTF8("\xef\x83\x80")
-#define FA_H_SQUARE CharPointer_UTF8("\xef\x83\xbd")
-#define FA_HACKER_NEWS CharPointer_UTF8("\xef\x87\x94")
-#define FA_HAND_O_DOWN CharPointer_UTF8("\xef\x82\xa7")
-#define FA_HAND_O_LEFT CharPointer_UTF8("\xef\x82\xa5")
-#define FA_HAND_O_RIGHT CharPointer_UTF8("\xef\x82\xa4")
-#define FA_HAND_O_UP CharPointer_UTF8("\xef\x82\xa6")
-#define FA_HDD_O CharPointer_UTF8("\xef\x82\xa0")
-#define FA_HEADER CharPointer_UTF8("\xef\x87\x9c")
-#define FA_HEADPHONES CharPointer_UTF8("\xef\x80\xa5")
-#define FA_HEART CharPointer_UTF8("\xef\x80\x84")
-#define FA_HEART_O CharPointer_UTF8("\xef\x82\x8a")
-#define FA_HISTORY CharPointer_UTF8("\xef\x87\x9a")
-#define FA_HOME CharPointer_UTF8("\xef\x80\x95")
-#define FA_HOSPITAL_O CharPointer_UTF8("\xef\x83\xb8")
-#define FA_HTML5 CharPointer_UTF8("\xef\x84\xbb")
-#define FA_IMAGE CharPointer_UTF8("\xef\x80\xbe")
-#define FA_INBOX CharPointer_UTF8("\xef\x80\x9c")
-#define FA_INDENT CharPointer_UTF8("\xef\x80\xbc")
-#define FA_INFO CharPointer_UTF8("\xef\x84\xa9")
-#define FA_INFO_CIRCLE CharPointer_UTF8("\xef\x81\x9a")
-#define FA_INR CharPointer_UTF8("\xef\x85\x96")
-#define FA_INSTAGRAM CharPointer_UTF8("\xef\x85\xad")
-#define FA_INSTITUTION CharPointer_UTF8("\xef\x86\x9c")
-#define FA_ITALIC CharPointer_UTF8("\xef\x80\xb3")
-#define FA_JOOMLA CharPointer_UTF8("\xef\x86\xaa")
-#define FA_JPY CharPointer_UTF8("\xef\x85\x97")
-#define FA_JSFIDDLE CharPointer_UTF8("\xef\x87\x8c")
-#define FA_KEY CharPointer_UTF8("\xef\x82\x84")
-#define FA_KEYBOARD_O CharPointer_UTF8("\xef\x84\x9c")
-#define FA_KRW CharPointer_UTF8("\xef\x85\x99")
-#define FA_LANGUAGE CharPointer_UTF8("\xef\x86\xab")
-#define FA_LAPTOP CharPointer_UTF8("\xef\x84\x89")
-#define FA_LEAF CharPointer_UTF8("\xef\x81\xac")
-#define FA_LEGAL CharPointer_UTF8("\xef\x83\xa3")
-#define FA_LEMON_O CharPointer_UTF8("\xef\x82\x94")
-#define FA_LEVEL_DOWN CharPointer_UTF8("\xef\x85\x89")
-#define FA_LEVEL_UP CharPointer_UTF8("\xef\x85\x88")
-#define FA_LIFE_BOUY CharPointer_UTF8("\xef\x87\x8d")
-#define FA_LIFE_RING CharPointer_UTF8("\xef\x87\x8d")
-#define FA_LIFE_SAVER CharPointer_UTF8("\xef\x87\x8d")
-#define FA_LIGHTBULB_O CharPointer_UTF8("\xef\x83\xab")
-#define FA_LINK CharPointer_UTF8("\xef\x83\x81")
-#define FA_LINKEDIN CharPointer_UTF8("\xef\x83\xa1")
-#define FA_LINKEDIN_SQUARE CharPointer_UTF8("\xef\x82\x8c")
-#define FA_LINUX CharPointer_UTF8("\xef\x85\xbc")
-#define FA_LIST CharPointer_UTF8("\xef\x80\xba")
-#define FA_LIST_ALT CharPointer_UTF8("\xef\x80\xa2")
-#define FA_LIST_OL CharPointer_UTF8("\xef\x83\x8b")
-#define FA_LIST_UL CharPointer_UTF8("\xef\x83\x8a")
-#define FA_LOCATION_ARROW CharPointer_UTF8("\xef\x84\xa4")
-#define FA_LOCK CharPointer_UTF8("\xef\x80\xa3")
-#define FA_LONG_ARROW_DOWN CharPointer_UTF8("\xef\x85\xb5")
-#define FA_LONG_ARROW_LEFT CharPointer_UTF8("\xef\x85\xb7")
-#define FA_LONG_ARROW_RIGHT CharPointer_UTF8("\xef\x85\xb8")
-#define FA_LONG_ARROW_UP CharPointer_UTF8("\xef\x85\xb6")
-#define FA_MAGIC CharPointer_UTF8("\xef\x83\x90")
-#define FA_MAGNET CharPointer_UTF8("\xef\x81\xb6")
-#define FA_MAIL_FORWARD CharPointer_UTF8("\xef\x81\xa4")
-#define FA_MAIL_REPLY CharPointer_UTF8("\xef\x84\x92")
-#define FA_MAIL_REPLY_ALL CharPointer_UTF8("\xef\x84\xa2")
-#define FA_MALE CharPointer_UTF8("\xef\x86\x83")
-#define FA_MAP_MARKER CharPointer_UTF8("\xef\x81\x81")
-#define FA_MAXCDN CharPointer_UTF8("\xef\x84\xb6")
-#define FA_MEDKIT CharPointer_UTF8("\xef\x83\xba")
-#define FA_MEH_O CharPointer_UTF8("\xef\x84\x9a")
-#define FA_MICROPHONE CharPointer_UTF8("\xef\x84\xb0")
-#define FA_MICROPHONE_SLASH CharPointer_UTF8("\xef\x84\xb1")
-#define FA_MINUS CharPointer_UTF8("\xef\x81\xa8")
-#define FA_MINUS_CIRCLE CharPointer_UTF8("\xef\x81\x96")
-#define FA_MINUS_SQUARE CharPointer_UTF8("\xef\x85\x86")
-#define FA_MINUS_SQUARE_O CharPointer_UTF8("\xef\x85\x87")
-#define FA_MOBILE CharPointer_UTF8("\xef\x84\x8b")
-#define FA_MOBILE_PHONE CharPointer_UTF8("\xef\x84\x8b")
-#define FA_MONEY CharPointer_UTF8("\xef\x83\x96")
-#define FA_MOON_O CharPointer_UTF8("\xef\x86\x86")
-#define FA_MORTAR_BOARD CharPointer_UTF8("\xef\x86\x9d")
-#define FA_MUSIC CharPointer_UTF8("\xef\x80\x81")
-#define FA_NAVICON CharPointer_UTF8("\xef\x83\x89")
-#define FA_OPENID CharPointer_UTF8("\xef\x86\x9b")
-#define FA_OUTDENT CharPointer_UTF8("\xef\x80\xbb")
-#define FA_PAGELINES CharPointer_UTF8("\xef\x86\x8c")
-#define FA_PAPER_PLANE CharPointer_UTF8("\xef\x87\x98")
-#define FA_PAPER_PLANE_O CharPointer_UTF8("\xef\x87\x99")
-#define FA_PAPERCLIP CharPointer_UTF8("\xef\x83\x86")
-#define FA_PARAGRAPH CharPointer_UTF8("\xef\x87\x9d")
-#define FA_PASTE CharPointer_UTF8("\xef\x83\xaa")
-#define FA_PAUSE CharPointer_UTF8("\xef\x81\x8c")
-#define FA_PAW CharPointer_UTF8("\xef\x86\xb0")
-#define FA_PENCIL CharPointer_UTF8("\xef\x81\x80")
-#define FA_PENCIL_SQUARE CharPointer_UTF8("\xef\x85\x8b")
-#define FA_PENCIL_SQUARE_O CharPointer_UTF8("\xef\x81\x84")
-#define FA_PHONE CharPointer_UTF8("\xef\x82\x95")
-#define FA_PHONE_SQUARE CharPointer_UTF8("\xef\x82\x98")
-#define FA_PHOTO CharPointer_UTF8("\xef\x80\xbe")
-#define FA_PICTURE_O CharPointer_UTF8("\xef\x80\xbe")
-#define FA_PIED_PIPER CharPointer_UTF8("\xef\x86\xa7")
-#define FA_PIED_PIPER_ALT CharPointer_UTF8("\xef\x86\xa8")
-#define FA_PIED_PIPER_SQUARE CharPointer_UTF8("\xef\x86\xa7")
-#define FA_PINTEREST CharPointer_UTF8("\xef\x83\x92")
-#define FA_PINTEREST_SQUARE CharPointer_UTF8("\xef\x83\x93")
-#define FA_PLANE CharPointer_UTF8("\xef\x81\xb2")
-#define FA_PLAY CharPointer_UTF8("\xef\x81\x8b")
-#define FA_PLAY_CIRCLE CharPointer_UTF8("\xef\x85\x84")
-#define FA_PLAY_CIRCLE_O CharPointer_UTF8("\xef\x80\x9d")
-#define FA_PLUS CharPointer_UTF8("\xef\x81\xa7")
-#define FA_PLUS_CIRCLE CharPointer_UTF8("\xef\x81\x95")
-#define FA_PLUS_SQUARE CharPointer_UTF8("\xef\x83\xbe")
-#define FA_PLUS_SQUARE_O CharPointer_UTF8("\xef\x86\x96")
-#define FA_POWER_OFF CharPointer_UTF8("\xef\x80\x91")
-#define FA_PRINT CharPointer_UTF8("\xef\x80\xaf")
-#define FA_PUZZLE_PIECE CharPointer_UTF8("\xef\x84\xae")
-#define FA_QQ CharPointer_UTF8("\xef\x87\x96")
-#define FA_QRCODE CharPointer_UTF8("\xef\x80\xa9")
-#define FA_QUESTION CharPointer_UTF8("\xef\x84\xa8")
-#define FA_QUESTION_CIRCLE CharPointer_UTF8("\xef\x81\x99")
-#define FA_QUOTE_LEFT CharPointer_UTF8("\xef\x84\x8d")
-#define FA_QUOTE_RIGHT CharPointer_UTF8("\xef\x84\x8e")
-#define FA_RA CharPointer_UTF8("\xef\x87\x90")
-#define FA_RANDOM CharPointer_UTF8("\xef\x81\xb4")
-#define FA_REBEL CharPointer_UTF8("\xef\x87\x90")
-#define FA_RECYCLE CharPointer_UTF8("\xef\x86\xb8")
-#define FA_REDDIT CharPointer_UTF8("\xef\x86\xa1")
-#define FA_REDDIT_SQUARE CharPointer_UTF8("\xef\x86\xa2")
-#define FA_REFRESH CharPointer_UTF8("\xef\x80\xa1")
-#define FA_RENREN CharPointer_UTF8("\xef\x86\x8b")
-#define FA_REORDER CharPointer_UTF8("\xef\x83\x89")
-#define FA_REPEAT CharPointer_UTF8("\xef\x80\x9e")
-#define FA_REPLY CharPointer_UTF8("\xef\x84\x92")
-#define FA_REPLY_ALL CharPointer_UTF8("\xef\x84\xa2")
-#define FA_RETWEET CharPointer_UTF8("\xef\x81\xb9")
-#define FA_RMB CharPointer_UTF8("\xef\x85\x97")
-#define FA_ROAD CharPointer_UTF8("\xef\x80\x98")
-#define FA_ROCKET CharPointer_UTF8("\xef\x84\xb5")
-#define FA_ROTATE_LEFT CharPointer_UTF8("\xef\x83\xa2")
-#define FA_ROTATE_RIGHT CharPointer_UTF8("\xef\x80\x9e")
-#define FA_ROUBLE CharPointer_UTF8("\xef\x85\x98")
-#define FA_RSS CharPointer_UTF8("\xef\x82\x9e")
-#define FA_RSS_SQUARE CharPointer_UTF8("\xef\x85\x83")
-#define FA_RUB CharPointer_UTF8("\xef\x85\x98")
-#define FA_RUBLE CharPointer_UTF8("\xef\x85\x98")
-#define FA_RUPEE CharPointer_UTF8("\xef\x85\x96")
-#define FA_SAVE CharPointer_UTF8("\xef\x83\x87")
-#define FA_SCISSORS CharPointer_UTF8("\xef\x83\x84")
-#define FA_SEARCH CharPointer_UTF8("\xef\x80\x82")
-#define FA_SEARCH_MINUS CharPointer_UTF8("\xef\x80\x90")
-#define FA_SEARCH_PLUS CharPointer_UTF8("\xef\x80\x8e")
-#define FA_SEND CharPointer_UTF8("\xef\x87\x98")
-#define FA_SEND_O CharPointer_UTF8("\xef\x87\x99")
-#define FA_SHARE CharPointer_UTF8("\xef\x81\xa4")
-#define FA_SHARE_ALT CharPointer_UTF8("\xef\x87\xa0")
-#define FA_SHARE_ALT_SQUARE CharPointer_UTF8("\xef\x87\xa1")
-#define FA_SHARE_SQUARE CharPointer_UTF8("\xef\x85\x8d")
-#define FA_SHARE_SQUARE_O CharPointer_UTF8("\xef\x81\x85")
-#define FA_SHIELD CharPointer_UTF8("\xef\x84\xb2")
-#define FA_SHOPPING_CART CharPointer_UTF8("\xef\x81\xba")
-#define FA_SIGN_IN CharPointer_UTF8("\xef\x82\x90")
-#define FA_SIGN_OUT CharPointer_UTF8("\xef\x82\x8b")
-#define FA_SIGNAL CharPointer_UTF8("\xef\x80\x92")
-#define FA_SITEMAP CharPointer_UTF8("\xef\x83\xa8")
-#define FA_SKYPE CharPointer_UTF8("\xef\x85\xbe")
-#define FA_SLACK CharPointer_UTF8("\xef\x86\x98")
-#define FA_SLIDERS CharPointer_UTF8("\xef\x87\x9e")
-#define FA_SMILE_O CharPointer_UTF8("\xef\x84\x98")
-#define FA_SORT CharPointer_UTF8("\xef\x83\x9c")
-#define FA_SORT_ALPHA_ASC CharPointer_UTF8("\xef\x85\x9d")
-#define FA_SORT_ALPHA_DESC CharPointer_UTF8("\xef\x85\x9e")
-#define FA_SORT_AMOUNT_ASC CharPointer_UTF8("\xef\x85\xa0")
-#define FA_SORT_AMOUNT_DESC CharPointer_UTF8("\xef\x85\xa1")
-#define FA_SORT_ASC CharPointer_UTF8("\xef\x83\x9e")
-#define FA_SORT_DESC CharPointer_UTF8("\xef\x83\x9d")
-#define FA_SORT_DOWN CharPointer_UTF8("\xef\x83\x9d")
-#define FA_SORT_NUMERIC_ASC CharPointer_UTF8("\xef\x85\xa2")
-#define FA_SORT_NUMERIC_DESC CharPointer_UTF8("\xef\x85\xa3")
-#define FA_SORT_UP CharPointer_UTF8("\xef\x83\x9e")
-#define FA_SOUNDCLOUD CharPointer_UTF8("\xef\x86\xbe")
-#define FA_SPACE_SHUTTLE CharPointer_UTF8("\xef\x86\x97")
-#define FA_SPINNER CharPointer_UTF8("\xef\x84\x90")
-#define FA_SPOON CharPointer_UTF8("\xef\x86\xb1")
-#define FA_SPOTIFY CharPointer_UTF8("\xef\x86\xbc")
-#define FA_SQUARE CharPointer_UTF8("\xef\x83\x88")
-#define FA_SQUARE_O CharPointer_UTF8("\xef\x82\x96")
-#define FA_STACK_EXCHANGE CharPointer_UTF8("\xef\x86\x8d")
-#define FA_STACK_OVERFLOW CharPointer_UTF8("\xef\x85\xac")
-#define FA_STAR CharPointer_UTF8("\xef\x80\x85")
-#define FA_STAR_HALF CharPointer_UTF8("\xef\x82\x89")
-#define FA_STAR_HALF_EMPTY CharPointer_UTF8("\xef\x84\xa3")
-#define FA_STAR_HALF_FULL CharPointer_UTF8("\xef\x84\xa3")
-#define FA_STAR_HALF_O CharPointer_UTF8("\xef\x84\xa3")
-#define FA_STAR_O CharPointer_UTF8("\xef\x80\x86")
-#define FA_STEAM CharPointer_UTF8("\xef\x86\xb6")
-#define FA_STEAM_SQUARE CharPointer_UTF8("\xef\x86\xb7")
-#define FA_STEP_BACKWARD CharPointer_UTF8("\xef\x81\x88")
-#define FA_STEP_FORWARD CharPointer_UTF8("\xef\x81\x91")
-#define FA_STETHOSCOPE CharPointer_UTF8("\xef\x83\xb1")
-#define FA_STOP CharPointer_UTF8("\xef\x81\x8d")
-#define FA_STRIKETHROUGH CharPointer_UTF8("\xef\x83\x8c")
-#define FA_STUMBLEUPON CharPointer_UTF8("\xef\x86\xa4")
-#define FA_STUMBLEUPON_CIRCLE CharPointer_UTF8("\xef\x86\xa3")
-#define FA_SUBSCRIPT CharPointer_UTF8("\xef\x84\xac")
-#define FA_SUITCASE CharPointer_UTF8("\xef\x83\xb2")
-#define FA_SUN_O CharPointer_UTF8("\xef\x86\x85")
-#define FA_SUPERSCRIPT CharPointer_UTF8("\xef\x84\xab")
-#define FA_SUPPORT CharPointer_UTF8("\xef\x87\x8d")
-#define FA_TABLE CharPointer_UTF8("\xef\x83\x8e")
-#define FA_TABLET CharPointer_UTF8("\xef\x84\x8a")
-#define FA_TACHOMETER CharPointer_UTF8("\xef\x83\xa4")
-#define FA_TAG CharPointer_UTF8("\xef\x80\xab")
-#define FA_TAGS CharPointer_UTF8("\xef\x80\xac")
-#define FA_TASKS CharPointer_UTF8("\xef\x82\xae")
-#define FA_TAXI CharPointer_UTF8("\xef\x86\xba")
-#define FA_TENCENT_WEIBO CharPointer_UTF8("\xef\x87\x95")
-#define FA_TERMINAL CharPointer_UTF8("\xef\x84\xa0")
-#define FA_TEXT_HEIGHT CharPointer_UTF8("\xef\x80\xb4")
-#define FA_TEXT_WIDTH CharPointer_UTF8("\xef\x80\xb5")
-#define FA_TH CharPointer_UTF8("\xef\x80\x8a")
-#define FA_TH_LARGE CharPointer_UTF8("\xef\x80\x89")
-#define FA_TH_LIST CharPointer_UTF8("\xef\x80\x8b")
-#define FA_THUMB_TACK CharPointer_UTF8("\xef\x82\x8d")
-#define FA_THUMBS_DOWN CharPointer_UTF8("\xef\x85\xa5")
-#define FA_THUMBS_O_DOWN CharPointer_UTF8("\xef\x82\x88")
-#define FA_THUMBS_O_UP CharPointer_UTF8("\xef\x82\x87")
-#define FA_THUMBS_UP CharPointer_UTF8("\xef\x85\xa4")
-#define FA_TICKET CharPointer_UTF8("\xef\x85\x85")
-#define FA_TIMES CharPointer_UTF8("\xef\x80\x8d")
-#define FA_TIMES_CIRCLE CharPointer_UTF8("\xef\x81\x97")
-#define FA_TIMES_CIRCLE_O CharPointer_UTF8("\xef\x81\x9c")
-#define FA_TINT CharPointer_UTF8("\xef\x81\x83")
-#define FA_TOGGLE_DOWN CharPointer_UTF8("\xef\x85\x90")
-#define FA_TOGGLE_LEFT CharPointer_UTF8("\xef\x86\x91")
-#define FA_TOGGLE_RIGHT CharPointer_UTF8("\xef\x85\x92")
-#define FA_TOGGLE_UP CharPointer_UTF8("\xef\x85\x91")
-#define FA_TRASH_O CharPointer_UTF8("\xef\x80\x94")
-#define FA_TREE CharPointer_UTF8("\xef\x86\xbb")
-#define FA_TRELLO CharPointer_UTF8("\xef\x86\x81")
-#define FA_TROPHY CharPointer_UTF8("\xef\x82\x91")
-#define FA_TRUCK CharPointer_UTF8("\xef\x83\x91")
-#define FA_TRY CharPointer_UTF8("\xef\x86\x95")
-#define FA_TUMBLR CharPointer_UTF8("\xef\x85\xb3")
-#define FA_TUMBLR_SQUARE CharPointer_UTF8("\xef\x85\xb4")
-#define FA_TURKISH_LIRA CharPointer_UTF8("\xef\x86\x95")
-#define FA_TWITTER CharPointer_UTF8("\xef\x82\x99")
-#define FA_TWITTER_SQUARE CharPointer_UTF8("\xef\x82\x81")
-#define FA_UMBRELLA CharPointer_UTF8("\xef\x83\xa9")
-#define FA_UNDERLINE CharPointer_UTF8("\xef\x83\x8d")
-#define FA_UNDO CharPointer_UTF8("\xef\x83\xa2")
-#define FA_UNIVERSITY CharPointer_UTF8("\xef\x86\x9c")
-#define FA_UNLINK CharPointer_UTF8("\xef\x84\xa7")
-#define FA_UNLOCK CharPointer_UTF8("\xef\x82\x9c")
-#define FA_UNLOCK_ALT CharPointer_UTF8("\xef\x84\xbe")
-#define FA_UNSORTED CharPointer_UTF8("\xef\x83\x9c")
-#define FA_UPLOAD CharPointer_UTF8("\xef\x82\x93")
-#define FA_USD CharPointer_UTF8("\xef\x85\x95")
-#define FA_USER CharPointer_UTF8("\xef\x80\x87")
-#define FA_USER_MD CharPointer_UTF8("\xef\x83\xb0")
-#define FA_USERS CharPointer_UTF8("\xef\x83\x80")
-#define FA_VIDEO_CAMERA CharPointer_UTF8("\xef\x80\xbd")
-#define FA_VIMEO_SQUARE CharPointer_UTF8("\xef\x86\x94")
-#define FA_VINE CharPointer_UTF8("\xef\x87\x8a")
-#define FA_VK CharPointer_UTF8("\xef\x86\x89")
-#define FA_VOLUME_DOWN CharPointer_UTF8("\xef\x80\xa7")
-#define FA_VOLUME_OFF CharPointer_UTF8("\xef\x80\xa6")
-#define FA_VOLUME_UP CharPointer_UTF8("\xef\x80\xa8")
-#define FA_WARNING CharPointer_UTF8("\xef\x81\xb1")
-#define FA_WECHAT CharPointer_UTF8("\xef\x87\x97")
-#define FA_WEIBO CharPointer_UTF8("\xef\x86\x8a")
-#define FA_WEIXIN CharPointer_UTF8("\xef\x87\x97")
-#define FA_WHEELCHAIR CharPointer_UTF8("\xef\x86\x93")
-#define FA_WINDOWS CharPointer_UTF8("\xef\x85\xba")
-#define FA_WON CharPointer_UTF8("\xef\x85\x99")
-#define FA_WORDPRESS CharPointer_UTF8("\xef\x86\x9a")
-#define FA_WRENCH CharPointer_UTF8("\xef\x82\xad")
-#define FA_XING CharPointer_UTF8("\xef\x85\xa8")
-#define FA_XING_SQUARE CharPointer_UTF8("\xef\x85\xa9")
-#define FA_YAHOO CharPointer_UTF8("\xef\x86\x9e")
-#define FA_YEN CharPointer_UTF8("\xef\x85\x97")
-#define FA_YOUTUBE CharPointer_UTF8("\xef\x85\xa7")
-#define FA_YOUTUBE_PLAY CharPointer_UTF8("\xef\x85\xaa")
-#define FA_YOUTUBE_SQUARE CharPointer_UTF8("\xef\x85\xa6")
-
-#define FA_ALL                                                                 \
-  {                                                                            \
-    FA_ADJUST, FA_ADN, FA_ALIGN_CENTER, FA_ALIGN_JUSTIFY, FA_ALIGN_LEFT,       \
-        FA_ALIGN_RIGHT, FA_AMBULANCE, FA_ANCHOR, FA_ANDROID,                   \
-        FA_ANGLE_DOUBLE_DOWN, FA_ANGLE_DOUBLE_LEFT, FA_ANGLE_DOUBLE_RIGHT,     \
-        FA_ANGLE_DOUBLE_UP, FA_ANGLE_DOWN, FA_ANGLE_LEFT, FA_ANGLE_RIGHT,      \
-        FA_ANGLE_UP, FA_APPLE, FA_ARCHIVE, FA_ARROW_CIRCLE_DOWN,               \
-        FA_ARROW_CIRCLE_LEFT, FA_ARROW_CIRCLE_O_DOWN, FA_ARROW_CIRCLE_O_LEFT,  \
-        FA_ARROW_CIRCLE_O_RIGHT, FA_ARROW_CIRCLE_O_UP, FA_ARROW_CIRCLE_RIGHT,  \
-        FA_ARROW_CIRCLE_UP, FA_ARROW_DOWN, FA_ARROW_LEFT, FA_ARROW_RIGHT,      \
-        FA_ARROW_UP, FA_ARROWS, FA_ARROWS_ALT, FA_ARROWS_H, FA_ARROWS_V,       \
-        FA_ASTERISK, FA_AUTOMOBILE, FA_BACKWARD, FA_BAN, FA_BANK,              \
-        FA_BAR_CHART_O, FA_BARCODE, FA_BARS, FA_BEER, FA_BEHANCE,              \
-        FA_BEHANCE_SQUARE, FA_BELL, FA_BELL_O, FA_BITBUCKET,                   \
-        FA_BITBUCKET_SQUARE, FA_BITCOIN, FA_BOLD, FA_BOLT, FA_BOMB, FA_BOOK,   \
-        FA_BOOKMARK, FA_BOOKMARK_O, FA_BRIEFCASE, FA_BTC, FA_BUG, FA_BUILDING, \
-        FA_BUILDING_O, FA_BULLHORN, FA_BULLSEYE, FA_CAB, FA_CALENDAR,          \
-        FA_CALENDAR_O, FA_CAMERA, FA_CAMERA_RETRO, FA_CAR, FA_CARET_DOWN,      \
-        FA_CARET_LEFT, FA_CARET_RIGHT, FA_CARET_SQUARE_O_DOWN,                 \
-        FA_CARET_SQUARE_O_LEFT, FA_CARET_SQUARE_O_RIGHT, FA_CARET_SQUARE_O_UP, \
-        FA_CARET_UP, FA_CERTIFICATE, FA_CHAIN, FA_CHAIN_BROKEN, FA_CHECK,      \
-        FA_CHECK_CIRCLE, FA_CHECK_CIRCLE_O, FA_CHECK_SQUARE,                   \
-        FA_CHECK_SQUARE_O, FA_CHEVRON_CIRCLE_DOWN, FA_CHEVRON_CIRCLE_LEFT,     \
-        FA_CHEVRON_CIRCLE_RIGHT, FA_CHEVRON_CIRCLE_UP, FA_CHEVRON_DOWN,        \
-        FA_CHEVRON_LEFT, FA_CHEVRON_RIGHT, FA_CHEVRON_UP, FA_CHILD, FA_CIRCLE, \
-        FA_CIRCLE_O, FA_CIRCLE_O_NOTCH, FA_CIRCLE_THIN, FA_CLIPBOARD,          \
-        FA_CLOCK_O, FA_CLOUD, FA_CLOUD_DOWNLOAD, FA_CLOUD_UPLOAD, FA_CNY,      \
-        FA_CODE, FA_CODE_FORK, FA_CODEPEN, FA_COFFEE, FA_COG, FA_COGS,         \
-        FA_COLUMNS, FA_COMMENT, FA_COMMENT_O, FA_COMMENTS, FA_COMMENTS_O,      \
-        FA_COMPASS, FA_COMPRESS, FA_COPY, FA_CREDIT_CARD, FA_CROP,             \
-        FA_CROSSHAIRS, FA_CSS3, FA_CUBE, FA_CUBES, FA_CUT, FA_CUTLERY,         \
-        FA_DASHBOARD, FA_DATABASE, FA_DEDENT, FA_DELICIOUS, FA_DESKTOP,        \
-        FA_DEVIANTART, FA_DIGG, FA_DOLLAR, FA_DOT_CIRCLE_O, FA_DOWNLOAD,       \
-        FA_DRIBBBLE, FA_DROPBOX, FA_DRUPAL, FA_EDIT, FA_EJECT, FA_ELLIPSIS_H,  \
-        FA_ELLIPSIS_V, FA_EMPIRE, FA_ENVELOPE, FA_ENVELOPE_O,                  \
-        FA_ENVELOPE_SQUARE, FA_ERASER, FA_EUR, FA_EURO, FA_EXCHANGE,           \
-        FA_EXCLAMATION, FA_EXCLAMATION_CIRCLE, FA_EXCLAMATION_TRIANGLE,        \
-        FA_EXPAND, FA_EXTERNAL_LINK, FA_EXTERNAL_LINK_SQUARE, FA_EYE,          \
-        FA_EYE_SLASH, FA_FACEBOOK, FA_FACEBOOK_SQUARE, FA_FAST_BACKWARD,       \
-        FA_FAST_FORWARD, FA_FAX, FA_FEMALE, FA_FIGHTER_JET, FA_FILE,           \
-        FA_FILE_ARCHIVE_O, FA_FILE_AUDIO_O, FA_FILE_CODE_O, FA_FILE_EXCEL_O,   \
-        FA_FILE_IMAGE_O, FA_FILE_MOVIE_O, FA_FILE_O, FA_FILE_PDF_O,            \
-        FA_FILE_PHOTO_O, FA_FILE_PICTURE_O, FA_FILE_POWERPOINT_O,              \
-        FA_FILE_SOUND_O, FA_FILE_TEXT, FA_FILE_TEXT_O, FA_FILE_VIDEO_O,        \
-        FA_FILE_WORD_O, FA_FILE_ZIP_O, FA_FILES_O, FA_FILM, FA_FILTER,         \
-        FA_FIRE, FA_FIRE_EXTINGUISHER, FA_FLAG, FA_FLAG_CHECKERED, FA_FLAG_O,  \
-        FA_FLASH, FA_FLASK, FA_FLICKR, FA_FLOPPY_O, FA_FOLDER, FA_FOLDER_O,    \
-        FA_FOLDER_OPEN, FA_FOLDER_OPEN_O, FA_FONT, FA_FORWARD, FA_FOURSQUARE,  \
-        FA_FROWN_O, FA_GAMEPAD, FA_GAVEL, FA_GBP, FA_GE, FA_GEAR, FA_GEARS,    \
-        FA_GIFT, FA_GIT, FA_GIT_SQUARE, FA_GITHUB, FA_GITHUB_ALT,              \
-        FA_GITHUB_SQUARE, FA_GITTIP, FA_GLASS, FA_GLOBE, FA_GOOGLE,            \
-        FA_GOOGLE_PLUS, FA_GOOGLE_PLUS_SQUARE, FA_GRADUATION_CAP, FA_GROUP,    \
-        FA_H_SQUARE, FA_HACKER_NEWS, FA_HAND_O_DOWN, FA_HAND_O_LEFT,           \
-        FA_HAND_O_RIGHT, FA_HAND_O_UP, FA_HDD_O, FA_HEADER, FA_HEADPHONES,     \
-        FA_HEART, FA_HEART_O, FA_HISTORY, FA_HOME, FA_HOSPITAL_O, FA_HTML5,    \
-        FA_IMAGE, FA_INBOX, FA_INDENT, FA_INFO, FA_INFO_CIRCLE, FA_INR,        \
-        FA_INSTAGRAM, FA_INSTITUTION, FA_ITALIC, FA_JOOMLA, FA_JPY,            \
-        FA_JSFIDDLE, FA_KEY, FA_KEYBOARD_O, FA_KRW, FA_LANGUAGE, FA_LAPTOP,    \
-        FA_LEAF, FA_LEGAL, FA_LEMON_O, FA_LEVEL_DOWN, FA_LEVEL_UP,             \
-        FA_LIFE_BOUY, FA_LIFE_RING, FA_LIFE_SAVER, FA_LIGHTBULB_O, FA_LINK,    \
-        FA_LINKEDIN, FA_LINKEDIN_SQUARE, FA_LINUX, FA_LIST, FA_LIST_ALT,       \
-        FA_LIST_OL, FA_LIST_UL, FA_LOCATION_ARROW, FA_LOCK,                    \
-        FA_LONG_ARROW_DOWN, FA_LONG_ARROW_LEFT, FA_LONG_ARROW_RIGHT,           \
-        FA_LONG_ARROW_UP, FA_MAGIC, FA_MAGNET, FA_MAIL_FORWARD, FA_MAIL_REPLY, \
-        FA_MAIL_REPLY_ALL, FA_MALE, FA_MAP_MARKER, FA_MAXCDN, FA_MEDKIT,       \
-        FA_MEH_O, FA_MICROPHONE, FA_MICROPHONE_SLASH, FA_MINUS,                \
-        FA_MINUS_CIRCLE, FA_MINUS_SQUARE, FA_MINUS_SQUARE_O, FA_MOBILE,        \
-        FA_MOBILE_PHONE, FA_MONEY, FA_MOON_O, FA_MORTAR_BOARD, FA_MUSIC,       \
-        FA_NAVICON, FA_OPENID, FA_OUTDENT, FA_PAGELINES, FA_PAPER_PLANE,       \
-        FA_PAPER_PLANE_O, FA_PAPERCLIP, FA_PARAGRAPH, FA_PASTE, FA_PAUSE,      \
-        FA_PAW, FA_PENCIL, FA_PENCIL_SQUARE, FA_PENCIL_SQUARE_O, FA_PHONE,     \
-        FA_PHONE_SQUARE, FA_PHOTO, FA_PICTURE_O, FA_PIED_PIPER,                \
-        FA_PIED_PIPER_ALT, FA_PIED_PIPER_SQUARE, FA_PINTEREST,                 \
-        FA_PINTEREST_SQUARE, FA_PLANE, FA_PLAY, FA_PLAY_CIRCLE,                \
-        FA_PLAY_CIRCLE_O, FA_PLUS, FA_PLUS_CIRCLE, FA_PLUS_SQUARE,             \
-        FA_PLUS_SQUARE_O, FA_POWER_OFF, FA_PRINT, FA_PUZZLE_PIECE, FA_QQ,      \
-        FA_QRCODE, FA_QUESTION, FA_QUESTION_CIRCLE, FA_QUOTE_LEFT,             \
-        FA_QUOTE_RIGHT, FA_RA, FA_RANDOM, FA_REBEL, FA_RECYCLE, FA_REDDIT,     \
-        FA_REDDIT_SQUARE, FA_REFRESH, FA_RENREN, FA_REORDER, FA_REPEAT,        \
-        FA_REPLY, FA_REPLY_ALL, FA_RETWEET, FA_RMB, FA_ROAD, FA_ROCKET,        \
-        FA_ROTATE_LEFT, FA_ROTATE_RIGHT, FA_ROUBLE, FA_RSS, FA_RSS_SQUARE,     \
-        FA_RUB, FA_RUBLE, FA_RUPEE, FA_SAVE, FA_SCISSORS, FA_SEARCH,           \
-        FA_SEARCH_MINUS, FA_SEARCH_PLUS, FA_SEND, FA_SEND_O, FA_SHARE,         \
-        FA_SHARE_ALT, FA_SHARE_ALT_SQUARE, FA_SHARE_SQUARE, FA_SHARE_SQUARE_O, \
-        FA_SHIELD, FA_SHOPPING_CART, FA_SIGN_IN, FA_SIGN_OUT, FA_SIGNAL,       \
-        FA_SITEMAP, FA_SKYPE, FA_SLACK, FA_SLIDERS, FA_SMILE_O, FA_SORT,       \
-        FA_SORT_ALPHA_ASC, FA_SORT_ALPHA_DESC, FA_SORT_AMOUNT_ASC,             \
-        FA_SORT_AMOUNT_DESC, FA_SORT_ASC, FA_SORT_DESC, FA_SORT_DOWN,          \
-        FA_SORT_NUMERIC_ASC, FA_SORT_NUMERIC_DESC, FA_SORT_UP, FA_SOUNDCLOUD,  \
-        FA_SPACE_SHUTTLE, FA_SPINNER, FA_SPOON, FA_SPOTIFY, FA_SQUARE,         \
-        FA_SQUARE_O, FA_STACK_EXCHANGE, FA_STACK_OVERFLOW, FA_STAR,            \
-        FA_STAR_HALF, FA_STAR_HALF_EMPTY, FA_STAR_HALF_FULL, FA_STAR_HALF_O,   \
-        FA_STAR_O, FA_STEAM, FA_STEAM_SQUARE, FA_STEP_BACKWARD,                \
-        FA_STEP_FORWARD, FA_STETHOSCOPE, FA_STOP, FA_STRIKETHROUGH,            \
-        FA_STUMBLEUPON, FA_STUMBLEUPON_CIRCLE, FA_SUBSCRIPT, FA_SUITCASE,      \
-        FA_SUN_O, FA_SUPERSCRIPT, FA_SUPPORT, FA_TABLE, FA_TABLET,             \
-        FA_TACHOMETER, FA_TAG, FA_TAGS, FA_TASKS, FA_TAXI, FA_TENCENT_WEIBO,   \
-        FA_TERMINAL, FA_TEXT_HEIGHT, FA_TEXT_WIDTH, FA_TH, FA_TH_LARGE,        \
-        FA_TH_LIST, FA_THUMB_TACK, FA_THUMBS_DOWN, FA_THUMBS_O_DOWN,           \
-        FA_THUMBS_O_UP, FA_THUMBS_UP, FA_TICKET, FA_TIMES, FA_TIMES_CIRCLE,    \
-        FA_TIMES_CIRCLE_O, FA_TINT, FA_TOGGLE_DOWN, FA_TOGGLE_LEFT,            \
-        FA_TOGGLE_RIGHT, FA_TOGGLE_UP, FA_TRASH_O, FA_TREE, FA_TRELLO,         \
-        FA_TROPHY, FA_TRUCK, FA_TRY, FA_TUMBLR, FA_TUMBLR_SQUARE,              \
-        FA_TURKISH_LIRA, FA_TWITTER, FA_TWITTER_SQUARE, FA_UMBRELLA,           \
-        FA_UNDERLINE, FA_UNDO, FA_UNIVERSITY, FA_UNLINK, FA_UNLOCK,            \
-        FA_UNLOCK_ALT, FA_UNSORTED, FA_UPLOAD, FA_USD, FA_USER, FA_USER_MD,    \
-        FA_USERS, FA_VIDEO_CAMERA, FA_VIMEO_SQUARE, FA_VINE, FA_VK,            \
-        FA_VOLUME_DOWN, FA_VOLUME_OFF, FA_VOLUME_UP, FA_WARNING, FA_WECHAT,    \
-        FA_WEIBO, FA_WEIXIN, FA_WHEELCHAIR, FA_WINDOWS, FA_WON, FA_WORDPRESS,  \
-        FA_WRENCH, FA_XING, FA_XING_SQUARE, FA_YAHOO, FA_YEN, FA_YOUTUBE,      \
-        FA_YOUTUBE_PLAY, FA_YOUTUBE_SQUARE                                     \
-  }
+const juce::String FontAwesome_Glass = juce::String::fromUTF8(u8"\uf000");
+const juce::String FontAwesome_Music = juce::String::fromUTF8(u8"\uf001");
+const juce::String FontAwesome_Search = juce::String::fromUTF8(u8"\uf002");
+const juce::String FontAwesome_Envelope_O = juce::String::fromUTF8(u8"\uf003");
+const juce::String FontAwesome_Heart = juce::String::fromUTF8(u8"\uf004");
+const juce::String FontAwesome_Star = juce::String::fromUTF8(u8"\uf005");
+const juce::String FontAwesome_Star_O = juce::String::fromUTF8(u8"\uf006");
+const juce::String FontAwesome_User = juce::String::fromUTF8(u8"\uf007");
+const juce::String FontAwesome_Film = juce::String::fromUTF8(u8"\uf008");
+const juce::String FontAwesome_Th_Large = juce::String::fromUTF8(u8"\uf009");
+const juce::String FontAwesome_Th = juce::String::fromUTF8(u8"\uf00a");
+const juce::String FontAwesome_Th_List = juce::String::fromUTF8(u8"\uf00b");
+const juce::String FontAwesome_Check = juce::String::fromUTF8(u8"\uf00c");
+const juce::String FontAwesome_Remove = juce::String::fromUTF8(u8"\uf00d");
+const juce::String FontAwesome_Close = juce::String::fromUTF8(u8"\uf00d");
+const juce::String FontAwesome_Times = juce::String::fromUTF8(u8"\uf00d");
+const juce::String FontAwesome_Search_Plus = juce::String::fromUTF8(u8"\uf00e");
+const juce::String FontAwesome_Search_Minus = juce::String::fromUTF8(u8"\uf010");
+const juce::String FontAwesome_Power_Off = juce::String::fromUTF8(u8"\uf011");
+const juce::String FontAwesome_Signal = juce::String::fromUTF8(u8"\uf012");
+const juce::String FontAwesome_Gear = juce::String::fromUTF8(u8"\uf013");
+const juce::String FontAwesome_Cog = juce::String::fromUTF8(u8"\uf013");
+const juce::String FontAwesome_Trash_O = juce::String::fromUTF8(u8"\uf014");
+const juce::String FontAwesome_Home = juce::String::fromUTF8(u8"\uf015");
+const juce::String FontAwesome_File_O = juce::String::fromUTF8(u8"\uf016");
+const juce::String FontAwesome_Clock_O = juce::String::fromUTF8(u8"\uf017");
+const juce::String FontAwesome_Road = juce::String::fromUTF8(u8"\uf018");
+const juce::String FontAwesome_Download = juce::String::fromUTF8(u8"\uf019");
+const juce::String FontAwesome_Arrow_Circle_O_Down = juce::String::fromUTF8(u8"\uf01a");
+const juce::String FontAwesome_Arrow_Circle_O_Up = juce::String::fromUTF8(u8"\uf01b");
+const juce::String FontAwesome_Inbox = juce::String::fromUTF8(u8"\uf01c");
+const juce::String FontAwesome_Play_Circle_O = juce::String::fromUTF8(u8"\uf01d");
+const juce::String FontAwesome_Rotate_Right = juce::String::fromUTF8(u8"\uf01e");
+const juce::String FontAwesome_Repeat = juce::String::fromUTF8(u8"\uf01e");
+const juce::String FontAwesome_Refresh = juce::String::fromUTF8(u8"\uf021");
+const juce::String FontAwesome_List_Alt = juce::String::fromUTF8(u8"\uf022");
+const juce::String FontAwesome_Lock = juce::String::fromUTF8(u8"\uf023");
+const juce::String FontAwesome_Flag = juce::String::fromUTF8(u8"\uf024");
+const juce::String FontAwesome_Headphones = juce::String::fromUTF8(u8"\uf025");
+const juce::String FontAwesome_Volume_Off = juce::String::fromUTF8(u8"\uf026");
+const juce::String FontAwesome_Volume_Down = juce::String::fromUTF8(u8"\uf027");
+const juce::String FontAwesome_Volume_Up = juce::String::fromUTF8(u8"\uf028");
+const juce::String FontAwesome_Qrcode = juce::String::fromUTF8(u8"\uf029");
+const juce::String FontAwesome_Barcode = juce::String::fromUTF8(u8"\uf02a");
+const juce::String FontAwesome_Tag = juce::String::fromUTF8(u8"\uf02b");
+const juce::String FontAwesome_Tags = juce::String::fromUTF8(u8"\uf02c");
+const juce::String FontAwesome_Book = juce::String::fromUTF8(u8"\uf02d");
+const juce::String FontAwesome_Bookmark = juce::String::fromUTF8(u8"\uf02e");
+const juce::String FontAwesome_Print = juce::String::fromUTF8(u8"\uf02f");
+const juce::String FontAwesome_Camera = juce::String::fromUTF8(u8"\uf030");
+const juce::String FontAwesome_Font = juce::String::fromUTF8(u8"\uf031");
+const juce::String FontAwesome_Bold = juce::String::fromUTF8(u8"\uf032");
+const juce::String FontAwesome_Italic = juce::String::fromUTF8(u8"\uf033");
+const juce::String FontAwesome_Text_Height = juce::String::fromUTF8(u8"\uf034");
+const juce::String FontAwesome_Text_Width = juce::String::fromUTF8(u8"\uf035");
+const juce::String FontAwesome_Align_Left = juce::String::fromUTF8(u8"\uf036");
+const juce::String FontAwesome_Align_Center = juce::String::fromUTF8(u8"\uf037");
+const juce::String FontAwesome_Align_Right = juce::String::fromUTF8(u8"\uf038");
+const juce::String FontAwesome_Align_Justify = juce::String::fromUTF8(u8"\uf039");
+const juce::String FontAwesome_List = juce::String::fromUTF8(u8"\uf03a");
+const juce::String FontAwesome_Dedent = juce::String::fromUTF8(u8"\uf03b");
+const juce::String FontAwesome_Outdent = juce::String::fromUTF8(u8"\uf03b");
+const juce::String FontAwesome_Indent = juce::String::fromUTF8(u8"\uf03c");
+const juce::String FontAwesome_Video_Camera = juce::String::fromUTF8(u8"\uf03d");
+const juce::String FontAwesome_Photo = juce::String::fromUTF8(u8"\uf03e");
+const juce::String FontAwesome_Image = juce::String::fromUTF8(u8"\uf03e");
+const juce::String FontAwesome_Picture_O = juce::String::fromUTF8(u8"\uf03e");
+const juce::String FontAwesome_Pencil = juce::String::fromUTF8(u8"\uf040");
+const juce::String FontAwesome_Map_Marker = juce::String::fromUTF8(u8"\uf041");
+const juce::String FontAwesome_Adjust = juce::String::fromUTF8(u8"\uf042");
+const juce::String FontAwesome_Tint = juce::String::fromUTF8(u8"\uf043");
+const juce::String FontAwesome_Edit = juce::String::fromUTF8(u8"\uf044");
+const juce::String FontAwesome_Pencil_Square_O = juce::String::fromUTF8(u8"\uf044");
+const juce::String FontAwesome_Share_Square_O = juce::String::fromUTF8(u8"\uf045");
+const juce::String FontAwesome_Check_Square_O = juce::String::fromUTF8(u8"\uf046");
+const juce::String FontAwesome_Arrows = juce::String::fromUTF8(u8"\uf047");
+const juce::String FontAwesome_Step_Backward = juce::String::fromUTF8(u8"\uf048");
+const juce::String FontAwesome_Fast_Backward = juce::String::fromUTF8(u8"\uf049");
+const juce::String FontAwesome_Backward = juce::String::fromUTF8(u8"\uf04a");
+const juce::String FontAwesome_Play = juce::String::fromUTF8(u8"\uf04b");
+const juce::String FontAwesome_Pause = juce::String::fromUTF8(u8"\uf04c");
+const juce::String FontAwesome_Stop = juce::String::fromUTF8(u8"\uf04d");
+const juce::String FontAwesome_Forward = juce::String::fromUTF8(u8"\uf04e");
+const juce::String FontAwesome_Fast_Forward = juce::String::fromUTF8(u8"\uf050");
+const juce::String FontAwesome_Step_Forward = juce::String::fromUTF8(u8"\uf051");
+const juce::String FontAwesome_Eject = juce::String::fromUTF8(u8"\uf052");
+const juce::String FontAwesome_Chevron_Left = juce::String::fromUTF8(u8"\uf053");
+const juce::String FontAwesome_Chevron_Right = juce::String::fromUTF8(u8"\uf054");
+const juce::String FontAwesome_Plus_Circle = juce::String::fromUTF8(u8"\uf055");
+const juce::String FontAwesome_Minus_Circle = juce::String::fromUTF8(u8"\uf056");
+const juce::String FontAwesome_Times_Circle = juce::String::fromUTF8(u8"\uf057");
+const juce::String FontAwesome_Check_Circle = juce::String::fromUTF8(u8"\uf058");
+const juce::String FontAwesome_Question_Circle = juce::String::fromUTF8(u8"\uf059");
+const juce::String FontAwesome_Info_Circle = juce::String::fromUTF8(u8"\uf05a");
+const juce::String FontAwesome_Crosshairs = juce::String::fromUTF8(u8"\uf05b");
+const juce::String FontAwesome_Times_Circle_O = juce::String::fromUTF8(u8"\uf05c");
+const juce::String FontAwesome_Check_Circle_O = juce::String::fromUTF8(u8"\uf05d");
+const juce::String FontAwesome_Ban = juce::String::fromUTF8(u8"\uf05e");
+const juce::String FontAwesome_Arrow_Left = juce::String::fromUTF8(u8"\uf060");
+const juce::String FontAwesome_Arrow_Right = juce::String::fromUTF8(u8"\uf061");
+const juce::String FontAwesome_Arrow_Up = juce::String::fromUTF8(u8"\uf062");
+const juce::String FontAwesome_Arrow_Down = juce::String::fromUTF8(u8"\uf063");
+const juce::String FontAwesome_Mail_Forward = juce::String::fromUTF8(u8"\uf064");
+const juce::String FontAwesome_Share = juce::String::fromUTF8(u8"\uf064");
+const juce::String FontAwesome_Expand = juce::String::fromUTF8(u8"\uf065");
+const juce::String FontAwesome_Compress = juce::String::fromUTF8(u8"\uf066");
+const juce::String FontAwesome_Plus = juce::String::fromUTF8(u8"\uf067");
+const juce::String FontAwesome_Minus = juce::String::fromUTF8(u8"\uf068");
+const juce::String FontAwesome_Asterisk = juce::String::fromUTF8(u8"\uf069");
+const juce::String FontAwesome_Exclamation_Circle = juce::String::fromUTF8(u8"\uf06a");
+const juce::String FontAwesome_Gift = juce::String::fromUTF8(u8"\uf06b");
+const juce::String FontAwesome_Leaf = juce::String::fromUTF8(u8"\uf06c");
+const juce::String FontAwesome_Fire = juce::String::fromUTF8(u8"\uf06d");
+const juce::String FontAwesome_Eye = juce::String::fromUTF8(u8"\uf06e");
+const juce::String FontAwesome_Eye_Slash = juce::String::fromUTF8(u8"\uf070");
+const juce::String FontAwesome_Warning = juce::String::fromUTF8(u8"\uf071");
+const juce::String FontAwesome_Exclamation_Triangle = juce::String::fromUTF8(u8"\uf071");
+const juce::String FontAwesome_Plane = juce::String::fromUTF8(u8"\uf072");
+const juce::String FontAwesome_Calendar = juce::String::fromUTF8(u8"\uf073");
+const juce::String FontAwesome_Random = juce::String::fromUTF8(u8"\uf074");
+const juce::String FontAwesome_Comment = juce::String::fromUTF8(u8"\uf075");
+const juce::String FontAwesome_Magnet = juce::String::fromUTF8(u8"\uf076");
+const juce::String FontAwesome_Chevron_Up = juce::String::fromUTF8(u8"\uf077");
+const juce::String FontAwesome_Chevron_Down = juce::String::fromUTF8(u8"\uf078");
+const juce::String FontAwesome_Retweet = juce::String::fromUTF8(u8"\uf079");
+const juce::String FontAwesome_Shopping_Cart = juce::String::fromUTF8(u8"\uf07a");
+const juce::String FontAwesome_Folder = juce::String::fromUTF8(u8"\uf07b");
+const juce::String FontAwesome_Folder_Open = juce::String::fromUTF8(u8"\uf07c");
+const juce::String FontAwesome_Arrows_V = juce::String::fromUTF8(u8"\uf07d");
+const juce::String FontAwesome_Arrows_H = juce::String::fromUTF8(u8"\uf07e");
+const juce::String FontAwesome_Bar_Chart_O = juce::String::fromUTF8(u8"\uf080");
+const juce::String FontAwesome_Bar_Chart = juce::String::fromUTF8(u8"\uf080");
+const juce::String FontAwesome_Twitter_Square = juce::String::fromUTF8(u8"\uf081");
+const juce::String FontAwesome_Facebook_Square = juce::String::fromUTF8(u8"\uf082");
+const juce::String FontAwesome_Camera_Retro = juce::String::fromUTF8(u8"\uf083");
+const juce::String FontAwesome_Key = juce::String::fromUTF8(u8"\uf084");
+const juce::String FontAwesome_Gears = juce::String::fromUTF8(u8"\uf085");
+const juce::String FontAwesome_Cogs = juce::String::fromUTF8(u8"\uf085");
+const juce::String FontAwesome_Comments = juce::String::fromUTF8(u8"\uf086");
+const juce::String FontAwesome_Thumbs_O_Up = juce::String::fromUTF8(u8"\uf087");
+const juce::String FontAwesome_Thumbs_O_Down = juce::String::fromUTF8(u8"\uf088");
+const juce::String FontAwesome_Star_Half = juce::String::fromUTF8(u8"\uf089");
+const juce::String FontAwesome_Heart_O = juce::String::fromUTF8(u8"\uf08a");
+const juce::String FontAwesome_Sign_Out = juce::String::fromUTF8(u8"\uf08b");
+const juce::String FontAwesome_Linkedin_Square = juce::String::fromUTF8(u8"\uf08c");
+const juce::String FontAwesome_Thumb_Tack = juce::String::fromUTF8(u8"\uf08d");
+const juce::String FontAwesome_External_Link = juce::String::fromUTF8(u8"\uf08e");
+const juce::String FontAwesome_Sign_In = juce::String::fromUTF8(u8"\uf090");
+const juce::String FontAwesome_Trophy = juce::String::fromUTF8(u8"\uf091");
+const juce::String FontAwesome_Github_Square = juce::String::fromUTF8(u8"\uf092");
+const juce::String FontAwesome_Upload = juce::String::fromUTF8(u8"\uf093");
+const juce::String FontAwesome_Lemon_O = juce::String::fromUTF8(u8"\uf094");
+const juce::String FontAwesome_Phone = juce::String::fromUTF8(u8"\uf095");
+const juce::String FontAwesome_Square_O = juce::String::fromUTF8(u8"\uf096");
+const juce::String FontAwesome_Bookmark_O = juce::String::fromUTF8(u8"\uf097");
+const juce::String FontAwesome_Phone_Square = juce::String::fromUTF8(u8"\uf098");
+const juce::String FontAwesome_Twitter = juce::String::fromUTF8(u8"\uf099");
+const juce::String FontAwesome_Facebook_F = juce::String::fromUTF8(u8"\uf09a");
+const juce::String FontAwesome_Facebook = juce::String::fromUTF8(u8"\uf09a");
+const juce::String FontAwesome_Github = juce::String::fromUTF8(u8"\uf09b");
+const juce::String FontAwesome_Unlock = juce::String::fromUTF8(u8"\uf09c");
+const juce::String FontAwesome_Credit_Card = juce::String::fromUTF8(u8"\uf09d");
+const juce::String FontAwesome_Rss = juce::String::fromUTF8(u8"\uf09e");
+const juce::String FontAwesome_Hdd_O = juce::String::fromUTF8(u8"\uf0a0");
+const juce::String FontAwesome_Bullhorn = juce::String::fromUTF8(u8"\uf0a1");
+const juce::String FontAwesome_Bell = juce::String::fromUTF8(u8"\uf0f3");
+const juce::String FontAwesome_Certificate = juce::String::fromUTF8(u8"\uf0a3");
+const juce::String FontAwesome_Hand_O_Right = juce::String::fromUTF8(u8"\uf0a4");
+const juce::String FontAwesome_Hand_O_Left = juce::String::fromUTF8(u8"\uf0a5");
+const juce::String FontAwesome_Hand_O_Up = juce::String::fromUTF8(u8"\uf0a6");
+const juce::String FontAwesome_Hand_O_Down = juce::String::fromUTF8(u8"\uf0a7");
+const juce::String FontAwesome_Arrow_Circle_Left = juce::String::fromUTF8(u8"\uf0a8");
+const juce::String FontAwesome_Arrow_Circle_Right = juce::String::fromUTF8(u8"\uf0a9");
+const juce::String FontAwesome_Arrow_Circle_Up = juce::String::fromUTF8(u8"\uf0aa");
+const juce::String FontAwesome_Arrow_Circle_Down = juce::String::fromUTF8(u8"\uf0ab");
+const juce::String FontAwesome_Globe = juce::String::fromUTF8(u8"\uf0ac");
+const juce::String FontAwesome_Wrench = juce::String::fromUTF8(u8"\uf0ad");
+const juce::String FontAwesome_Tasks = juce::String::fromUTF8(u8"\uf0ae");
+const juce::String FontAwesome_Filter = juce::String::fromUTF8(u8"\uf0b0");
+const juce::String FontAwesome_Briefcase = juce::String::fromUTF8(u8"\uf0b1");
+const juce::String FontAwesome_Arrows_Alt = juce::String::fromUTF8(u8"\uf0b2");
+const juce::String FontAwesome_Group = juce::String::fromUTF8(u8"\uf0c0");
+const juce::String FontAwesome_Users = juce::String::fromUTF8(u8"\uf0c0");
+const juce::String FontAwesome_Chain = juce::String::fromUTF8(u8"\uf0c1");
+const juce::String FontAwesome_Link = juce::String::fromUTF8(u8"\uf0c1");
+const juce::String FontAwesome_Cloud = juce::String::fromUTF8(u8"\uf0c2");
+const juce::String FontAwesome_Flask = juce::String::fromUTF8(u8"\uf0c3");
+const juce::String FontAwesome_Cut = juce::String::fromUTF8(u8"\uf0c4");
+const juce::String FontAwesome_Scissors = juce::String::fromUTF8(u8"\uf0c4");
+const juce::String FontAwesome_Copy = juce::String::fromUTF8(u8"\uf0c5");
+const juce::String FontAwesome_Files_O = juce::String::fromUTF8(u8"\uf0c5");
+const juce::String FontAwesome_Paperclip = juce::String::fromUTF8(u8"\uf0c6");
+const juce::String FontAwesome_Save = juce::String::fromUTF8(u8"\uf0c7");
+const juce::String FontAwesome_Floppy_O = juce::String::fromUTF8(u8"\uf0c7");
+const juce::String FontAwesome_Square = juce::String::fromUTF8(u8"\uf0c8");
+const juce::String FontAwesome_Navicon = juce::String::fromUTF8(u8"\uf0c9");
+const juce::String FontAwesome_Reorder = juce::String::fromUTF8(u8"\uf0c9");
+const juce::String FontAwesome_Bars = juce::String::fromUTF8(u8"\uf0c9");
+const juce::String FontAwesome_List_Ul = juce::String::fromUTF8(u8"\uf0ca");
+const juce::String FontAwesome_List_Ol = juce::String::fromUTF8(u8"\uf0cb");
+const juce::String FontAwesome_Strikethrough = juce::String::fromUTF8(u8"\uf0cc");
+const juce::String FontAwesome_Underline = juce::String::fromUTF8(u8"\uf0cd");
+const juce::String FontAwesome_Table = juce::String::fromUTF8(u8"\uf0ce");
+const juce::String FontAwesome_Magic = juce::String::fromUTF8(u8"\uf0d0");
+const juce::String FontAwesome_Truck = juce::String::fromUTF8(u8"\uf0d1");
+const juce::String FontAwesome_Pinterest = juce::String::fromUTF8(u8"\uf0d2");
+const juce::String FontAwesome_Pinterest_Square = juce::String::fromUTF8(u8"\uf0d3");
+const juce::String FontAwesome_Google_Plus_Square = juce::String::fromUTF8(u8"\uf0d4");
+const juce::String FontAwesome_Google_Plus = juce::String::fromUTF8(u8"\uf0d5");
+const juce::String FontAwesome_Money = juce::String::fromUTF8(u8"\uf0d6");
+const juce::String FontAwesome_Caret_Down = juce::String::fromUTF8(u8"\uf0d7");
+const juce::String FontAwesome_Caret_Up = juce::String::fromUTF8(u8"\uf0d8");
+const juce::String FontAwesome_Caret_Left = juce::String::fromUTF8(u8"\uf0d9");
+const juce::String FontAwesome_Caret_Right = juce::String::fromUTF8(u8"\uf0da");
+const juce::String FontAwesome_Columns = juce::String::fromUTF8(u8"\uf0db");
+const juce::String FontAwesome_Unsorted = juce::String::fromUTF8(u8"\uf0dc");
+const juce::String FontAwesome_Sort = juce::String::fromUTF8(u8"\uf0dc");
+const juce::String FontAwesome_Sort_Down = juce::String::fromUTF8(u8"\uf0dd");
+const juce::String FontAwesome_Sort_Desc = juce::String::fromUTF8(u8"\uf0dd");
+const juce::String FontAwesome_Sort_Up = juce::String::fromUTF8(u8"\uf0de");
+const juce::String FontAwesome_Sort_Asc = juce::String::fromUTF8(u8"\uf0de");
+const juce::String FontAwesome_Envelope = juce::String::fromUTF8(u8"\uf0e0");
+const juce::String FontAwesome_Linkedin = juce::String::fromUTF8(u8"\uf0e1");
+const juce::String FontAwesome_Rotate_Left = juce::String::fromUTF8(u8"\uf0e2");
+const juce::String FontAwesome_Undo = juce::String::fromUTF8(u8"\uf0e2");
+const juce::String FontAwesome_Legal = juce::String::fromUTF8(u8"\uf0e3");
+const juce::String FontAwesome_Gavel = juce::String::fromUTF8(u8"\uf0e3");
+const juce::String FontAwesome_Dashboard = juce::String::fromUTF8(u8"\uf0e4");
+const juce::String FontAwesome_Tachometer = juce::String::fromUTF8(u8"\uf0e4");
+const juce::String FontAwesome_Comment_O = juce::String::fromUTF8(u8"\uf0e5");
+const juce::String FontAwesome_Comments_O = juce::String::fromUTF8(u8"\uf0e6");
+const juce::String FontAwesome_Flash = juce::String::fromUTF8(u8"\uf0e7");
+const juce::String FontAwesome_Bolt = juce::String::fromUTF8(u8"\uf0e7");
+const juce::String FontAwesome_Sitemap = juce::String::fromUTF8(u8"\uf0e8");
+const juce::String FontAwesome_Umbrella = juce::String::fromUTF8(u8"\uf0e9");
+const juce::String FontAwesome_Paste = juce::String::fromUTF8(u8"\uf0ea");
+const juce::String FontAwesome_Clipboard = juce::String::fromUTF8(u8"\uf0ea");
+const juce::String FontAwesome_Lightbulb_O = juce::String::fromUTF8(u8"\uf0eb");
+const juce::String FontAwesome_Exchange = juce::String::fromUTF8(u8"\uf0ec");
+const juce::String FontAwesome_Cloud_Download = juce::String::fromUTF8(u8"\uf0ed");
+const juce::String FontAwesome_Cloud_Upload = juce::String::fromUTF8(u8"\uf0ee");
+const juce::String FontAwesome_User_Md = juce::String::fromUTF8(u8"\uf0f0");
+const juce::String FontAwesome_Stethoscope = juce::String::fromUTF8(u8"\uf0f1");
+const juce::String FontAwesome_Suitcase = juce::String::fromUTF8(u8"\uf0f2");
+const juce::String FontAwesome_Bell_O = juce::String::fromUTF8(u8"\uf0a2");
+const juce::String FontAwesome_Coffee = juce::String::fromUTF8(u8"\uf0f4");
+const juce::String FontAwesome_Cutlery = juce::String::fromUTF8(u8"\uf0f5");
+const juce::String FontAwesome_File_Text_O = juce::String::fromUTF8(u8"\uf0f6");
+const juce::String FontAwesome_Building_O = juce::String::fromUTF8(u8"\uf0f7");
+const juce::String FontAwesome_Hospital_O = juce::String::fromUTF8(u8"\uf0f8");
+const juce::String FontAwesome_Ambulance = juce::String::fromUTF8(u8"\uf0f9");
+const juce::String FontAwesome_Medkit = juce::String::fromUTF8(u8"\uf0fa");
+const juce::String FontAwesome_Fighter_Jet = juce::String::fromUTF8(u8"\uf0fb");
+const juce::String FontAwesome_Beer = juce::String::fromUTF8(u8"\uf0fc");
+const juce::String FontAwesome_H_Square = juce::String::fromUTF8(u8"\uf0fd");
+const juce::String FontAwesome_Plus_Square = juce::String::fromUTF8(u8"\uf0fe");
+const juce::String FontAwesome_Angle_Double_Left = juce::String::fromUTF8(u8"\uf100");
+const juce::String FontAwesome_Angle_Double_Right = juce::String::fromUTF8(u8"\uf101");
+const juce::String FontAwesome_Angle_Double_Up = juce::String::fromUTF8(u8"\uf102");
+const juce::String FontAwesome_Angle_Double_Down = juce::String::fromUTF8(u8"\uf103");
+const juce::String FontAwesome_Angle_Left = juce::String::fromUTF8(u8"\uf104");
+const juce::String FontAwesome_Angle_Right = juce::String::fromUTF8(u8"\uf105");
+const juce::String FontAwesome_Angle_Up = juce::String::fromUTF8(u8"\uf106");
+const juce::String FontAwesome_Angle_Down = juce::String::fromUTF8(u8"\uf107");
+const juce::String FontAwesome_Desktop = juce::String::fromUTF8(u8"\uf108");
+const juce::String FontAwesome_Laptop = juce::String::fromUTF8(u8"\uf109");
+const juce::String FontAwesome_Tablet = juce::String::fromUTF8(u8"\uf10a");
+const juce::String FontAwesome_Mobile_Phone = juce::String::fromUTF8(u8"\uf10b");
+const juce::String FontAwesome_Mobile = juce::String::fromUTF8(u8"\uf10b");
+const juce::String FontAwesome_Circle_O = juce::String::fromUTF8(u8"\uf10c");
+const juce::String FontAwesome_Quote_Left = juce::String::fromUTF8(u8"\uf10d");
+const juce::String FontAwesome_Quote_Right = juce::String::fromUTF8(u8"\uf10e");
+const juce::String FontAwesome_Spinner = juce::String::fromUTF8(u8"\uf110");
+const juce::String FontAwesome_Circle = juce::String::fromUTF8(u8"\uf111");
+const juce::String FontAwesome_Mail_Reply = juce::String::fromUTF8(u8"\uf112");
+const juce::String FontAwesome_Reply = juce::String::fromUTF8(u8"\uf112");
+const juce::String FontAwesome_Github_Alt = juce::String::fromUTF8(u8"\uf113");
+const juce::String FontAwesome_Folder_O = juce::String::fromUTF8(u8"\uf114");
+const juce::String FontAwesome_Folder_Open_O = juce::String::fromUTF8(u8"\uf115");
+const juce::String FontAwesome_Smile_O = juce::String::fromUTF8(u8"\uf118");
+const juce::String FontAwesome_Frown_O = juce::String::fromUTF8(u8"\uf119");
+const juce::String FontAwesome_Meh_O = juce::String::fromUTF8(u8"\uf11a");
+const juce::String FontAwesome_Gamepad = juce::String::fromUTF8(u8"\uf11b");
+const juce::String FontAwesome_Keyboard_O = juce::String::fromUTF8(u8"\uf11c");
+const juce::String FontAwesome_Flag_O = juce::String::fromUTF8(u8"\uf11d");
+const juce::String FontAwesome_Flag_Checkered = juce::String::fromUTF8(u8"\uf11e");
+const juce::String FontAwesome_Terminal = juce::String::fromUTF8(u8"\uf120");
+const juce::String FontAwesome_Code = juce::String::fromUTF8(u8"\uf121");
+const juce::String FontAwesome_Mail_Reply_All = juce::String::fromUTF8(u8"\uf122");
+const juce::String FontAwesome_Reply_All = juce::String::fromUTF8(u8"\uf122");
+const juce::String FontAwesome_Star_Half_Empty = juce::String::fromUTF8(u8"\uf123");
+const juce::String FontAwesome_Star_Half_Full = juce::String::fromUTF8(u8"\uf123");
+const juce::String FontAwesome_Star_Half_O = juce::String::fromUTF8(u8"\uf123");
+const juce::String FontAwesome_Location_Arrow = juce::String::fromUTF8(u8"\uf124");
+const juce::String FontAwesome_Crop = juce::String::fromUTF8(u8"\uf125");
+const juce::String FontAwesome_Code_Fork = juce::String::fromUTF8(u8"\uf126");
+const juce::String FontAwesome_Unlink = juce::String::fromUTF8(u8"\uf127");
+const juce::String FontAwesome_Chain_Broken = juce::String::fromUTF8(u8"\uf127");
+const juce::String FontAwesome_Question = juce::String::fromUTF8(u8"\uf128");
+const juce::String FontAwesome_Info = juce::String::fromUTF8(u8"\uf129");
+const juce::String FontAwesome_Exclamation = juce::String::fromUTF8(u8"\uf12a");
+const juce::String FontAwesome_Superscript = juce::String::fromUTF8(u8"\uf12b");
+const juce::String FontAwesome_Subscript = juce::String::fromUTF8(u8"\uf12c");
+const juce::String FontAwesome_Eraser = juce::String::fromUTF8(u8"\uf12d");
+const juce::String FontAwesome_Puzzle_Piece = juce::String::fromUTF8(u8"\uf12e");
+const juce::String FontAwesome_Microphone = juce::String::fromUTF8(u8"\uf130");
+const juce::String FontAwesome_Microphone_Slash = juce::String::fromUTF8(u8"\uf131");
+const juce::String FontAwesome_Shield = juce::String::fromUTF8(u8"\uf132");
+const juce::String FontAwesome_Calendar_O = juce::String::fromUTF8(u8"\uf133");
+const juce::String FontAwesome_Fire_Extinguisher = juce::String::fromUTF8(u8"\uf134");
+const juce::String FontAwesome_Rocket = juce::String::fromUTF8(u8"\uf135");
+const juce::String FontAwesome_Maxcdn = juce::String::fromUTF8(u8"\uf136");
+const juce::String FontAwesome_Chevron_Circle_Left = juce::String::fromUTF8(u8"\uf137");
+const juce::String FontAwesome_Chevron_Circle_Right = juce::String::fromUTF8(u8"\uf138");
+const juce::String FontAwesome_Chevron_Circle_Up = juce::String::fromUTF8(u8"\uf139");
+const juce::String FontAwesome_Chevron_Circle_Down = juce::String::fromUTF8(u8"\uf13a");
+const juce::String FontAwesome_Html5 = juce::String::fromUTF8(u8"\uf13b");
+const juce::String FontAwesome_Css3 = juce::String::fromUTF8(u8"\uf13c");
+const juce::String FontAwesome_Anchor = juce::String::fromUTF8(u8"\uf13d");
+const juce::String FontAwesome_Unlock_Alt = juce::String::fromUTF8(u8"\uf13e");
+const juce::String FontAwesome_Bullseye = juce::String::fromUTF8(u8"\uf140");
+const juce::String FontAwesome_Ellipsis_H = juce::String::fromUTF8(u8"\uf141");
+const juce::String FontAwesome_Ellipsis_V = juce::String::fromUTF8(u8"\uf142");
+const juce::String FontAwesome_Rss_Square = juce::String::fromUTF8(u8"\uf143");
+const juce::String FontAwesome_Play_Circle = juce::String::fromUTF8(u8"\uf144");
+const juce::String FontAwesome_Ticket = juce::String::fromUTF8(u8"\uf145");
+const juce::String FontAwesome_Minus_Square = juce::String::fromUTF8(u8"\uf146");
+const juce::String FontAwesome_Minus_Square_O = juce::String::fromUTF8(u8"\uf147");
+const juce::String FontAwesome_Level_Up = juce::String::fromUTF8(u8"\uf148");
+const juce::String FontAwesome_Level_Down = juce::String::fromUTF8(u8"\uf149");
+const juce::String FontAwesome_Check_Square = juce::String::fromUTF8(u8"\uf14a");
+const juce::String FontAwesome_Pencil_Square = juce::String::fromUTF8(u8"\uf14b");
+const juce::String FontAwesome_External_Link_Square = juce::String::fromUTF8(u8"\uf14c");
+const juce::String FontAwesome_Share_Square = juce::String::fromUTF8(u8"\uf14d");
+const juce::String FontAwesome_Compass = juce::String::fromUTF8(u8"\uf14e");
+const juce::String FontAwesome_Toggle_Down = juce::String::fromUTF8(u8"\uf150");
+const juce::String FontAwesome_Caret_Square_O_Down = juce::String::fromUTF8(u8"\uf150");
+const juce::String FontAwesome_Toggle_Up = juce::String::fromUTF8(u8"\uf151");
+const juce::String FontAwesome_Caret_Square_O_Up = juce::String::fromUTF8(u8"\uf151");
+const juce::String FontAwesome_Toggle_Right = juce::String::fromUTF8(u8"\uf152");
+const juce::String FontAwesome_Caret_Square_O_Right = juce::String::fromUTF8(u8"\uf152");
+const juce::String FontAwesome_Euro = juce::String::fromUTF8(u8"\uf153");
+const juce::String FontAwesome_Eur = juce::String::fromUTF8(u8"\uf153");
+const juce::String FontAwesome_Gbp = juce::String::fromUTF8(u8"\uf154");
+const juce::String FontAwesome_Dollar = juce::String::fromUTF8(u8"\uf155");
+const juce::String FontAwesome_Usd = juce::String::fromUTF8(u8"\uf155");
+const juce::String FontAwesome_Rupee = juce::String::fromUTF8(u8"\uf156");
+const juce::String FontAwesome_Inr = juce::String::fromUTF8(u8"\uf156");
+const juce::String FontAwesome_Cny = juce::String::fromUTF8(u8"\uf157");
+const juce::String FontAwesome_Rmb = juce::String::fromUTF8(u8"\uf157");
+const juce::String FontAwesome_Yen = juce::String::fromUTF8(u8"\uf157");
+const juce::String FontAwesome_Jpy = juce::String::fromUTF8(u8"\uf157");
+const juce::String FontAwesome_Ruble = juce::String::fromUTF8(u8"\uf158");
+const juce::String FontAwesome_Rouble = juce::String::fromUTF8(u8"\uf158");
+const juce::String FontAwesome_Rub = juce::String::fromUTF8(u8"\uf158");
+const juce::String FontAwesome_Won = juce::String::fromUTF8(u8"\uf159");
+const juce::String FontAwesome_Krw = juce::String::fromUTF8(u8"\uf159");
+const juce::String FontAwesome_Bitcoin = juce::String::fromUTF8(u8"\uf15a");
+const juce::String FontAwesome_Btc = juce::String::fromUTF8(u8"\uf15a");
+const juce::String FontAwesome_File = juce::String::fromUTF8(u8"\uf15b");
+const juce::String FontAwesome_File_Text = juce::String::fromUTF8(u8"\uf15c");
+const juce::String FontAwesome_Sort_Alpha_Asc = juce::String::fromUTF8(u8"\uf15d");
+const juce::String FontAwesome_Sort_Alpha_Desc = juce::String::fromUTF8(u8"\uf15e");
+const juce::String FontAwesome_Sort_Amount_Asc = juce::String::fromUTF8(u8"\uf160");
+const juce::String FontAwesome_Sort_Amount_Desc = juce::String::fromUTF8(u8"\uf161");
+const juce::String FontAwesome_Sort_Numeric_Asc = juce::String::fromUTF8(u8"\uf162");
+const juce::String FontAwesome_Sort_Numeric_Desc = juce::String::fromUTF8(u8"\uf163");
+const juce::String FontAwesome_Thumbs_Up = juce::String::fromUTF8(u8"\uf164");
+const juce::String FontAwesome_Thumbs_Down = juce::String::fromUTF8(u8"\uf165");
+const juce::String FontAwesome_Youtube_Square = juce::String::fromUTF8(u8"\uf166");
+const juce::String FontAwesome_Youtube = juce::String::fromUTF8(u8"\uf167");
+const juce::String FontAwesome_Xing = juce::String::fromUTF8(u8"\uf168");
+const juce::String FontAwesome_Xing_Square = juce::String::fromUTF8(u8"\uf169");
+const juce::String FontAwesome_Youtube_Play = juce::String::fromUTF8(u8"\uf16a");
+const juce::String FontAwesome_Dropbox = juce::String::fromUTF8(u8"\uf16b");
+const juce::String FontAwesome_Stack_Overflow = juce::String::fromUTF8(u8"\uf16c");
+const juce::String FontAwesome_Instagram = juce::String::fromUTF8(u8"\uf16d");
+const juce::String FontAwesome_Flickr = juce::String::fromUTF8(u8"\uf16e");
+const juce::String FontAwesome_Adn = juce::String::fromUTF8(u8"\uf170");
+const juce::String FontAwesome_Bitbucket = juce::String::fromUTF8(u8"\uf171");
+const juce::String FontAwesome_Bitbucket_Square = juce::String::fromUTF8(u8"\uf172");
+const juce::String FontAwesome_Tumblr = juce::String::fromUTF8(u8"\uf173");
+const juce::String FontAwesome_Tumblr_Square = juce::String::fromUTF8(u8"\uf174");
+const juce::String FontAwesome_Long_Arrow_Down = juce::String::fromUTF8(u8"\uf175");
+const juce::String FontAwesome_Long_Arrow_Up = juce::String::fromUTF8(u8"\uf176");
+const juce::String FontAwesome_Long_Arrow_Left = juce::String::fromUTF8(u8"\uf177");
+const juce::String FontAwesome_Long_Arrow_Right = juce::String::fromUTF8(u8"\uf178");
+const juce::String FontAwesome_Apple = juce::String::fromUTF8(u8"\uf179");
+const juce::String FontAwesome_Windows = juce::String::fromUTF8(u8"\uf17a");
+const juce::String FontAwesome_Android = juce::String::fromUTF8(u8"\uf17b");
+const juce::String FontAwesome_Linux = juce::String::fromUTF8(u8"\uf17c");
+const juce::String FontAwesome_Dribbble = juce::String::fromUTF8(u8"\uf17d");
+const juce::String FontAwesome_Skype = juce::String::fromUTF8(u8"\uf17e");
+const juce::String FontAwesome_Foursquare = juce::String::fromUTF8(u8"\uf180");
+const juce::String FontAwesome_Trello = juce::String::fromUTF8(u8"\uf181");
+const juce::String FontAwesome_Female = juce::String::fromUTF8(u8"\uf182");
+const juce::String FontAwesome_Male = juce::String::fromUTF8(u8"\uf183");
+const juce::String FontAwesome_Gittip = juce::String::fromUTF8(u8"\uf184");
+const juce::String FontAwesome_Gratipay = juce::String::fromUTF8(u8"\uf184");
+const juce::String FontAwesome_Sun_O = juce::String::fromUTF8(u8"\uf185");
+const juce::String FontAwesome_Moon_O = juce::String::fromUTF8(u8"\uf186");
+const juce::String FontAwesome_Archive = juce::String::fromUTF8(u8"\uf187");
+const juce::String FontAwesome_Bug = juce::String::fromUTF8(u8"\uf188");
+const juce::String FontAwesome_Vk = juce::String::fromUTF8(u8"\uf189");
+const juce::String FontAwesome_Weibo = juce::String::fromUTF8(u8"\uf18a");
+const juce::String FontAwesome_Renren = juce::String::fromUTF8(u8"\uf18b");
+const juce::String FontAwesome_Pagelines = juce::String::fromUTF8(u8"\uf18c");
+const juce::String FontAwesome_Stack_Exchange = juce::String::fromUTF8(u8"\uf18d");
+const juce::String FontAwesome_Arrow_Circle_O_Right = juce::String::fromUTF8(u8"\uf18e");
+const juce::String FontAwesome_Arrow_Circle_O_Left = juce::String::fromUTF8(u8"\uf190");
+const juce::String FontAwesome_Toggle_Left = juce::String::fromUTF8(u8"\uf191");
+const juce::String FontAwesome_Caret_Square_O_Left = juce::String::fromUTF8(u8"\uf191");
+const juce::String FontAwesome_Dot_Circle_O = juce::String::fromUTF8(u8"\uf192");
+const juce::String FontAwesome_Wheelchair = juce::String::fromUTF8(u8"\uf193");
+const juce::String FontAwesome_Vimeo_Square = juce::String::fromUTF8(u8"\uf194");
+const juce::String FontAwesome_Turkish_Lira = juce::String::fromUTF8(u8"\uf195");
+const juce::String FontAwesome_Try = juce::String::fromUTF8(u8"\uf195");
+const juce::String FontAwesome_Plus_Square_O = juce::String::fromUTF8(u8"\uf196");
+const juce::String FontAwesome_Space_Shuttle = juce::String::fromUTF8(u8"\uf197");
+const juce::String FontAwesome_Slack = juce::String::fromUTF8(u8"\uf198");
+const juce::String FontAwesome_Envelope_Square = juce::String::fromUTF8(u8"\uf199");
+const juce::String FontAwesome_Wordpress = juce::String::fromUTF8(u8"\uf19a");
+const juce::String FontAwesome_Openid = juce::String::fromUTF8(u8"\uf19b");
+const juce::String FontAwesome_Institution = juce::String::fromUTF8(u8"\uf19c");
+const juce::String FontAwesome_Bank = juce::String::fromUTF8(u8"\uf19c");
+const juce::String FontAwesome_University = juce::String::fromUTF8(u8"\uf19c");
+const juce::String FontAwesome_Mortar_Board = juce::String::fromUTF8(u8"\uf19d");
+const juce::String FontAwesome_Graduation_Cap = juce::String::fromUTF8(u8"\uf19d");
+const juce::String FontAwesome_Yahoo = juce::String::fromUTF8(u8"\uf19e");
+const juce::String FontAwesome_Google = juce::String::fromUTF8(u8"\uf1a0");
+const juce::String FontAwesome_Reddit = juce::String::fromUTF8(u8"\uf1a1");
+const juce::String FontAwesome_Reddit_Square = juce::String::fromUTF8(u8"\uf1a2");
+const juce::String FontAwesome_Stumbleupon_Circle = juce::String::fromUTF8(u8"\uf1a3");
+const juce::String FontAwesome_Stumbleupon = juce::String::fromUTF8(u8"\uf1a4");
+const juce::String FontAwesome_Delicious = juce::String::fromUTF8(u8"\uf1a5");
+const juce::String FontAwesome_Digg = juce::String::fromUTF8(u8"\uf1a6");
+const juce::String FontAwesome_Pied_Piper = juce::String::fromUTF8(u8"\uf1a7");
+const juce::String FontAwesome_Pied_Piper_Alt = juce::String::fromUTF8(u8"\uf1a8");
+const juce::String FontAwesome_Drupal = juce::String::fromUTF8(u8"\uf1a9");
+const juce::String FontAwesome_Joomla = juce::String::fromUTF8(u8"\uf1aa");
+const juce::String FontAwesome_Language = juce::String::fromUTF8(u8"\uf1ab");
+const juce::String FontAwesome_Fax = juce::String::fromUTF8(u8"\uf1ac");
+const juce::String FontAwesome_Building = juce::String::fromUTF8(u8"\uf1ad");
+const juce::String FontAwesome_Child = juce::String::fromUTF8(u8"\uf1ae");
+const juce::String FontAwesome_Paw = juce::String::fromUTF8(u8"\uf1b0");
+const juce::String FontAwesome_Spoon = juce::String::fromUTF8(u8"\uf1b1");
+const juce::String FontAwesome_Cube = juce::String::fromUTF8(u8"\uf1b2");
+const juce::String FontAwesome_Cubes = juce::String::fromUTF8(u8"\uf1b3");
+const juce::String FontAwesome_Behance = juce::String::fromUTF8(u8"\uf1b4");
+const juce::String FontAwesome_Behance_Square = juce::String::fromUTF8(u8"\uf1b5");
+const juce::String FontAwesome_Steam = juce::String::fromUTF8(u8"\uf1b6");
+const juce::String FontAwesome_Steam_Square = juce::String::fromUTF8(u8"\uf1b7");
+const juce::String FontAwesome_Recycle = juce::String::fromUTF8(u8"\uf1b8");
+const juce::String FontAwesome_Automobile = juce::String::fromUTF8(u8"\uf1b9");
+const juce::String FontAwesome_Car = juce::String::fromUTF8(u8"\uf1b9");
+const juce::String FontAwesome_Cab = juce::String::fromUTF8(u8"\uf1ba");
+const juce::String FontAwesome_Taxi = juce::String::fromUTF8(u8"\uf1ba");
+const juce::String FontAwesome_Tree = juce::String::fromUTF8(u8"\uf1bb");
+const juce::String FontAwesome_Spotify = juce::String::fromUTF8(u8"\uf1bc");
+const juce::String FontAwesome_Deviantart = juce::String::fromUTF8(u8"\uf1bd");
+const juce::String FontAwesome_Soundcloud = juce::String::fromUTF8(u8"\uf1be");
+const juce::String FontAwesome_Database = juce::String::fromUTF8(u8"\uf1c0");
+const juce::String FontAwesome_File_Pdf_O = juce::String::fromUTF8(u8"\uf1c1");
+const juce::String FontAwesome_File_Word_O = juce::String::fromUTF8(u8"\uf1c2");
+const juce::String FontAwesome_File_Excel_O = juce::String::fromUTF8(u8"\uf1c3");
+const juce::String FontAwesome_File_Powerpoint_O = juce::String::fromUTF8(u8"\uf1c4");
+const juce::String FontAwesome_File_Photo_O = juce::String::fromUTF8(u8"\uf1c5");
+const juce::String FontAwesome_File_Picture_O = juce::String::fromUTF8(u8"\uf1c5");
+const juce::String FontAwesome_File_Image_O = juce::String::fromUTF8(u8"\uf1c5");
+const juce::String FontAwesome_File_Zip_O = juce::String::fromUTF8(u8"\uf1c6");
+const juce::String FontAwesome_File_Archive_O = juce::String::fromUTF8(u8"\uf1c6");
+const juce::String FontAwesome_File_Sound_O = juce::String::fromUTF8(u8"\uf1c7");
+const juce::String FontAwesome_File_Audio_O = juce::String::fromUTF8(u8"\uf1c7");
+const juce::String FontAwesome_File_Movie_O = juce::String::fromUTF8(u8"\uf1c8");
+const juce::String FontAwesome_File_Video_O = juce::String::fromUTF8(u8"\uf1c8");
+const juce::String FontAwesome_File_Code_O = juce::String::fromUTF8(u8"\uf1c9");
+const juce::String FontAwesome_Vine = juce::String::fromUTF8(u8"\uf1ca");
+const juce::String FontAwesome_Codepen = juce::String::fromUTF8(u8"\uf1cb");
+const juce::String FontAwesome_Jsfiddle = juce::String::fromUTF8(u8"\uf1cc");
+const juce::String FontAwesome_Life_Bouy = juce::String::fromUTF8(u8"\uf1cd");
+const juce::String FontAwesome_Life_Buoy = juce::String::fromUTF8(u8"\uf1cd");
+const juce::String FontAwesome_Life_Saver = juce::String::fromUTF8(u8"\uf1cd");
+const juce::String FontAwesome_Support = juce::String::fromUTF8(u8"\uf1cd");
+const juce::String FontAwesome_Life_Ring = juce::String::fromUTF8(u8"\uf1cd");
+const juce::String FontAwesome_Circle_O_Notch = juce::String::fromUTF8(u8"\uf1ce");
+const juce::String FontAwesome_Ra = juce::String::fromUTF8(u8"\uf1d0");
+const juce::String FontAwesome_Rebel = juce::String::fromUTF8(u8"\uf1d0");
+const juce::String FontAwesome_Ge = juce::String::fromUTF8(u8"\uf1d1");
+const juce::String FontAwesome_Empire = juce::String::fromUTF8(u8"\uf1d1");
+const juce::String FontAwesome_Git_Square = juce::String::fromUTF8(u8"\uf1d2");
+const juce::String FontAwesome_Git = juce::String::fromUTF8(u8"\uf1d3");
+const juce::String FontAwesome_Hacker_News = juce::String::fromUTF8(u8"\uf1d4");
+const juce::String FontAwesome_Tencent_Weibo = juce::String::fromUTF8(u8"\uf1d5");
+const juce::String FontAwesome_Qq = juce::String::fromUTF8(u8"\uf1d6");
+const juce::String FontAwesome_Wechat = juce::String::fromUTF8(u8"\uf1d7");
+const juce::String FontAwesome_Weixin = juce::String::fromUTF8(u8"\uf1d7");
+const juce::String FontAwesome_Send = juce::String::fromUTF8(u8"\uf1d8");
+const juce::String FontAwesome_Paper_Plane = juce::String::fromUTF8(u8"\uf1d8");
+const juce::String FontAwesome_Send_O = juce::String::fromUTF8(u8"\uf1d9");
+const juce::String FontAwesome_Paper_Plane_O = juce::String::fromUTF8(u8"\uf1d9");
+const juce::String FontAwesome_History = juce::String::fromUTF8(u8"\uf1da");
+const juce::String FontAwesome_Genderless = juce::String::fromUTF8(u8"\uf1db");
+const juce::String FontAwesome_Circle_Thin = juce::String::fromUTF8(u8"\uf1db");
+const juce::String FontAwesome_Header = juce::String::fromUTF8(u8"\uf1dc");
+const juce::String FontAwesome_Paragraph = juce::String::fromUTF8(u8"\uf1dd");
+const juce::String FontAwesome_Sliders = juce::String::fromUTF8(u8"\uf1de");
+const juce::String FontAwesome_Share_Alt = juce::String::fromUTF8(u8"\uf1e0");
+const juce::String FontAwesome_Share_Alt_Square = juce::String::fromUTF8(u8"\uf1e1");
+const juce::String FontAwesome_Bomb = juce::String::fromUTF8(u8"\uf1e2");
+const juce::String FontAwesome_Soccer_Ball_O = juce::String::fromUTF8(u8"\uf1e3");
+const juce::String FontAwesome_Futbol_O = juce::String::fromUTF8(u8"\uf1e3");
+const juce::String FontAwesome_Tty = juce::String::fromUTF8(u8"\uf1e4");
+const juce::String FontAwesome_Binoculars = juce::String::fromUTF8(u8"\uf1e5");
+const juce::String FontAwesome_Plug = juce::String::fromUTF8(u8"\uf1e6");
+const juce::String FontAwesome_Slideshare = juce::String::fromUTF8(u8"\uf1e7");
+const juce::String FontAwesome_Twitch = juce::String::fromUTF8(u8"\uf1e8");
+const juce::String FontAwesome_Yelp = juce::String::fromUTF8(u8"\uf1e9");
+const juce::String FontAwesome_Newspaper_O = juce::String::fromUTF8(u8"\uf1ea");
+const juce::String FontAwesome_Wifi = juce::String::fromUTF8(u8"\uf1eb");
+const juce::String FontAwesome_Calculator = juce::String::fromUTF8(u8"\uf1ec");
+const juce::String FontAwesome_Paypal = juce::String::fromUTF8(u8"\uf1ed");
+const juce::String FontAwesome_Google_Wallet = juce::String::fromUTF8(u8"\uf1ee");
+const juce::String FontAwesome_Cc_Visa = juce::String::fromUTF8(u8"\uf1f0");
+const juce::String FontAwesome_Cc_Mastercard = juce::String::fromUTF8(u8"\uf1f1");
+const juce::String FontAwesome_Cc_Discover = juce::String::fromUTF8(u8"\uf1f2");
+const juce::String FontAwesome_Cc_Amex = juce::String::fromUTF8(u8"\uf1f3");
+const juce::String FontAwesome_Cc_Paypal = juce::String::fromUTF8(u8"\uf1f4");
+const juce::String FontAwesome_Cc_Stripe = juce::String::fromUTF8(u8"\uf1f5");
+const juce::String FontAwesome_Bell_Slash = juce::String::fromUTF8(u8"\uf1f6");
+const juce::String FontAwesome_Bell_Slash_O = juce::String::fromUTF8(u8"\uf1f7");
+const juce::String FontAwesome_Trash = juce::String::fromUTF8(u8"\uf1f8");
+const juce::String FontAwesome_Copyright = juce::String::fromUTF8(u8"\uf1f9");
+const juce::String FontAwesome_At = juce::String::fromUTF8(u8"\uf1fa");
+const juce::String FontAwesome_Eyedropper = juce::String::fromUTF8(u8"\uf1fb");
+const juce::String FontAwesome_Paint_Brush = juce::String::fromUTF8(u8"\uf1fc");
+const juce::String FontAwesome_Birthday_Cake = juce::String::fromUTF8(u8"\uf1fd");
+const juce::String FontAwesome_Area_Chart = juce::String::fromUTF8(u8"\uf1fe");
+const juce::String FontAwesome_Pie_Chart = juce::String::fromUTF8(u8"\uf200");
+const juce::String FontAwesome_Line_Chart = juce::String::fromUTF8(u8"\uf201");
+const juce::String FontAwesome_Lastfm = juce::String::fromUTF8(u8"\uf202");
+const juce::String FontAwesome_Lastfm_Square = juce::String::fromUTF8(u8"\uf203");
+const juce::String FontAwesome_Toggle_Off = juce::String::fromUTF8(u8"\uf204");
+const juce::String FontAwesome_Toggle_On = juce::String::fromUTF8(u8"\uf205");
+const juce::String FontAwesome_Bicycle = juce::String::fromUTF8(u8"\uf206");
+const juce::String FontAwesome_Bus = juce::String::fromUTF8(u8"\uf207");
+const juce::String FontAwesome_Ioxhost = juce::String::fromUTF8(u8"\uf208");
+const juce::String FontAwesome_Angellist = juce::String::fromUTF8(u8"\uf209");
+const juce::String FontAwesome_Cc = juce::String::fromUTF8(u8"\uf20a");
+const juce::String FontAwesome_Shekel = juce::String::fromUTF8(u8"\uf20b");
+const juce::String FontAwesome_Sheqel = juce::String::fromUTF8(u8"\uf20b");
+const juce::String FontAwesome_Ils = juce::String::fromUTF8(u8"\uf20b");
+const juce::String FontAwesome_Meanpath = juce::String::fromUTF8(u8"\uf20c");
+const juce::String FontAwesome_Buysellads = juce::String::fromUTF8(u8"\uf20d");
+const juce::String FontAwesome_Connectdevelop = juce::String::fromUTF8(u8"\uf20e");
+const juce::String FontAwesome_Dashcube = juce::String::fromUTF8(u8"\uf210");
+const juce::String FontAwesome_Forumbee = juce::String::fromUTF8(u8"\uf211");
+const juce::String FontAwesome_Leanpub = juce::String::fromUTF8(u8"\uf212");
+const juce::String FontAwesome_Sellsy = juce::String::fromUTF8(u8"\uf213");
+const juce::String FontAwesome_Shirtsinbulk = juce::String::fromUTF8(u8"\uf214");
+const juce::String FontAwesome_Simplybuilt = juce::String::fromUTF8(u8"\uf215");
+const juce::String FontAwesome_Skyatlas = juce::String::fromUTF8(u8"\uf216");
+const juce::String FontAwesome_Cart_Plus = juce::String::fromUTF8(u8"\uf217");
+const juce::String FontAwesome_Cart_Arrow_Down = juce::String::fromUTF8(u8"\uf218");
+const juce::String FontAwesome_Diamond = juce::String::fromUTF8(u8"\uf219");
+const juce::String FontAwesome_Ship = juce::String::fromUTF8(u8"\uf21a");
+const juce::String FontAwesome_User_Secret = juce::String::fromUTF8(u8"\uf21b");
+const juce::String FontAwesome_Motorcycle = juce::String::fromUTF8(u8"\uf21c");
+const juce::String FontAwesome_Street_View = juce::String::fromUTF8(u8"\uf21d");
+const juce::String FontAwesome_Heartbeat = juce::String::fromUTF8(u8"\uf21e");
+const juce::String FontAwesome_Venus = juce::String::fromUTF8(u8"\uf221");
+const juce::String FontAwesome_Mars = juce::String::fromUTF8(u8"\uf222");
+const juce::String FontAwesome_Mercury = juce::String::fromUTF8(u8"\uf223");
+const juce::String FontAwesome_Transgender = juce::String::fromUTF8(u8"\uf224");
+const juce::String FontAwesome_Transgender_Alt = juce::String::fromUTF8(u8"\uf225");
+const juce::String FontAwesome_Venus_Double = juce::String::fromUTF8(u8"\uf226");
+const juce::String FontAwesome_Mars_Double = juce::String::fromUTF8(u8"\uf227");
+const juce::String FontAwesome_Venus_Mars = juce::String::fromUTF8(u8"\uf228");
+const juce::String FontAwesome_Mars_Stroke = juce::String::fromUTF8(u8"\uf229");
+const juce::String FontAwesome_Mars_Stroke_V = juce::String::fromUTF8(u8"\uf22a");
+const juce::String FontAwesome_Mars_Stroke_H = juce::String::fromUTF8(u8"\uf22b");
+const juce::String FontAwesome_Neuter = juce::String::fromUTF8(u8"\uf22c");
+const juce::String FontAwesome_Facebook_Official = juce::String::fromUTF8(u8"\uf230");
+const juce::String FontAwesome_Pinterest_P = juce::String::fromUTF8(u8"\uf231");
+const juce::String FontAwesome_Whatsapp = juce::String::fromUTF8(u8"\uf232");
+const juce::String FontAwesome_Server = juce::String::fromUTF8(u8"\uf233");
+const juce::String FontAwesome_User_Plus = juce::String::fromUTF8(u8"\uf234");
+const juce::String FontAwesome_User_Times = juce::String::fromUTF8(u8"\uf235");
+const juce::String FontAwesome_Hotel = juce::String::fromUTF8(u8"\uf236");
+const juce::String FontAwesome_Bed = juce::String::fromUTF8(u8"\uf236");
+const juce::String FontAwesome_Viacoin = juce::String::fromUTF8(u8"\uf237");
+const juce::String FontAwesome_Train = juce::String::fromUTF8(u8"\uf238");
+const juce::String FontAwesome_Subway = juce::String::fromUTF8(u8"\uf239");
+const juce::String FontAwesome_Medium = juce::String::fromUTF8(u8"\uf23a");
 
 #endif // FONTAWESOME_H_INCLUDED
