@@ -31,12 +31,6 @@ OscServer::OscServer(OscMessageListener* listener)
 OscServer::~OscServer()
 {
     signalThreadShouldExit();
-    if (receiveDatagramSocket) {
-        receiveDatagramSocket->close();
-    }
-    if (remoteDatagramSocket) {
-        remoteDatagramSocket->close();
-    }
     stopThread(500);
     receiveDatagramSocket = nullptr;
     remoteDatagramSocket = nullptr;
@@ -54,9 +48,7 @@ int OscServer::getLocalPortNumber()
 
 const String& OscServer::getLocalHostname()
 {
-    if (receiveDatagramSocket) {
-        receiveDatagramSocket->getHostName();
-    }
+    
     return String::empty;
 }
 
@@ -128,9 +120,6 @@ void OscServer::listen()
 {
     if (isThreadRunning()) {
         signalThreadShouldExit();
-        if (receiveDatagramSocket) {
-            receiveDatagramSocket->close();
-        }
         stopThread(500);
         receiveDatagramSocket = nullptr;
     }
@@ -141,9 +130,6 @@ void OscServer::stopListening()
 {
     if (isThreadRunning()) {
         signalThreadShouldExit();
-        if (receiveDatagramSocket) {
-            receiveDatagramSocket->close();
-        }
         stopThread(500);
         receiveDatagramSocket = nullptr;
     }
@@ -155,7 +141,7 @@ void OscServer::run()
 
     MemoryBlock buffer(bufferSize, true);
     while (!threadShouldExit()) {
-        if (receiveDatagramSocket->getPort()) {
+        if (receiveDatagramSocket->getBoundPort()) {
             if (!receiveDatagramSocket->bindToPort(receivePortNumber)) {
                 return;
             }
@@ -193,11 +179,10 @@ bool OscServer::routePackage(MemoryBlock packet)
         if (!bridgeDatagramSocket || bridgeChanged) {
             bridgeChanged = false;
             bridgeDatagramSocket = new DatagramSocket(0);
-            bridgeDatagramSocket->connect(bridgeHostname, bridgePortNumber);
         }
 
         if (bridgeDatagramSocket->waitUntilReady(false, 100)) {
-            if (bridgeDatagramSocket->write(packet.getData(), packet.getSize()) > 0) {
+            if (bridgeDatagramSocket->write(bridgeHostname, bridgePortNumber, packet.getData(), packet.getSize()) > 0) {
                 return true;
             }
         }
@@ -217,11 +202,10 @@ bool OscServer::sendMessage(osc::OutboundPacketStream stream)
     if (!remoteDatagramSocket || remoteChanged) {
         remoteChanged = false;
         remoteDatagramSocket = new DatagramSocket(0);
-        remoteDatagramSocket->connect(remoteHostname, remotePortNumber);
     }
 
     if (remoteDatagramSocket->waitUntilReady(false, 100)) {
-        if (remoteDatagramSocket->write(stream.Data(), stream.Size()) > 0) {
+        if (remoteDatagramSocket->write(remoteHostname, remotePortNumber, stream.Data(), stream.Size()) > 0) {
             return true;
         }
     }
