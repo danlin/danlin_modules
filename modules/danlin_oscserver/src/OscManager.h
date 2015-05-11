@@ -14,12 +14,12 @@
 #include "OscParameter.h"
 #include "OscServer.h"
 
-class OscProcessor
+class OscManager
     : private OscMessageListener,
       private ChangeListener {
 public:
-    OscProcessor();
-    ~OscProcessor();
+    OscManager();
+    ~OscManager();
 
     // OscMessageListener
     void handleOscMessage(osc::ReceivedPacket packet) override;
@@ -58,7 +58,7 @@ private:
     int oscSent;
 
     OwnedArray<OscParameter> managedOscParameters;
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(OscProcessor)
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(OscManager)
 };
 
 #endif // OSCPROCESSOR_H_INCLUDED

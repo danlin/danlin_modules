@@ -11,6 +11,6 @@ using namespace juce;
 #include "src/OscServer.h"
 #include "src/OscParameter.h"
 #include "src/OscParameters.h"
-#include "src/OscProcessor.h"
+#include "src/OscManager.h"
 
 #endif // __DANLIN_OSCSERVER_HEADER__

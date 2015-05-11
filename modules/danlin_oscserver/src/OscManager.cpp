@@ -8,24 +8,24 @@
   ==============================================================================
 */
 
-#include "OscProcessor.h"
+#include "OscManager.h"
 
-OscProcessor::OscProcessor()
+OscManager::OscManager()
     : oscServer(this)
 {
 }
 
-OscProcessor::~OscProcessor()
+OscManager::~OscManager()
 {
     managedOscParameters.clear();
 }
 
-void OscProcessor::handleOscMessage(osc::ReceivedPacket packet)
+void OscManager::handleOscMessage(osc::ReceivedPacket packet)
 {
     parseOscPacket(packet);
 }
 
-void OscProcessor::changeListenerCallback(ChangeBroadcaster* source)
+void OscManager::changeListenerCallback(ChangeBroadcaster* source)
 {
     OscParameter* parameter = static_cast<OscParameter*>(source);
     if (parameter) {
@@ -36,7 +36,7 @@ void OscProcessor::changeListenerCallback(ChangeBroadcaster* source)
     }
 }
 
-void OscProcessor::addOscParameter(OscParameter* parameter, bool internal)
+void OscManager::addOscParameter(OscParameter* parameter, bool internal)
 {
     if (parameter) {
         managedOscParameters.addIfNotAlreadyThere(parameter);
@@ -46,12 +46,12 @@ void OscProcessor::addOscParameter(OscParameter* parameter, bool internal)
     }
 }
 
-void OscProcessor::removeOscParameter(OscParameter* p)
+void OscManager::removeOscParameter(OscParameter* p)
 {
     managedOscParameters.removeObject(p);
 }
 
-void OscProcessor::removeOscParameter(String regex)
+void OscManager::removeOscParameter(String regex)
 {
     Array<OscParameter*> toRemove;
     for (int index = 0; index < managedOscParameters.size(); index++) {
@@ -64,7 +64,7 @@ void OscProcessor::removeOscParameter(String regex)
     }
 }
 
-Array<OscParameter*> OscProcessor::getAllOscParameter(String regex)
+Array<OscParameter*> OscManager::getAllOscParameter(String regex)
 {
     Array<OscParameter*> parameters;
     for (int index = 0; index < managedOscParameters.size(); index++) {
@@ -75,7 +75,7 @@ Array<OscParameter*> OscProcessor::getAllOscParameter(String regex)
     return parameters;
 }
 
-OscParameter* OscProcessor::getOscParameter(String address)
+OscParameter* OscManager::getOscParameter(String address)
 {
     for (int index = 0; index < managedOscParameters.size(); index++) {
         if (managedOscParameters[index]->getAddress() == address) {
@@ -85,7 +85,7 @@ OscParameter* OscProcessor::getOscParameter(String address)
     return nullptr;
 }
 
-Array<OscParameter*> OscProcessor::getAllOscParameter()
+Array<OscParameter*> OscManager::getAllOscParameter()
 {
     Array<OscParameter*> parameters;
     for (int index = 0; index < managedOscParameters.size(); index++) {
@@ -94,7 +94,7 @@ Array<OscParameter*> OscProcessor::getAllOscParameter()
     return parameters;
 }
 
-void OscProcessor::dumpOscParameters()
+void OscManager::dumpOscParameters()
 {
     for (int index = 0; index < managedOscParameters.size(); index++) {
         char buffer[1024];
@@ -104,7 +104,7 @@ void OscProcessor::dumpOscParameters()
     }
 }
 
-var OscProcessor::getOscParameterValue(String address)
+var OscManager::getOscParameterValue(String address)
 {
     for (int index = 0; index < managedOscParameters.size(); index++) {
         if (managedOscParameters[index]->getAddress() == address) {
@@ -114,7 +114,7 @@ var OscProcessor::getOscParameterValue(String address)
     return var::null;
 }
 
-void OscProcessor::setOscParameterValue(String address, var value)
+void OscManager::setOscParameterValue(String address, var value)
 {
     for (int index = 0; index < managedOscParameters.size(); index++) {
         if (managedOscParameters[index]->getAddress() == address) {
@@ -125,12 +125,12 @@ void OscProcessor::setOscParameterValue(String address, var value)
     Logger::outputDebugString("setOscParameterValue: address " + address + " not found!");
 }
 
-void OscProcessor::addOscParameterListener(OscParameterListener* listener, OscParameter* parameter)
+void OscManager::addOscParameterListener(OscParameterListener* listener, OscParameter* parameter)
 {
     parameter->addOscParameterListener(listener);
 }
 
-void OscProcessor::addOscParameterListener(OscParameterListener* listener, String regex)
+void OscManager::addOscParameterListener(OscParameterListener* listener, String regex)
 {
     auto parameters = getAllOscParameter(regex);
     for (int index = 0; index < parameters.size(); index++) {
@@ -138,7 +138,7 @@ void OscProcessor::addOscParameterListener(OscParameterListener* listener, Strin
     }
 }
 
-void OscProcessor::removeOscParameterListener(OscParameterListener* listener)
+void OscManager::removeOscParameterListener(OscParameterListener* listener)
 {
     auto parameters = getAllOscParameter();
     for (int index = 0; index < parameters.size(); index++) {
@@ -146,7 +146,7 @@ void OscProcessor::removeOscParameterListener(OscParameterListener* listener)
     }
 }
 
-void OscProcessor::parseOscPacket(osc::ReceivedPacket packet)
+void OscManager::parseOscPacket(osc::ReceivedPacket packet)
 {
     if (packet.Size()) {
         if (packet.IsBundle()) {
@@ -160,7 +160,7 @@ void OscProcessor::parseOscPacket(osc::ReceivedPacket packet)
     }
 }
 
-void OscProcessor::parseOscMessage(osc::ReceivedMessage message)
+void OscManager::parseOscMessage(osc::ReceivedMessage message)
 {
     String address(message.AddressPattern());
     OscParameter* parameter = getOscParameter(address);
@@ -193,7 +193,7 @@ void OscProcessor::parseOscMessage(osc::ReceivedMessage message)
     }
 }
 
-void OscProcessor::parseOscBundle(osc::ReceivedBundle bundle)
+void OscManager::parseOscBundle(osc::ReceivedBundle bundle)
 {
     osc::ReceivedBundleElementIterator initiator = bundle.ElementsBegin();
     for (int i = 0; i < bundle.ElementCount(); i++) {
@@ -209,7 +209,7 @@ void OscProcessor::parseOscBundle(osc::ReceivedBundle bundle)
     }
 }
 
-OscServer* OscProcessor::getOscServer()
+OscServer* OscManager::getOscServer()
 {
     return &oscServer;
 }

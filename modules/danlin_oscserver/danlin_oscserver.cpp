@@ -14,4 +14,4 @@
 #include "danlin_oscserver.h"
 
 #include "src/OscServer.cpp"
-#include "src/OscProcessor.cpp"
+#include "src/OscManager.cpp"
