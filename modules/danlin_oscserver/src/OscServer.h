@@ -70,38 +70,25 @@ public:
 
     // UDP Setup
     void setLocalPortNumber(int portNumber);
-
     int getLocalPortNumber();
-
     const String& getLocalHostname();
 
     void setRemoteHostname(String hostname);
-
     String getRemoteHostname();
-
     void setRemotePortNumber(int portNumber);
-
     int getRemotePortNumber();
-
     bool isRemoteEnabled();
-
     void setRemoteEnabled(bool enable);
 
     void setBridgeHostname(String hostname);
-
     String getBridgeHostname();
-
     void setBridgePortNumber(int portNumber);
-
     int getBridgePortNumber();
-
     bool isBridgeEnabled();
-
     void setBridgeEnabled(bool enable);
 
     // UDP Server
     void listen();
-
     void stopListening();
 
     // Server Thread

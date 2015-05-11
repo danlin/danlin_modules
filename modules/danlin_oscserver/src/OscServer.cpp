@@ -123,7 +123,7 @@ void OscServer::listen()
         stopThread(500);
         receiveDatagramSocket = nullptr;
     }
-    startThread(1);
+    startThread(3);
 }
 
 void OscServer::stopListening()
@@ -137,37 +137,53 @@ void OscServer::stopListening()
 
 void OscServer::run()
 {
-    receiveDatagramSocket = new DatagramSocket(receivePortNumber);
-
+    receiveDatagramSocket = new DatagramSocket();
+    if (!receiveDatagramSocket->bindToPort(receivePortNumber)) {
+        Logger::outputDebugString("error port " + String(receivePortNumber) + "already is bound");
+        Logger::writeToLog("error port " + String(receivePortNumber) + "already is bound");
+        return;
+    }
+    
     MemoryBlock buffer(bufferSize, true);
     while (!threadShouldExit()) {
-        if (receiveDatagramSocket->getBoundPort()) {
+        if (receiveDatagramSocket->getBoundPort() == -1) {
             if (!receiveDatagramSocket->bindToPort(receivePortNumber)) {
+                Logger::outputDebugString("error port " + String(receivePortNumber) + "already is bound");
+                Logger::writeToLog("error port " + String(receivePortNumber) + "already is bound");
                 return;
             }
         }
-        if (receiveDatagramSocket->waitUntilReady(true, 100)) {
-            int size = receiveDatagramSocket->read(buffer.getData(), buffer.getSize(),
-                false);
-            if (threadShouldExit()) {
-                return;
-            }
-            try {
-                osc::ReceivedPacket packet((const char*)buffer.getData(), size);
-                if (listener != nullptr) {
-                    MessageManagerLock mml(Thread::getCurrentThread());
-                    if (!mml.lockWasGained()) {
-                        return;
-                    }
-                    if (logger != nullptr) {
-                        logger->postMessage(new OscMessage(packet));
-                    }
-                    listener->postMessage(new OscMessage(packet));
-                    routePackage(buffer);
+        switch (receiveDatagramSocket->waitUntilReady(true, 100)) {
+            case 1:
+            {
+                int size = receiveDatagramSocket->read(buffer.getData(), buffer.getSize(), false);
+                if (threadShouldExit()) {
+                    return;
                 }
+                try {
+                    osc::ReceivedPacket packet((const char*)buffer.getData(), size);
+                    if (listener != nullptr) {
+                        MessageManagerLock mml(Thread::getCurrentThread());
+                        if (!mml.lockWasGained()) {
+                            return;
+                        }
+                        if (logger != nullptr) {
+                            logger->postMessage(new OscMessage(packet));
+                        }
+                        listener->postMessage(new OscMessage(packet));
+                        routePackage(buffer);
+                    }
+                } catch (osc::Exception& e) {
+                    Logger::outputDebugString("error while parsing packet");
+                    Logger::writeToLog("error while parsing packet");
+                }
+                break;
             }
-            catch (osc::Exception& e) {
-                Logger::outputDebugString("error while parsing packet");
+            case -1:
+            {
+                Logger::outputDebugString("socket error");
+                Logger::writeToLog("socket error");
+                break;
             }
         }
     }
