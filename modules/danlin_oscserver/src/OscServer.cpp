@@ -71,17 +71,17 @@ void OscServer::setRemotePortNumber(int portNumber)
 
 int OscServer::getRemotePortNumber()
 {
-    return bridgePortNumber;
+    return remotePortNumber;
 }
 
 bool OscServer::isRemoteEnabled()
 {
-    return bridgeEnabled;
+    return remoteEnabled;
 }
 
 void OscServer::setRemoteEnabled(bool enable)
 {
-    bridgeEnabled = enable;
+    remoteEnabled = enable;
 }
 
 void OscServer::setBridgeHostname(String hostname)
