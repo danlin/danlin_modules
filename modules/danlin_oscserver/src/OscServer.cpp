@@ -171,7 +171,7 @@ void OscServer::run()
                             logger->postMessage(new OscMessage(packet));
                         }
                         listener->postMessage(new OscMessage(packet));
-                        routePackage(buffer);
+                        routePackage(buffer, size);
                     }
                 } catch (osc::Exception& e) {
                     Logger::outputDebugString("error while parsing packet");
@@ -189,7 +189,7 @@ void OscServer::run()
     }
 }
 
-bool OscServer::routePackage(MemoryBlock packet)
+bool OscServer::routePackage(MemoryBlock packet, int size)
 {
     if (bridgeEnabled) {
         if (!bridgeDatagramSocket || bridgeChanged) {
@@ -198,7 +198,7 @@ bool OscServer::routePackage(MemoryBlock packet)
         }
 
         if (bridgeDatagramSocket->waitUntilReady(false, 100)) {
-            if (bridgeDatagramSocket->write(bridgeHostname, bridgePortNumber, packet.getData(), packet.getSize()) > 0) {
+            if (bridgeDatagramSocket->write(bridgeHostname, bridgePortNumber, packet.getData(), size) > 0) {
                 return true;
             }
         }

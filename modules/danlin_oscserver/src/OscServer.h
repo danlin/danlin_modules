@@ -127,7 +127,7 @@ private:
     bool bridgeChanged;
     bool bridgeEnabled;
 
-    bool routePackage(MemoryBlock packet);
+    bool routePackage(MemoryBlock packet, int size);
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(OscServer)
 };
