@@ -20,7 +20,7 @@ Typeface::Ptr FontAwesome_ptr = Typeface::createSystemTypefaceFor(
     FontAwesomeData::fontawesomewebfont_ttf,
     FontAwesomeData::fontawesomewebfont_ttfSize);
 Font FontAwesome() {
-  Font fontAwesomeFont(FontAwesome_ptr);
+  static Font fontAwesomeFont(FontAwesome_ptr);
   return fontAwesomeFont;
 }
 
