@@ -36,3 +36,10 @@ void DrawIcon(Graphics &g, int x, int y, float height, String icon) {
   g.drawText(icon, (int)x, (int)y, (int)height, (int)height,
              Justification::centred, true);
 }
+
+void DrawRotatedIcon(Graphics &g, int x, int y, float height, String icon, float angleInRadians) {
+    Image drawable;
+    Graphics buffer(drawable);
+    DrawIcon(buffer, 0, 0, height, icon);
+    g.drawImageTransformed(drawable, AffineTransform::rotation(angleInRadians, height * 0.5f, height * 0.5f));
+}
