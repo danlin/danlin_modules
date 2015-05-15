@@ -38,7 +38,7 @@ public:
 
     // Osc Parameter Values
     var getOscParameterValue(String address);
-    void setOscParameterValue(String address, var value);
+    void setOscParameterValue(String address, var value, OscParameter::OscParameterNotificationType notificationType = OscParameter::sendNotification);
 
     // Osc Parameter Listener
     void addOscParameterListener(OscParameterListener* listener, OscParameter* parameter);

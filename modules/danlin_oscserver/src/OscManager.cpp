@@ -114,11 +114,11 @@ var OscManager::getOscParameterValue(String address)
     return var::null;
 }
 
-void OscManager::setOscParameterValue(String address, var value)
+void OscManager::setOscParameterValue(String address, var value, OscParameter::OscParameterNotificationType notificationType)
 {
     for (int index = 0; index < managedOscParameters.size(); index++) {
         if (managedOscParameters[index]->getAddress() == address) {
-            managedOscParameters[index]->setValue(value);
+            managedOscParameters[index]->setValue(value, notificationType);
             return;
         }
     }

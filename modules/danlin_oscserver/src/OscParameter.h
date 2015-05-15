@@ -60,12 +60,25 @@ public:
     {
         return oscValue;
     }
-    virtual void setValue(var value)
+    enum OscParameterNotificationType
+    {
+        dontSendNotification = 0,
+        sendNotification = 1,
+        dontSendParameterNotification = 2,
+        dontSendOscNotification = 3,
+    };
+    virtual void setValue(var value, OscParameterNotificationType notificationType = OscParameterNotificationType::sendNotification)
     {
         if (!oscValue.equals(value)) {
             oscValue = value;
-            sendChangeMessage();
-            sendParameterMessage();
+            if (notificationType == OscParameterNotificationType::sendNotification
+                    || notificationType != OscParameterNotificationType::dontSendOscNotification) {
+                sendChangeMessage();
+            }
+            if (notificationType == OscParameterNotificationType::sendNotification
+                    || notificationType != OscParameterNotificationType::dontSendParameterNotification) {
+                sendParameterMessage();
+            }
         }
     }
 
@@ -92,7 +105,6 @@ public:
     }
     virtual var getDefaultValue() = 0;
     virtual void appendOscMessageToStream(osc::OutboundPacketStream& stream) = 0;
-
 private:
     Array<OscParameterListener*> listeners;
     var oscValue;
