@@ -14,17 +14,21 @@
 #include "JuceHeader.h"
 
 typedef juce::String Icon;
+typedef juce::Image RenderedIcon;
 
 class FontAwesomeHelper {
 public:
     FontAwesomeHelper() {}
     ~FontAwesomeHelper() {}
-    juce::Image getIcon(Icon icon, int size, juce::Colour colour);
-    juce::Image getRotatedIcon(Icon icon, int size, juce::Colour colour, float iconRotation);
+    RenderedIcon getIcon(Icon icon, int size, juce::Colour colour);
+    RenderedIcon getRotatedIcon(Icon icon, int size, juce::Colour colour, float iconRotation);
 
+    void drawAt(juce::Graphics &g, RenderedIcon icon, int x, int y);
+    
     juce::Font getFont();
     juce::Font getFont(float size);
 private:
+    float getScale();
     juce::Typeface::Ptr FontAwesome_ptr = juce::Typeface::createSystemTypefaceFor(FontAwesomeData::fontawesomewebfont_ttf, FontAwesomeData::fontawesomewebfont_ttfSize);
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(FontAwesomeHelper)
