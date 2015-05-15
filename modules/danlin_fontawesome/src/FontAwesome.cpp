@@ -10,36 +10,47 @@
 
 #include "FontAwesome.h"
 
-#if JUCE_LINUX
 Font getFontAwesome(float height) {
-  Font fontAwesomeFont("FontAwesome", height, Font::plain);
-  return fontAwesomeFont;
-}
-#else
-Typeface::Ptr FontAwesome_ptr = Typeface::createSystemTypefaceFor(
-    FontAwesomeData::fontawesomewebfont_ttf,
-    FontAwesomeData::fontawesomewebfont_ttfSize);
-Font FontAwesome() {
-  static Font fontAwesomeFont(FontAwesome_ptr);
-  return fontAwesomeFont;
+    return FontAwesome.getFont(height);
 }
 
-Font getFontAwesome(float height) {
-  Font fontAwesomeFont = FontAwesome();
-  fontAwesomeFont.setHeight(height);
-  return fontAwesomeFont;
-}
-#endif
+Image FontAwesomeHelper::getIcon(Icon icon, int size, juce::Colour colour) {
+    int64 hash = juce::String(icon + "@" + String(size) + "@" + colour.toString()).hashCode();
+    Image canvas = juce::ImageCache::getFromHashCode(hash);
+    if (canvas.isValid())
+        return canvas;
 
-void DrawIcon(Graphics &g, int x, int y, float height, String icon) {
-  g.setFont(getFontAwesome(height));
-  g.drawText(icon, (int)x, (int)y, (int)height, (int)height,
-             Justification::centred, true);
+    canvas = Image(Image::PixelFormat::ARGB, size, size, true);
+    Graphics g(canvas);
+    g.setColour(colour);
+    g.setFont(getFont(size));
+    g.drawText(icon, 0, 0, size, size, Justification::centred, true);
+    juce::ImageCache::addImageToCache(canvas, hash);
+    return canvas;
 }
 
-void DrawRotatedIcon(Graphics &g, int x, int y, float height, String icon, float angleInRadians) {
-    Image drawable;
-    Graphics buffer(drawable);
-    DrawIcon(buffer, 0, 0, height, icon);
-    g.drawImageTransformed(drawable, AffineTransform::rotation(angleInRadians, height * 0.5f, height * 0.5f));
+Image FontAwesomeHelper::getRotatedIcon(Icon icon, int size, juce::Colour colour, float iconRotation) {
+    int64 hash = String(icon + "@" + String(size) + "@" + colour.toString() + "@" + String(iconRotation)).hashCode();
+    Image canvas = juce::ImageCache::getFromHashCode(hash);
+    if (canvas.isValid())
+        return canvas;
+
+    canvas = Image(Image::PixelFormat::ARGB, size, size, true);
+    Graphics g(canvas);
+    g.drawImageTransformed(getIcon(icon, size, colour), AffineTransform::rotation(-(float_Pi * iconRotation), size * 0.5f, size * 0.5f));
+    juce::ImageCache::addImageToCache(canvas, hash);
+    return canvas;
 }
+
+juce::Font FontAwesomeHelper::getFont() {
+    static Font fontAwesomeFont(FontAwesome_ptr);
+    return fontAwesomeFont;
+}
+
+juce::Font FontAwesomeHelper::getFont(float size) {
+    juce::Font font = getFont();
+    font.setHeight(size);
+    return font;
+}
+
+FontAwesomeHelper FontAwesome;
