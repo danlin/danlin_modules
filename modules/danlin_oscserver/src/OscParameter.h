@@ -49,7 +49,40 @@ public:
 
     bool addressMatch(String regex)
     {
-        return std::regex_match(oscAddress.toRawUTF8(), std::regex(regex.toRawUTF8()));
+	try {
+		std::regex check(regex.toStdString());
+		return std::regex_match(oscAddress.toStdString(), check);	
+	} catch (std::regex_error& e) {
+		std:cerr << regex << " ";
+		if (e.code() == std::regex_constants::error_collate)
+       			std::cerr << "The expression contained an invalid collating element name.\n";
+		else if (e.code() == std::regex_constants::error_ctype)
+       			std::cerr << "The expression contained an invalid character class name.\n";
+		else if (e.code() == std::regex_constants::error_escape)
+       			std::cerr << "The expression contained an invalid escaped character, or a trailing escape.\n";
+		else if (e.code() == std::regex_constants::error_backref)
+       			std::cerr << "he expression contained an invalid back reference.\n";
+		else if (e.code() == std::regex_constants::error_brack)
+       			std::cerr << "The expression contained mismatched brackets ([ and ]).\n";
+		else if (e.code() == std::regex_constants::error_paren)
+       			std::cerr << "The expression contained mismatched parentheses (( and )).\n";
+		else if (e.code() == std::regex_constants::error_brace)
+       			std::cerr << "The expression contained mismatched braces ({ and }).\n";
+		else if (e.code() == std::regex_constants::error_badbrace)
+       			std::cerr << "The expression contained an invalid range between braces ({ and }).\n";
+		else if (e.code() == std::regex_constants::error_range)
+       			std::cerr << "The expression contained an invalid character range.\n";
+		else if (e.code() == std::regex_constants::error_space)
+       			std::cerr << "There was insufficient memory to convert the expression into a finite state machine.\n";
+		else if (e.code() == std::regex_constants::error_badrepeat)
+       			std::cerr << "The expression contained a repeat specifier (one of *?+{) that was not preceded by a valid regular expression.\n";
+		else if (e.code() == std::regex_constants::error_complexity)
+       			std::cerr << "The complexity of an attempted match against a regular expression exceeded a pre-set level.\n";
+		else if (e.code() == std::regex_constants::error_stack)
+       			std::cerr << "There was insufficient memory to determine whether the regular expression could match the specified character sequence.\n";
+		else std::cerr << "Some other regex exception happened. (" << e.code() << ")\n";
+		return false;
+	}
     }
     String getAddress() const
     {
