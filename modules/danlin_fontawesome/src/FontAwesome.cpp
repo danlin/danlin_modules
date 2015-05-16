@@ -16,7 +16,7 @@ Font getFontAwesome(float height) {
 
 RenderedIcon FontAwesomeHelper::getIcon(Icon icon, int size, juce::Colour colour) {
     int scaledSize = size * getScale();
-    String identifier = juce::String(icon + "@" + String(size) + "@" + colour.toString());
+    String identifier = juce::String(icon + "@" + String(scaledSize) + "@" + colour.toString());
     int64 hash = identifier.hashCode64();
     Image canvas = juce::ImageCache::getFromHashCode(hash);
     if (canvas.isValid())
@@ -33,7 +33,7 @@ RenderedIcon FontAwesomeHelper::getIcon(Icon icon, int size, juce::Colour colour
 
 RenderedIcon FontAwesomeHelper::getRotatedIcon(Icon icon, int size, juce::Colour colour, float iconRotation) {
     int scaledSize = size * getScale();
-    String identifier = String(icon + "@" + String(size) + "@" + colour.toString() + "@" + String(iconRotation));
+    String identifier = String(icon + "@" + String(scaledSize) + "@" + colour.toString() + "@" + String(iconRotation) + "@");
     int64 hash = identifier.hashCode64();
     Image canvas = juce::ImageCache::getFromHashCode(hash);
     if (canvas.isValid())
