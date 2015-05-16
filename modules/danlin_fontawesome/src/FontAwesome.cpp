@@ -63,7 +63,11 @@ float FontAwesomeHelper::getScale() {
 }
 
 juce::Font FontAwesomeHelper::getFont() {
+#if JUCE_LINUX
+    static Font fontAwesomeFont("FontAwesome", 32, Font::plain);
+#else
     static Font fontAwesomeFont(FontAwesome_ptr);
+#endif
     return fontAwesomeFont;
 }
 

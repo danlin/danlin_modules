@@ -29,8 +29,9 @@ public:
     juce::Font getFont(float size);
 private:
     float getScale();
+#ifndef JUCE_LINUX
     juce::Typeface::Ptr FontAwesome_ptr = juce::Typeface::createSystemTypefaceFor(FontAwesomeData::fontawesomewebfont_ttf, FontAwesomeData::fontawesomewebfont_ttfSize);
-
+#endif
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(FontAwesomeHelper)
 };
 
