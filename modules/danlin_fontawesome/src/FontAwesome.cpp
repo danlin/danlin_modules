@@ -10,11 +10,9 @@
 
 #include "FontAwesome.h"
 
-Font getFontAwesome(float height) {
-    return FontAwesome.getFont(height);
-}
+juce_ImplementSingleton(FontAwesome)
 
-RenderedIcon FontAwesomeHelper::getIcon(Icon icon, int size, juce::Colour colour) {
+RenderedIcon FontAwesome::getIcon(Icon icon, int size, juce::Colour colour) {
     int scaledSize = size * getScale();
     String identifier = juce::String(icon + "@" + String(scaledSize) + "@" + colour.toString());
     int64 hash = identifier.hashCode64();
@@ -31,7 +29,7 @@ RenderedIcon FontAwesomeHelper::getIcon(Icon icon, int size, juce::Colour colour
     return canvas;
 }
 
-RenderedIcon FontAwesomeHelper::getRotatedIcon(Icon icon, int size, juce::Colour colour, float iconRotation) {
+RenderedIcon FontAwesome::getRotatedIcon(Icon icon, int size, juce::Colour colour, float iconRotation) {
     int scaledSize = size * getScale();
     String identifier = String(icon + "@" + String(scaledSize) + "@" + colour.toString() + "@" + String(iconRotation) + "@");
     int64 hash = identifier.hashCode64();
@@ -46,7 +44,7 @@ RenderedIcon FontAwesomeHelper::getRotatedIcon(Icon icon, int size, juce::Colour
     return canvas;
 }
 
-void FontAwesomeHelper::drawAt(juce::Graphics &g, RenderedIcon icon, int x, int y) {
+void FontAwesome::drawAt(juce::Graphics &g, RenderedIcon icon, int x, int y) {
     int w = icon.getWidth();
     int h = icon.getHeight();
     g.drawImage(icon,
@@ -57,24 +55,19 @@ void FontAwesomeHelper::drawAt(juce::Graphics &g, RenderedIcon icon, int x, int 
                 false);
 }
 
-float FontAwesomeHelper::getScale() {
+float FontAwesome::getScale() {
+    // TODO: is there a way to get the current display scale?
     const Desktop::Displays::Display& dis = Desktop::getInstance().getDisplays().getMainDisplay();
     return (int)dis.scale;
 }
 
-juce::Font FontAwesomeHelper::getFont() {
-#if JUCE_LINUX
-    static Font fontAwesomeFont("FontAwesome", 32, Font::plain);
-#else
+juce::Font FontAwesome::getFont() {
     static Font fontAwesomeFont(FontAwesome_ptr);
-#endif
     return fontAwesomeFont;
 }
 
-juce::Font FontAwesomeHelper::getFont(float size) {
+juce::Font FontAwesome::getFont(float size) {
     juce::Font font = getFont();
     font.setHeight(size);
     return font;
 }
-
-FontAwesomeHelper FontAwesome;

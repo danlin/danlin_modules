@@ -16,10 +16,14 @@
 typedef juce::String Icon;
 typedef juce::Image RenderedIcon;
 
-class FontAwesomeHelper {
+class FontAwesome {
 public:
-    FontAwesomeHelper() {}
-    ~FontAwesomeHelper() {}
+    FontAwesome() {}
+    ~FontAwesome() {
+        clearSingletonInstance();
+    }
+    juce_DeclareSingleton(FontAwesome, false)
+    
     RenderedIcon getIcon(Icon icon, int size, juce::Colour colour);
     RenderedIcon getRotatedIcon(Icon icon, int size, juce::Colour colour, float iconRotation);
 
@@ -29,16 +33,10 @@ public:
     juce::Font getFont(float size);
 private:
     float getScale();
-#ifndef JUCE_LINUX
     juce::Typeface::Ptr FontAwesome_ptr = juce::Typeface::createSystemTypefaceFor(FontAwesomeData::fontawesomewebfont_ttf, FontAwesomeData::fontawesomewebfont_ttfSize);
-#endif
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(FontAwesomeHelper)
+    
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(FontAwesome)
 };
-
-extern FontAwesomeHelper FontAwesome;
-
-juce::Font getFontAwesome(float height);
-
 
 const Icon FontAwesome_Glass = Icon::fromUTF8(u8"\uf000");
 const Icon FontAwesome_Music = Icon::fromUTF8(u8"\uf001");
