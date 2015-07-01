@@ -1,7 +1,7 @@
 {
   "id":             "danlin_fontawesome",
   "name":           "Font Awesome",
-  "version":        "1.0.1-4.3.0",
+  "version":        "1.0.2-4.3.0",
   "description":    "Font Awesome gives you scalable vector icons that can instantly be customized",
   "website":        "http://fortawesome.github.io/Font-Awesome/",
   "license":        "The MIT License (MIT)",

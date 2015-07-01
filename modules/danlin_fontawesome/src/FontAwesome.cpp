@@ -13,33 +13,38 @@
 juce_ImplementSingleton(FontAwesome)
 
 RenderedIcon FontAwesome::getIcon(Icon icon, float size, juce::Colour colour) {
-    int scaledSize = size * getScale();
+    int scaledSize = std::abs(size * getScale());
+    
     String identifier = juce::String(icon + "@" + String(scaledSize) + "@" + colour.toString());
     int64 hash = identifier.hashCode64();
     Image canvas = juce::ImageCache::getFromHashCode(hash);
     if (canvas.isValid())
         return canvas;
 
+    Font fontAwesome = getFont(scaledSize);
+    scaledSize = fontAwesome.getStringWidth(icon);
+    
     canvas = Image(Image::PixelFormat::ARGB, scaledSize, scaledSize, true);
     Graphics g(canvas);
     g.setColour(colour);
-    g.setFont(getFont(scaledSize));
+    g.setFont(fontAwesome);
     g.drawText(icon, 0, 0, scaledSize, scaledSize, Justification::centred, true);
     juce::ImageCache::addImageToCache(canvas, hash);
     return canvas;
 }
 
 RenderedIcon FontAwesome::getRotatedIcon(Icon icon, float size, juce::Colour colour, float iconRotation) {
-    int scaledSize = size * getScale();
+    int scaledSize = std::abs(size * getScale());
     String identifier = String(icon + "@" + String(scaledSize) + "@" + colour.toString() + "@" + String(iconRotation) + "@");
     int64 hash = identifier.hashCode64();
     Image canvas = juce::ImageCache::getFromHashCode(hash);
     if (canvas.isValid())
         return canvas;
 
-    canvas = Image(Image::PixelFormat::ARGB, scaledSize, scaledSize, true);
+    RenderedIcon renderdIcon = getIcon(icon, size, colour);
+    canvas = Image(Image::PixelFormat::ARGB, renderdIcon.getWidth(), renderdIcon.getHeight(), true);
     Graphics g(canvas);
-    g.drawImageTransformed(getIcon(icon, size, colour), AffineTransform::rotation(-(float_Pi * iconRotation), scaledSize * 0.5f, scaledSize * 0.5f));
+    g.drawImageTransformed(renderdIcon, AffineTransform::rotation(-(float_Pi * iconRotation), renderdIcon.getWidth() * 0.5f, renderdIcon.getHeight() * 0.5f));
     juce::ImageCache::addImageToCache(canvas, hash);
     return canvas;
 }
