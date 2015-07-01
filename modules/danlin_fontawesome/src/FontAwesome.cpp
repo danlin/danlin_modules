@@ -12,7 +12,7 @@
 
 juce_ImplementSingleton(FontAwesome)
 
-RenderedIcon FontAwesome::getIcon(Icon icon, int size, juce::Colour colour) {
+RenderedIcon FontAwesome::getIcon(Icon icon, float size, juce::Colour colour) {
     int scaledSize = size * getScale();
     String identifier = juce::String(icon + "@" + String(scaledSize) + "@" + colour.toString());
     int64 hash = identifier.hashCode64();
@@ -29,7 +29,7 @@ RenderedIcon FontAwesome::getIcon(Icon icon, int size, juce::Colour colour) {
     return canvas;
 }
 
-RenderedIcon FontAwesome::getRotatedIcon(Icon icon, int size, juce::Colour colour, float iconRotation) {
+RenderedIcon FontAwesome::getRotatedIcon(Icon icon, float size, juce::Colour colour, float iconRotation) {
     int scaledSize = size * getScale();
     String identifier = String(icon + "@" + String(scaledSize) + "@" + colour.toString() + "@" + String(iconRotation) + "@");
     int64 hash = identifier.hashCode64();

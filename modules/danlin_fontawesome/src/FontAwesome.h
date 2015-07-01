@@ -24,8 +24,8 @@ public:
     }
     juce_DeclareSingleton(FontAwesome, false)
     
-    RenderedIcon getIcon(Icon icon, int size, juce::Colour colour);
-    RenderedIcon getRotatedIcon(Icon icon, int size, juce::Colour colour, float iconRotation);
+    RenderedIcon getIcon(Icon icon, float size, juce::Colour colour);
+    RenderedIcon getRotatedIcon(Icon icon, float size, juce::Colour colour, float iconRotation);
 
     void drawAt(juce::Graphics &g, RenderedIcon icon, int x, int y);
     
