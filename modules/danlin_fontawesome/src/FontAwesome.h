@@ -24,15 +24,20 @@ public:
     }
     juce_DeclareSingleton(FontAwesome, false)
     
-    RenderedIcon getIcon(Icon icon, float size, juce::Colour colour);
-    RenderedIcon getRotatedIcon(Icon icon, float size, juce::Colour colour, float iconRotation);
+    RenderedIcon getIcon(Icon icon, float size, juce::Colour colour, float scaleFactor = 1.0f);
+    RenderedIcon getRotatedIcon(Icon icon, float size, juce::Colour colour, float iconRotation, float scaleFactor = 1.0f);
 
-    void drawAt(juce::Graphics &g, RenderedIcon icon, int x, int y);
+    void drawAt(juce::Graphics &g, RenderedIcon icon, int x, int y, float scaleFactor = 1.0f);
+    void drawCenterdAt(juce::Graphics &g, RenderedIcon icon, juce::Rectangle<int> r, float scaleFactor = 1.0f);
     
     juce::Font getFont();
     juce::Font getFont(float size);
+    
+    static void drawAt(juce::Graphics &g, Icon icon, float size, juce::Colour colour, int x, int y, float scaleFactor);
+    static void drawCenterd(juce::Graphics &g, Icon icon, float size, juce::Colour colour, juce::Rectangle<int> r, float scaleFactor);
+    static void drawAt(juce::Graphics &g, Icon icon, float size, juce::Colour colour, int x, int y);
+    static void drawCenterd(juce::Graphics &g, Icon icon, float size, juce::Colour colour, juce::Rectangle<int> r);
 private:
-    float getScale();
     juce::Typeface::Ptr FontAwesome_ptr = juce::Typeface::createSystemTypefaceFor(FontAwesomeData::fontawesomewebfont_ttf, FontAwesomeData::fontawesomewebfont_ttfSize);
     
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(FontAwesome)

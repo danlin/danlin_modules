@@ -12,8 +12,8 @@
 
 juce_ImplementSingleton(FontAwesome)
 
-RenderedIcon FontAwesome::getIcon(Icon icon, float size, juce::Colour colour) {
-    int scaledSize = std::abs(size * getScale());
+RenderedIcon FontAwesome::getIcon(Icon icon, float size, juce::Colour colour, float scaleFactor) {
+    int scaledSize = int(size * scaleFactor);
     
     String identifier = juce::String(icon + "@" + String(scaledSize) + "@" + colour.toString());
     int64 hash = identifier.hashCode64();
@@ -33,8 +33,8 @@ RenderedIcon FontAwesome::getIcon(Icon icon, float size, juce::Colour colour) {
     return canvas;
 }
 
-RenderedIcon FontAwesome::getRotatedIcon(Icon icon, float size, juce::Colour colour, float iconRotation) {
-    int scaledSize = std::abs(size * getScale());
+RenderedIcon FontAwesome::getRotatedIcon(Icon icon, float size, juce::Colour colour, float iconRotation, float scaleFactor) {
+    int scaledSize = int(size * scaleFactor);
     String identifier = String(icon + "@" + String(scaledSize) + "@" + colour.toString() + "@" + String(iconRotation) + "@");
     int64 hash = identifier.hashCode64();
     Image canvas = juce::ImageCache::getFromHashCode(hash);
@@ -49,21 +49,24 @@ RenderedIcon FontAwesome::getRotatedIcon(Icon icon, float size, juce::Colour col
     return canvas;
 }
 
-void FontAwesome::drawAt(juce::Graphics &g, RenderedIcon icon, int x, int y) {
+void FontAwesome::drawAt(juce::Graphics &g, RenderedIcon icon, int x, int y, float scaleFactor) {
     int w = icon.getWidth();
     int h = icon.getHeight();
     g.drawImage(icon,
                 x, y,
-                w/getScale(), h/getScale(),
+                w/scaleFactor, h/scaleFactor,
                 0, 0,
                 w, h,
                 false);
 }
 
-float FontAwesome::getScale() {
-    // TODO: is there a way to get the current display scale?
-    const Desktop::Displays::Display& dis = Desktop::getInstance().getDisplays().getMainDisplay();
-    return (int)dis.scale;
+void FontAwesome::drawCenterdAt(juce::Graphics &g, RenderedIcon icon, Rectangle<int> r, float scaleFactor) {
+    float iconWidth = icon.getWidth() / scaleFactor;
+    float iconHeight = icon.getHeight() / scaleFactor;
+    
+    int x = r.getX() +  ((r.getWidth() * 0.5f) - (iconWidth * 0.5f));
+    int y = r.getY() +  ((r.getHeight() * 0.5f) - (iconHeight * 0.5f));
+    g.drawImage(icon, x, y, iconWidth, iconHeight, 0, 0, icon.getWidth(), icon.getWidth());
 }
 
 juce::Font FontAwesome::getFont() {
@@ -75,4 +78,20 @@ juce::Font FontAwesome::getFont(float size) {
     juce::Font font = getFont();
     font.setHeight(size);
     return font;
+}
+
+void FontAwesome::drawAt(juce::Graphics &g, Icon icon, float size, juce::Colour colour, int x, int y, float scaleFactor) {
+    FontAwesome::getInstance()->drawAt(g, FontAwesome::getInstance()->getIcon(icon, size, colour, scaleFactor), x, y, scaleFactor);
+}
+
+void FontAwesome::drawAt(juce::Graphics &g, Icon icon, float size, juce::Colour colour, int x, int y) {
+    FontAwesome::getInstance()->drawAt(g, FontAwesome::getInstance()->getIcon(icon, size, colour, g.getInternalContext().getPhysicalPixelScaleFactor()), x, y, g.getInternalContext().getPhysicalPixelScaleFactor());
+}
+
+void FontAwesome::drawCenterd(juce::Graphics &g, Icon icon, float size, juce::Colour colour, juce::Rectangle<int> r, float scaleFactor) {
+    FontAwesome::getInstance()->drawCenterdAt(g, FontAwesome::getInstance()->getIcon(icon, size, colour, scaleFactor), r, scaleFactor);
+}
+
+void FontAwesome::drawCenterd(juce::Graphics &g, Icon icon, float size, juce::Colour colour, juce::Rectangle<int> r) {
+    FontAwesome::getInstance()->drawCenterdAt(g, FontAwesome::getInstance()->getIcon(icon, size, colour, g.getInternalContext().getPhysicalPixelScaleFactor()), r,  g.getInternalContext().getPhysicalPixelScaleFactor());
 }
