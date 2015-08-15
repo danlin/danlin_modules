@@ -41,7 +41,7 @@ RenderedIcon FontAwesome::getRotatedIcon(Icon icon, float size, juce::Colour col
     if (canvas.isValid())
         return canvas;
 
-    RenderedIcon renderdIcon = getIcon(icon, size, colour);
+    RenderedIcon renderdIcon = getIcon(icon, size, colour, scaleFactor);
     canvas = Image(Image::PixelFormat::ARGB, renderdIcon.getWidth(), renderdIcon.getHeight(), true);
     Graphics g(canvas);
     g.drawImageTransformed(renderdIcon, AffineTransform::rotation(-(float_Pi * iconRotation), renderdIcon.getWidth() * 0.5f, renderdIcon.getHeight() * 0.5f));
@@ -95,3 +95,20 @@ void FontAwesome::drawCenterd(juce::Graphics &g, Icon icon, float size, juce::Co
 void FontAwesome::drawCenterd(juce::Graphics &g, Icon icon, float size, juce::Colour colour, juce::Rectangle<int> r) {
     FontAwesome::getInstance()->drawCenterdAt(g, FontAwesome::getInstance()->getIcon(icon, size, colour, g.getInternalContext().getPhysicalPixelScaleFactor()), r,  g.getInternalContext().getPhysicalPixelScaleFactor());
 }
+
+void FontAwesome::drawAtRotated(juce::Graphics &g, Icon icon, float size, juce::Colour colour, int x, int y, float rotation, float scaleFactor) {
+    FontAwesome::getInstance()->drawAt(g, FontAwesome::getInstance()->getRotatedIcon(icon, size, colour, rotation, scaleFactor), x, y, scaleFactor);
+}
+
+void FontAwesome::drawAtRotated(juce::Graphics &g, Icon icon, float size, juce::Colour colour, int x, int y, float rotation) {
+    FontAwesome::getInstance()->drawAt(g, FontAwesome::getInstance()->getRotatedIcon(icon, size, colour, rotation, g.getInternalContext().getPhysicalPixelScaleFactor()), x, y, g.getInternalContext().getPhysicalPixelScaleFactor());
+}
+
+void FontAwesome::drawCenterdRotated(juce::Graphics &g, Icon icon, float size, juce::Colour colour, juce::Rectangle<int> r, float rotation, float scaleFactor) {
+    FontAwesome::getInstance()->drawCenterdAt(g, FontAwesome::getInstance()->getRotatedIcon(icon, size, colour, rotation, scaleFactor), r, scaleFactor);
+}
+
+void FontAwesome::drawCenterdRotated(juce::Graphics &g, Icon icon, float size, juce::Colour colour, juce::Rectangle<int> r, float rotation) {
+    FontAwesome::getInstance()->drawCenterdAt(g, FontAwesome::getInstance()->getRotatedIcon(icon, size, colour, rotation, g.getInternalContext().getPhysicalPixelScaleFactor()), r, g.getInternalContext().getPhysicalPixelScaleFactor());
+}
+

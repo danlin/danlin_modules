@@ -35,8 +35,17 @@ public:
     
     static void drawAt(juce::Graphics &g, Icon icon, float size, juce::Colour colour, int x, int y, float scaleFactor);
     static void drawCenterd(juce::Graphics &g, Icon icon, float size, juce::Colour colour, juce::Rectangle<int> r, float scaleFactor);
+    
     static void drawAt(juce::Graphics &g, Icon icon, float size, juce::Colour colour, int x, int y);
     static void drawCenterd(juce::Graphics &g, Icon icon, float size, juce::Colour colour, juce::Rectangle<int> r);
+    
+    static void drawAtRotated(juce::Graphics &g, Icon icon, float size, juce::Colour colour, int x, int y, float rotation, float scaleFactor);
+    static void drawCenterdRotated(juce::Graphics &g, Icon icon, float size, juce::Colour colour, juce::Rectangle<int> r, float rotation, float scaleFactor);
+
+    static void drawAtRotated(juce::Graphics &g, Icon icon, float size, juce::Colour colour, int x, int y, float rotation);
+    static void drawCenterdRotated(juce::Graphics &g, Icon icon, float size, juce::Colour colour, juce::Rectangle<int> r, float rotation);
+
+    
 private:
     juce::Typeface::Ptr FontAwesome_ptr = juce::Typeface::createSystemTypefaceFor(FontAwesomeData::fontawesomewebfont_ttf, FontAwesomeData::fontawesomewebfont_ttfSize);
     
