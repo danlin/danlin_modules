@@ -22,7 +22,7 @@ RenderedIcon FontAwesome::getIcon(Icon icon, float size, juce::Colour colour, fl
         return canvas;
 
     Font fontAwesome = getFont(scaledSize);
-    scaledSize = fontAwesome.getStringWidth(icon);
+    scaledSize = max(fontAwesome.getStringWidth(icon), scaledSize);
     
     canvas = Image(Image::PixelFormat::ARGB, scaledSize, scaledSize, true);
     Graphics g(canvas);
