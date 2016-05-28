@@ -53,7 +53,7 @@ public:
 		    std::regex check(regex.toStdString());
 		    return std::regex_match(oscAddress.toStdString(), check);
 	    } catch (std::regex_error& e) {
-		    std:cerr << regex << " ";
+		    std::cerr << regex << " ";
 		    if (e.code() == std::regex_constants::error_collate)
        		    std::cerr << "The expression contained an invalid collating element name.\n";
 		    else if (e.code() == std::regex_constants::error_ctype)
