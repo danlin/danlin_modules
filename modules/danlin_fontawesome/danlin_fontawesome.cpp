@@ -13,5 +13,5 @@
 
 #include "danlin_fontawesome.h"
 
-#include "data/BinaryData.cpp"
+#include "data/FontAwesomeData.cpp"
 #include "src/FontAwesome.cpp"
