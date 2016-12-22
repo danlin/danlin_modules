@@ -70,6 +70,7 @@ def write_font_file_header(font, output_file):
 
 def write_font_file_source(font, output_file):
     output_file.write("// IMPORTANT! This file is auto-generated see extras/AwesomeMaker" + endl)
+    output_file.write(endl)
     output_file.write("#include \"FontAwesomeData.h\"" + endl)
     output_file.write(endl)
     output_file.write("static const unsigned char data[] = {")
@@ -84,7 +85,7 @@ def write_font_file_source(font, output_file):
             output_file.write(str(ord(byte))  + endl)
         if size > 0:
             output_file.write(",")
-    output_file.write(";" + endl)
+    output_file.write("};" + endl)
     output_file.write("const char* FontAwesomeData::fontawesomewebfont_ttf = (const char*) data;" + endl)
     output_file.write(endl)
 
