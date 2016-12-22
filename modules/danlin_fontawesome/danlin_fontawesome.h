@@ -12,7 +12,7 @@
 
   ID:               danlin_fontawesome
   vendor:           danlin
-  version:          1.3.0-4.6.3
+  version:          1.3.0-4.7.0
   name:             Font Awesome
   description:      Font Awesome gives you scalable vector icons that can instantly be customized.
   website:          https://github.com/danlin/danlin_modules
