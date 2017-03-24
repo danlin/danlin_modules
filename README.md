@@ -13,6 +13,6 @@ There are Macros for the Icons. See this page http://fortawesome.github.io/Font-
 
 ```
 void paint (Graphics& g) override {
-	DrawIcon(0, 0, 32, FA_ALIGN_CENTER);
+	FontAwesome::drawAt(g, FontAwesome_Play, 24, Colours::black, 10, 10);
 }
 ```
