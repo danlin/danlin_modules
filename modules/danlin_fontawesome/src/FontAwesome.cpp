@@ -21,7 +21,7 @@ RenderedIcon FontAwesome::getIcon(Icon icon, float size, juce::Colour colour, fl
     if (canvas.isValid())
         return canvas;
 
-    Font fontAwesome = getFont(scaledSize);
+    Font fontAwesome = getFont((float)scaledSize);
     scaledSize = std::max(fontAwesome.getStringWidth(icon), scaledSize);
     
     canvas = Image(Image::PixelFormat::ARGB, scaledSize, scaledSize, true);
@@ -54,7 +54,7 @@ void FontAwesome::drawAt(juce::Graphics &g, RenderedIcon icon, int x, int y, flo
     int h = icon.getHeight();
     g.drawImage(icon,
                 x, y,
-                w/scaleFactor, h/scaleFactor,
+                (int)(w/scaleFactor), (int)(h/scaleFactor),
                 0, 0,
                 w, h,
                 false);
@@ -64,9 +64,9 @@ void FontAwesome::drawCenterdAt(juce::Graphics &g, RenderedIcon icon, Rectangle<
     float iconWidth = icon.getWidth() / scaleFactor;
     float iconHeight = icon.getHeight() / scaleFactor;
     
-    int x = r.getX() +  ((r.getWidth() * 0.5f) - (iconWidth * 0.5f));
-    int y = r.getY() +  ((r.getHeight() * 0.5f) - (iconHeight * 0.5f));
-    g.drawImage(icon, x, y, iconWidth, iconHeight, 0, 0, icon.getWidth(), icon.getWidth());
+    int x = r.getX() + (int)((r.getWidth() * 0.5f) - (iconWidth * 0.5f));
+    int y = r.getY() + (int)((r.getHeight() * 0.5f) - (iconHeight * 0.5f));
+    g.drawImage(icon, x, y, (int)iconWidth, (int)iconHeight, 0, 0, icon.getWidth(), icon.getWidth());
 }
 
 juce::Font FontAwesome::getFont() {
